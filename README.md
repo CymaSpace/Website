@@ -17,7 +17,8 @@ CymaSpace makes arts, media, and culture accessible and inclusive to the Deaf an
    - **Media, Film & Puppetry (`projects/media.html`)**: Productions from the CymaSpace Media Lab including *DEAFNESS + MUSIC*, *Mouth Language Device* ASL comedy satire, and community videos.
    - **Woodstock Cafe Events (`community-events.html`)**: Dedicated schedule for Portland's "Sign Language Cafe" (4103 SE Woodstock Blvd), hosting Sign Squad, Sidelined Signers, and community markets.
    - **Events Archive (`events-archive.html`)**: Retrospective history of past festivals, museum residencies, and jam sessions.
-   - **Our Team (`our-team.html`)**: Profiles and bios of leadership and the board of directors (Myles de Bastion, Andre Gray, Chris Balduc, Mayan Fogarty, Susan Anderson).
+   - **Our Team (`our-team.html`)**: Profiles of operations staff and leadership.
+   - **Board of Directors (`board-of-directors.html`)**: Profiles of the full governing Board of Directors (Andre Gray, Susan Anderson, Rae Davis, Lennox Zher, Mariya Klintsevich, Scott Kalama).
    - **Our Mission (`mission.html`)**: Detailed overview of cymatics science, equity, diversity, and inclusion principles.
    - **Code of Conduct (`code-of-conduct.html`)**: The 11 Community Agreements, conflict resolution process, and visitor etiquette.
    - **News & Articles (`news.html`, `news-article.html`)**: Announcements, job postings, and feature articles including our partnership with the Portland Jazz Composers' Ensemble (PJCE).
@@ -46,7 +47,8 @@ Website/
 ├── projects.html                # Projects Directory (Filterable grid)
 ├── community-events.html        # Woodstock Cafe / Sign Language Cafe Events
 ├── events-archive.html          # Historical Events Archive
-├── our-team.html                # Leadership & Board of Directors
+├── our-team.html                # Leadership & Operations Staff
+├── board-of-directors.html      # Dedicated Board of Directors Page
 ├── mission.html                 # Mission, Pillars & Cymatics Science
 ├── code-of-conduct.html         # Code of Conduct & Etiquette
 ├── news.html                    # News & Updates Feed

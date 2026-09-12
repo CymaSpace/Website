@@ -393,10 +393,17 @@
 }
 
 .card-badge {
+  margin-bottom: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.card-img-wrapper .card-badge {
   position: absolute;
   top: 1rem;
   left: 1rem;
   z-index: 2;
+  margin-bottom: 0;
 }
 
 .card-date {
