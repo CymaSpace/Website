@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CymaSpace | Sound Made Visible - Deaf-Led Arts &amp; Technology</title>
+  <meta name="description" content="CymaSpace is a nonprofit, Deaf-owned technology and cultural hub in Portland, Oregon. We make arts, media, and culture accessible and inclusive through cymatics, technology, and outreach.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/cymaspace-logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/visualizer.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-notice-bar">
+    <div class="container top-notice-content">
+      <div>
+        <span class="asl-pill">ASL &bull; Deaf-Led</span>
+        <span>Visit the <strong>Woodstock Cafe</strong> ("Sign Language Cafe") &bull; 4103 SE Woodstock Blvd</span>
+      </div>
+      <div class="top-notice-links">
+        <a href="community-events.html" class="top-notice-link">Cafe Events &rarr;</a>
+        <a href="donate.html" class="top-notice-link" style="color: var(--magenta-bright);">Support Our Mission &hearts;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo" aria-label="CymaSpace Homepage">
+        <img src="assets/images/cymaspace-logo.svg" alt="CymaSpace Cymatic Logo" class="brand-icon">
+        <div>
+          <span class="brand-text">CymaSpace</span>
+          <span class="brand-tagline">Sound Made Visible</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" role="navigation" aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li class="nav-item-dropdown">
+            <a href="projects.html" class="nav-link nav-dropdown-toggle">Projects <span aria-hidden="true">&#9662;</span></a>
+            <div class="nav-dropdown-menu">
+              <a href="projects.html" class="nav-dropdown-item">All Projects</a>
+              <a href="projects/signkids.html" class="nav-dropdown-item">SignKids Program</a>
+              <a href="projects/technology.html" class="nav-dropdown-item">Our Technology</a>
+              <a href="projects/see-sound.html" class="nav-dropdown-item">See Sound (OMSI Piano)</a>
+              <a href="projects/media.html" class="nav-dropdown-item">Media, Film &amp; Puppetry</a>
+            </div>
+          </li>
+          <li class="nav-item-dropdown">
+            <a href="community-events.html" class="nav-link nav-dropdown-toggle">Events <span aria-hidden="true">&#9662;</span></a>
+            <div class="nav-dropdown-menu">
+              <a href="community-events.html" class="nav-dropdown-item">Cafe Events (Woodstock)</a>
+              <a href="events-archive.html" class="nav-dropdown-item">Events Archive</a>
+            </div>
+          </li>
+          <li class="nav-item-dropdown">
+            <a href="mission.html" class="nav-link nav-dropdown-toggle">About <span aria-hidden="true">&#9662;</span></a>
+            <div class="nav-dropdown-menu">
+              <a href="mission.html" class="nav-dropdown-item">Our Mission &amp; Cymatics</a>
+              <a href="our-team.html" class="nav-dropdown-item">Our Team &amp; Board</a>
+              <a href="code-of-conduct.html" class="nav-dropdown-item">Code of Conduct</a>
+            </div>
+          </li>
+          <li><a href="news.html" class="nav-link">News</a></li>
+          <li><a href="volunteer.html" class="nav-link">Volunteer</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="donate.html" class="btn btn-magenta btn-sm">Donate</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="nav-toggle-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-backdrop"></div>
+  <aside id="mobileDrawer" class="mobile-drawer" aria-label="Mobile Navigation">
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+      <li>
+        <a href="projects.html" class="mobile-nav-link">Projects</a>
+        <div class="mobile-subnav">
+          <a href="projects/signkids.html">SignKids Program</a>
+          <a href="projects/technology.html">Our Technology</a>
+          <a href="projects/see-sound.html">See Sound (OMSI Piano)</a>
+          <a href="projects/media.html">Media &amp; Film</a>
+        </div>
+      </li>
+      <li>
+        <a href="community-events.html" class="mobile-nav-link">Events</a>
+        <div class="mobile-subnav">
+          <a href="community-events.html">Woodstock Cafe Events</a>
+          <a href="events-archive.html">Past Events Archive</a>
+        </div>
+      </li>
+      <li>
+        <a href="mission.html" class="mobile-nav-link">About Us</a>
+        <div class="mobile-subnav">
+          <a href="mission.html">Mission &amp; Cymatics</a>
+          <a href="our-team.html">Our Team</a>
+          <a href="code-of-conduct.html">Code of Conduct</a>
+        </div>
+      </li>
+      <li><a href="news.html" class="mobile-nav-link">News &amp; Updates</a></li>
+      <li><a href="volunteer.html" class="mobile-nav-link">Volunteer</a></li>
+      <li><a href="contact.html" class="mobile-nav-link">Contact Us</a></li>
+    </ul>
+    <div style="margin-top: auto; padding-top: 1.5rem;">
+      <a href="donate.html" class="btn btn-magenta" style="width: 100%;">Donate Today</a>
+    </div>
+  </aside>
+
+  <main id="main-content" class="main-content">
+    <!-- Hero Section -->
+    <section class="section home-hero">
+      <div class="container home-hero-grid">
+        <div class="hero-text-col">
+          <span class="section-tag">&#128266; Translating Sound Into Light &amp; Touch</span>
+          <h1 class="page-hero-title">Experience Sound Through <span class="text-gradient">Light, Motion &amp; Vibration</span></h1>
+          <p class="lead">
+            CymaSpace is a Deaf-owned 501(c)(3) nonprofit technology hub in Portland, Oregon. We pioneer accessible arts, media, and culture for the Deaf and Hard of Hearing community using cutting-edge cymatics and inclusive design.
+          </p>
+          <div class="hero-actions">
+            <a href="#visualizer" class="btn btn-primary">Try Cymatic Visualizer</a>
+            <a href="community-events.html" class="btn btn-outline">Woodstock Cafe Events</a>
+            <a href="donate.html" class="btn btn-magenta">Support Us</a>
+          </div>
+        </div>
+
+        <!-- Cymatic Interactive Visualizer Box -->
+        <div id="visualizer" class="cymatic-hero-container">
+          <div class="visualizer-overlay-info">
+            <div class="visualizer-title">
+              <span style="color: var(--cyan-bright);">&#10022;</span>
+              <span>Cymatic Resonance Field</span>
+            </div>
+            <div class="visualizer-subtitle">Chladni Waveform Harmonic Simulation</div>
+          </div>
+          
+          <div class="visualizer-canvas-wrapper">
+            <canvas id="cymaticsCanvas"></canvas>
+          </div>
+
+          <!-- Controls Bar -->
+          <div class="visualizer-controls-bar">
+            <div class="visualizer-btn-group">
+              <button id="vizToneBtn" class="viz-btn" aria-pressed="false">
+                <span>&#9654;</span> <span class="btn-text">Play Tone</span>
+              </button>
+              <button id="vizMicBtn" class="viz-btn" aria-pressed="false">
+                <span>&#127908;</span> <span class="btn-text">Live Mic</span>
+              </button>
+            </div>
+
+            <div class="freq-slider-group">
+              <label for="vizFreqSlider">Freq:</label>
+              <input type="range" id="vizFreqSlider" class="freq-slider" min="60" max="880" value="432" step="2" aria-label="Frequency adjust in Hertz">
+              <span id="vizFreqVal" class="freq-val-display">432 Hz</span>
+            </div>
+
+            <div class="visualizer-btn-group">
+              <button class="viz-btn active" data-viz-mode="cymatics">Cymatics</button>
+              <button class="viz-btn" data-viz-mode="waveform">Wave</button>
+              <button class="viz-btn" data-viz-mode="spectrum">Spectrum</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 Core Pillars Section -->
+    <section class="section" style="background: rgba(17, 24, 39, 0.5); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Our Foundation</span>
+          <h2>What is CymaSpace?</h2>
+          <p>We combine scientific study, Deaf culture, community advocacy, and emerging hardware to build a more equitable, vibrant world.</p>
+        </div>
+
+        <div class="grid grid-4">
+          <div class="card">
+            <div style="font-size: 2rem; color: var(--cyan-bright); margin-bottom: 0.75rem;">&#9855;</div>
+            <h3 class="card-title">Accessibility &amp; Inclusion</h3>
+            <p class="card-body">A leading advocate for DHH accessibility in performing arts, live venues, festivals, and broadcasting using Open Captioning, visual lighting, and ASL artists.</p>
+          </div>
+
+          <div class="card">
+            <div style="font-size: 2rem; color: var(--violet-bright); margin-bottom: 0.75rem;">&#128161;</div>
+            <h3 class="card-title">Technology &amp; Arts Incubator</h3>
+            <p class="card-body">Incubating visionary creators and hardware concepts—from sound-reactive LED arrays to vibrohaptic staging that lets people physically feel musical textures.</p>
+          </div>
+
+          <div class="card">
+            <div style="font-size: 2rem; color: var(--magenta-bright); margin-bottom: 0.75rem;">&#127891;</div>
+            <h3 class="card-title">Education &amp; Outreach</h3>
+            <p class="card-body">Empowering youth, performers, and community partners through programs like SignKids, ASL workshops, and hands-on makerspace labs.</p>
+          </div>
+
+          <div class="card">
+            <div style="font-size: 2rem; color: var(--amber-bright); margin-bottom: 0.75rem;">&#10036;</div>
+            <h3 class="card-title">Cymatic Study</h3>
+            <p class="card-body">An epicenter for the study of Cymatics—translating sonic waves into visible, tangible phenomena so everyone can participate in the universal power of sound.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Initiatives: Woodstock Cafe & SignKids -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Featured Initiatives</span>
+          <h2>Community Spaces &amp; Youth Programs</h2>
+          <p>Discover our active community hub in Southeast Portland and our youth linguistic program.</p>
+        </div>
+
+        <div class="grid grid-2">
+          <!-- Woodstock Cafe Card -->
+          <div class="card" style="border-color: rgba(255, 42, 133, 0.3);">
+            <div class="card-badge">
+              <span class="asl-pill">&#9749; Portland, OR</span>
+            </div>
+            <h3 class="card-title" style="font-size: 1.6rem;">Woodstock Cafe ("Sign Language Cafe")</h3>
+            <p class="card-body">
+              Owned and operated by CymaSpace as a 501(c)(3) nonprofit, Woodstock Cafe is Portland's Deaf-centered community space for connection, creativity, and accessible conversation. Enjoy delicious espresso, community game nights, Sign Squad, and accessible arts events.
+            </p>
+            <div style="margin-bottom: 1.25rem;">
+              <p style="margin-bottom: 0.35rem;"><strong>Location:</strong> 4103 SE Woodstock Blvd, Portland, OR</p>
+              <p style="margin-bottom: 0;"><strong>Programs:</strong> Sign Squad (Tuesdays), Sidelined Signers (Wednesdays)</p>
+            </div>
+            <div class="card-footer">
+              <a href="community-events.html" class="btn btn-outline btn-sm">View Cafe Calendar</a>
+              <a href="https://woodstock.cafe" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">woodstock.cafe &nearr;</a>
+            </div>
+          </div>
+
+          <!-- SignKids Program Card -->
+          <div class="card" style="border-color: rgba(0, 240, 255, 0.3);">
+            <div class="card-badge">
+              <span class="asl-pill">&#128104;&#8205;&#128105;&#8205;&#128103;&#8205;&#128102; Family &amp; Youth</span>
+            </div>
+            <h3 class="card-title" style="font-size: 1.6rem;">SignKids: Bridging Communication Through Art</h3>
+            <p class="card-body">
+              SignKids addresses language deprivation by creating an immersive, joyful ASL learning environment for Deaf and Hard of Hearing youth and their families. Enriched with storytelling, puppetry, Deaf mentorship, and hands-on creative play.
+            </p>
+            <div style="margin-bottom: 1.25rem;">
+              <p style="margin-bottom: 0.35rem;"><strong>Focus:</strong> Natural ASL acquisition, cultural pride &amp; family bonding</p>
+              <p style="margin-bottom: 0;"><strong>Sessions:</strong> Small cohorts with Deaf mentors and full ADA accessibility</p>
+            </div>
+            <div class="card-footer">
+              <a href="projects/signkids.html" class="btn btn-outline btn-sm">Learn About SignKids</a>
+              <a href="projects/signkids.html#register" class="btn btn-magenta btn-sm">Register Family</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upcoming Events Preview -->
+    <section class="section" style="background: rgba(17, 24, 39, 0.3);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span class="section-tag">Gatherings &amp; Experiences</span>
+            <h2>Upcoming Community Events</h2>
+          </div>
+          <a href="community-events.html" class="btn btn-outline btn-sm">All Cafe &amp; Lab Events &rarr;</a>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card">
+            <div class="card-date">Every Tuesday &bull; 6:30 PM - 8:30 PM</div>
+            <h3 class="card-title"><a href="community-events.html">Sign Squad Weekly Meetup</a></h3>
+            <p class="card-body">Our flagship silent social meetup at Woodstock Cafe. Meet new friends, practice ASL, share stories, and connect in a welcoming Deaf-led space.</p>
+            <div class="card-footer">
+              <span class="asl-pill">All Fluency Levels</span>
+              <a href="community-events.html" class="btn btn-ghost btn-sm">Details</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-date">Every Wednesday &bull; 5:00 PM - 7:00 PM</div>
+            <h3 class="card-title"><a href="community-events.html">Sidelined Signers Group</a></h3>
+            <p class="card-body">A supportive group for beginning and intermediate signers looking to gain confidence and get off the sidelines into fluent ASL conversations.</p>
+            <div class="card-footer">
+              <span class="asl-pill">Beginner Friendly</span>
+              <a href="community-events.html" class="btn btn-ghost btn-sm">Details</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-date">Monthly Showcase &bull; 10:00 AM - 3:15 PM</div>
+            <h3 class="card-title"><a href="community-events.html">Community Bake Sale &amp; Fundraiser</a></h3>
+            <p class="card-body">Treat yourself to vegan, gluten-free, and keto goodies while supporting programs that keep the heart of our community space beating strong.</p>
+            <div class="card-footer">
+              <span class="asl-pill">Fundraiser</span>
+              <a href="community-events.html" class="btn btn-ghost btn-sm">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest News -->
+    <section class="section">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span class="section-tag">Updates &amp; Stories</span>
+            <h2>Latest From CymaSpace</h2>
+          </div>
+          <a href="news.html" class="btn btn-outline btn-sm">Read All News &rarr;</a>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card">
+            <div class="card-date">February 2026</div>
+            <h3 class="card-title"><a href="news-article.html">Bridging Sound &amp; Sight in Contemporary Jazz</a></h3>
+            <p class="card-body">CymaSpace partners with the Portland Jazz Composers' Ensemble (PJCE) and Audiolux to bring responsive cymatics into orchestral jazz performance.</p>
+            <a href="news-article.html" style="color: var(--cyan-bright); font-weight: 600;">Read Article &rarr;</a>
+          </div>
+
+          <div class="card">
+            <div class="card-date">Community Partnership</div>
+            <h3 class="card-title"><a href="news.html">Help Shape SUMA's App for Community Savings</a></h3>
+            <p class="card-body">CymaSpace collaborates with SUMA to ensure economic empowerment tools are accessible and visually intuitive for Deaf and hard-of-hearing users.</p>
+            <a href="news.html" style="color: var(--cyan-bright); font-weight: 600;">Read Article &rarr;</a>
+          </div>
+
+          <div class="card">
+            <div class="card-date">Opportunities</div>
+            <h3 class="card-title"><a href="news.html">Join the CymaSpace Board of Directors</a></h3>
+            <p class="card-body">We are seeking passionate professionals, artists, and community leaders to join our strategic leadership team and expand accessibility initiatives.</p>
+            <a href="news.html" style="color: var(--cyan-bright); font-weight: 600;">Read Article &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sponsors & Community Partners -->
+    <section class="section-sm" style="border-top: 1px solid var(--border-subtle); background: #070b12;">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+          <span class="section-tag" style="margin-bottom: 0;">Our Proud Sponsors &amp; Cultural Partners</span>
+        </div>
+        <div class="sponsors-grid">
+          <a href="https://www.portland.gov/arts" target="_blank" rel="noopener noreferrer" class="sponsor-item" title="City of Portland Office of Arts &amp; Culture">
+            <img src="assets/images/sponsor-oac.svg" alt="City of Portland Office of Arts &amp; Culture logo" class="sponsor-logo">
+          </a>
+          <a href="http://culturaltrust.org/" target="_blank" rel="noopener noreferrer" class="sponsor-item" title="Oregon Cultural Trust">
+            <img src="assets/images/sponsor-oct.svg" alt="Oregon Cultural Trust logo" class="sponsor-logo">
+          </a>
+          <a href="http://www.ellumiglow.com/" target="_blank" rel="noopener noreferrer" class="sponsor-item" title="Ellumiglow Electric Optics">
+            <img src="assets/images/sponsor-ellumiglow.svg" alt="Ellumiglow Electric Optics logo" class="sponsor-logo">
+          </a>
+          <a href="https://oshpark.com/" target="_blank" rel="noopener noreferrer" class="sponsor-item" title="OSH Park">
+            <img src="assets/images/sponsor-oshpark.svg" alt="OSH Park logo" class="sponsor-logo">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Email Newsletter Section -->
+    <section class="section-sm" style="background: var(--bg-surface-elevated); border-top: 1px solid var(--border-subtle);">
+      <div class="container" style="max-width: 680px; text-align: center;">
+        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Stay Connected With Our Community</h3>
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Subscribe to receive upcoming event invites, SignKids schedules, and technology showcase announcements.</p>
+        <form id="newsletterForm" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <input type="email" class="form-control" placeholder="Enter your email address" required aria-label="Email address" style="flex: 1 1 280px;">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+        <div id="newsletterStatus" role="status" aria-live="polite" style="margin-top: 1rem; display: none; font-weight: 600;"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem;">
+            <img src="assets/images/cymaspace-logo.svg" alt="CymaSpace Logo" class="brand-icon">
+            <span class="brand-text">CymaSpace</span>
+          </a>
+          <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+            CymaSpace is an Oregon 501(c)(3) nonprofit organization dedicated to making arts, cultural, and media events accessible to the Deaf and Hard of Hearing community through technology, education, and outreach.
+          </p>
+          <div class="social-links">
+            <a href="http://www.facebook.com/cymaspace" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook">FB</a>
+            <a href="http://www.instagram.com/cymaspace" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">IG</a>
+            <a href="http://www.youtube.com/cymaspace" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="YouTube">YT</a>
+            <a href="http://www.twitter.com/cymaspace" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Twitter">X</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Programs &amp; Projects</h3>
+          <ul class="footer-links">
+            <li><a href="projects.html">All Projects</a></li>
+            <li><a href="projects/signkids.html">SignKids Program</a></li>
+            <li><a href="projects/technology.html">Our Technology</a></li>
+            <li><a href="projects/see-sound.html">See Sound (OMSI Piano)</a></li>
+            <li><a href="projects/media.html">Media &amp; ASL Videos</a></li>
+            <li><a href="community-events.html">Woodstock Cafe</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>About &amp; Community</h3>
+          <ul class="footer-links">
+            <li><a href="mission.html">Our Mission</a></li>
+            <li><a href="our-team.html">Our Team &amp; Board</a></li>
+            <li><a href="code-of-conduct.html">Code of Conduct</a></li>
+            <li><a href="events-archive.html">Events Archive</a></li>
+            <li><a href="news.html">News &amp; Press</a></li>
+            <li><a href="volunteer.html">Volunteer Sign-up</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Connect</h3>
+          <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Woodstock Cafe:</strong><br>4103 SE Woodstock Blvd<br>Portland, OR 97202</p>
+          <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Phone / Text:</strong><br>(888) 312-8584</p>
+          <p style="font-size: 0.9rem; margin-bottom: 1rem;"><strong>Videophone:</strong><br>(503) 894-7817</p>
+          <a href="donate.html" class="btn btn-magenta btn-sm" style="width: 100%;">Donate Today</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 CymaSpace. 501(c)(3) tax-exempt non-profit incorporated in Oregon.
+        </div>
+        <div>
+          <a href="contact.html" style="color: var(--text-muted); margin-right: 1.25rem;">Contact</a>
+          <a href="code-of-conduct.html" style="color: var(--text-muted); margin-right: 1.25rem;">Conduct &amp; Etiquette</a>
+          <a href="mission.html" style="color: var(--text-muted);">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/visualizer.js"></script>
+</body>
+</html>
