@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | CymaSpace - Accessible Art &amp; Technology Innovations</title>
+  <meta name="description" content="Explore CymaSpace's innovative cymatics projects, sound-reactive lighting installations, vibrohaptic prototypes, and Deaf youth initiatives.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/cymaspace-logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo" aria-label="CymaSpace Homepage">
+        <img src="assets/images/cymaspace-logo.svg" alt="CymaSpace Logo" class="brand-icon">
+        <div>
+          <span class="brand-text">CymaSpace</span>
+          <span class="brand-tagline">Sound Made Visible</span>
+        </div>
+      </a>
+
+      <nav class="desktop-nav" role="navigation" aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li class="nav-item-dropdown">
+            <a href="projects.html" class="nav-link nav-dropdown-toggle active">Projects <span aria-hidden="true">&#9662;</span></a>
+            <div class="nav-dropdown-menu">
+              <a href="projects.html" class="nav-dropdown-item active">All Projects</a>
+              <a href="projects/signkids.html" class="nav-dropdown-item">SignKids Program</a>
+              <a href="projects/technology.html" class="nav-dropdown-item">Our Technology</a>
+              <a href="projects/see-sound.html" class="nav-dropdown-item">See Sound (OMSI Piano)</a>
+              <a href="projects/media.html" class="nav-dropdown-item">Media, Film &amp; Puppetry</a>
+            </div>
+          </li>
+          <li class="nav-item-dropdown">
+            <a href="community-events.html" class="nav-link nav-dropdown-toggle">Events <span aria-hidden="true">&#9662;</span></a>
+            <div class="nav-dropdown-menu">
+              <a href="community-events.html" class="nav-dropdown-item">Cafe Events (Woodstock)</a>
+              <a href="events-archive.html" class="nav-dropdown-item">Events Archive</a>
+            </div>
+          </li>
+          <li class="nav-item-dropdown">
+            <a href="mission.html" class="nav-link nav-dropdown-toggle">About <span aria-hidden="true">&#9662;</span></a>
+            <div class="nav-dropdown-menu">
+              <a href="mission.html" class="nav-dropdown-item">Our Mission &amp; Cymatics</a>
+              <a href="our-team.html" class="nav-dropdown-item">Our Team &amp; Board</a>
+              <a href="code-of-conduct.html" class="nav-dropdown-item">Code of Conduct</a>
+            </div>
+          </li>
+          <li><a href="news.html" class="nav-link">News</a></li>
+          <li><a href="volunteer.html" class="nav-link">Volunteer</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="donate.html" class="btn btn-magenta btn-sm">Donate</a></li>
+        </ul>
+      </nav>
+
+      <button class="nav-toggle-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-backdrop"></div>
+  <aside id="mobileDrawer" class="mobile-drawer">
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+      <li>
+        <a href="projects.html" class="mobile-nav-link active">Projects</a>
+        <div class="mobile-subnav">
+          <a href="projects/signkids.html">SignKids Program</a>
+          <a href="projects/technology.html">Our Technology</a>
+          <a href="projects/see-sound.html">See Sound (OMSI Piano)</a>
+          <a href="projects/media.html">Media &amp; Film</a>
+        </div>
+      </li>
+      <li><a href="community-events.html" class="mobile-nav-link">Events</a></li>
+      <li><a href="mission.html" class="mobile-nav-link">About Us</a></li>
+      <li><a href="news.html" class="mobile-nav-link">News</a></li>
+      <li><a href="volunteer.html" class="mobile-nav-link">Volunteer</a></li>
+      <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div style="margin-top: auto;"><a href="donate.html" class="btn btn-magenta" style="width: 100%;">Donate</a></div>
+  </aside>
+
+  <main id="main-content" class="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-tag">Innovations &amp; Creations</span>
+        <h1 class="page-hero-title">Our Projects &amp; Initiatives</h1>
+        <p class="page-hero-desc">
+          From sound-reactive acoustic pianos and vibrotactile furniture to youth language programs and award-winning ASL comedy films, explore how CymaSpace bridges the hearing and Deaf worlds through the science and art of cymatics.
+        </p>
+
+        <!-- Category Filter -->
+        <div class="filter-bar" data-target=".project-card" style="margin-top: 2rem;">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="hardware">Hardware &amp; Technology</button>
+          <button class="filter-btn" data-filter="installation">Art Installations</button>
+          <button class="filter-btn" data-filter="youth">Youth &amp; Community</button>
+          <button class="filter-btn" data-filter="media">Media &amp; Film</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="grid grid-3">
+          <!-- SignKids -->
+          <div class="card project-card" data-category="youth">
+            <div class="card-badge"><span class="asl-pill">Youth Program</span></div>
+            <h3 class="card-title"><a href="projects/signkids.html">SignKids: Arts, Play &amp; ASL</a></h3>
+            <p class="card-body">A transformative program addressing language deprivation and strengthening bonds between Deaf parents, hearing children, and Deaf youth through creative storytelling and play.</p>
+            <div class="card-footer">
+              <span style="font-size: 0.85rem; color: var(--cyan-bright);">Community Outreach</span>
+              <a href="projects/signkids.html" class="btn btn-outline btn-sm">Explore SignKids &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Audiolux One -->
+          <div class="card project-card" data-category="hardware">
+            <div class="card-badge"><span class="asl-pill">Hardware Tech</span></div>
+            <h3 class="card-title"><a href="projects/technology.html#audiolux">Audiolux One System</a></h3>
+            <p class="card-body">The first-ever effects unit and lighting controller for real-time sound-reactive visuals. Intelligently translates music into light, frequency color, and movement without programming.</p>
+            <div class="card-footer">
+              <span style="font-size: 0.85rem; color: var(--cyan-bright);">Proprietary Device</span>
+              <a href="projects/technology.html#audiolux" class="btn btn-outline btn-sm">View Details &rarr;</a>
+            </div>
+          </div>
+
+          <!-- #seeingsounds OMSI Piano -->
+          <div class="card project-card" data-category="installation">
+            <div class="card-badge"><span class="asl-pill">Interactive Installation</span></div>
+            <h3 class="card-title"><a href="projects/see-sound.html">#seeingsounds LED Piano for OMSI</a></h3>
+            <p class="card-body">A vintage acoustic piano retrofitted with an LED matrix front panel responding in real-time to pitch and dynamics. Exhibited at the Oregon Museum of Science &amp; Industry.</p>
+            <div class="card-footer">
+              <span style="font-size: 0.85rem; color: var(--cyan-bright);">Museum Exhibit</span>
+              <a href="projects/see-sound.html" class="btn btn-outline btn-sm">View Story &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Modular Cymatic Triangles -->
+          <div class="card project-card" data-category="installation">
+            <div class="card-badge"><span class="asl-pill">Stage Lighting</span></div>
+            <h3 class="card-title"><a href="projects/technology.html#triangles">Modular Cymatic Triangles</a></h3>
+            <p class="card-body">Portable, lightweight sound-reactive geometric stage sculpture featured at PDX Pop Now! festival, accompanying dozens of live touring artists and bands.</p>
+            <div class="card-footer">
+              <span style="font-size: 0.85rem; color: var(--cyan-bright);">Festival Installation</span>
+              <a href="projects/technology.html#triangles" class="btn btn-outline btn-sm">View Details &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Vibrohaptic Furniture -->
+          <div class="card project-card" data-category="hardware">
+            <div class="card-badge"><span class="asl-pill">Tactile Sound</span></div>
+            <h3 class="card-title"><a href="projects/technology.html#vibrohaptic">Vibrohaptic Tactile Furniture</a></h3>
+            <p class="card-body">Custom seating engineered with acoustic transducers that convert sound frequencies into physical tactile vibration, allowing visitors to feel music in full-body detail.</p>
+            <div class="card-footer">
+              <span style="font-size: 0.85rem; color: var(--cyan-bright);">Haptic Engineering</span>
+              <a href="projects/technology.html#vibrohaptic" class="btn btn-outline btn-sm">View Details &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Mouth Language Device -->
+          <div class="card project-card" data-category="media">
+            <div class="card-badge"><span class="asl-pill">Film &amp; Satire</span></div>
+            <h3 class="card-title"><a href="projects/media.html#mld">"Mouth Language Device" ASL Comedy</a></h3>
+            <p class="card-body">A witty short comedy satire written and directed by Myles de Bastion poking fun at well-intentioned hearing inventors attempting to "fix" Deaf communication.</p>
+            <div class="card-footer">
+              <span style="font-size: 0.85rem; color: var(--cyan-bright);">CymaSpace Media Lab</span>
+              <a href="projects/media.html#mld" class="btn btn-outline btn-sm">Watch Video &rarr;</a>
+            </div>
+          </div>
+
+          <!-- DEAFNESS + MUSIC -->
+          <div class="card project-card" data-category="media">
+            <div class="card-badge"><span class="asl-pill">Documentary</span></div>
+            <h3 class="card-title"><a href="projects/media.html#deafness-music">DEAFNESS + MUSIC Documentary</a></h3>
+            <p class="card-body">Compelling documentary short directed by Travis Howe (Red Lab Films) following CymaSpace founder Myles de Bastion and his journey creating visual music.</p>
+            <div class="card-footer">
+              <span style="font-size: 0.85rem; color: var(--cyan-bright);">Short Film</span>
+              <a href="projects/media.html#deafness-music" class="btn btn-outline btn-sm">View Film &rarr;</a>
+            </div>
+          </div>
+
+          <!-- This Deaf Puppet Needs a Name -->
+          <div class="card project-card" data-category="media">
+            <div class="card-badge"><span class="asl-pill">Deaf Culture</span></div>
+            <h3 class="card-title"><a href="projects/media.html#puppet">This Deaf Puppet Needs a Name</a></h3>
+            <p class="card-body">Featuring Korian "Koko" Thomas, Black DeafBlind disability advocate, introducing our custom mascot puppet and engaging children in naming and ASL storytelling.</p>
+            <div class="card-footer">
+              <span style="font-size: 0.85rem; color: var(--cyan-bright);">Media Series</span>
+              <a href="projects/media.html#puppet" class="btn btn-outline btn-sm">Read Story &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Piccolo Violino -->
+          <div class="card project-card" data-category="installation">
+            <div class="card-badge"><span class="asl-pill">Giant Instrument</span></div>
+            <h3 class="card-title"><a href="projects/see-sound.html#violin">Piccolo Violino (Giant LED Violin)</a></h3>
+            <p class="card-body">An oversized interactive stringed instrument installation illuminated by internal sound-reactive LED arrays responding dynamically to bowing and finger placements.</p>
+            <div class="card-footer">
+              <span style="font-size: 0.85rem; color: var(--cyan-bright);">Sculpture</span>
+              <a href="projects/see-sound.html#violin" class="btn btn-outline btn-sm">View Installation &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem;">
+            <img src="assets/images/cymaspace-logo.svg" alt="CymaSpace Logo" class="brand-icon">
+            <span class="brand-text">CymaSpace</span>
+          </a>
+          <p style="font-size: 0.95rem; color: var(--text-muted);">Making sound visible through technology, education, and outreach for the Deaf and Hard of Hearing community.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Projects</h3>
+          <ul class="footer-links">
+            <li><a href="projects/signkids.html">SignKids</a></li>
+            <li><a href="projects/technology.html">Our Technology</a></li>
+            <li><a href="projects/see-sound.html">See Sound</a></li>
+            <li><a href="projects/media.html">Media &amp; Film</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Explore</h3>
+          <ul class="footer-links">
+            <li><a href="community-events.html">Woodstock Cafe</a></li>
+            <li><a href="mission.html">Our Mission</a></li>
+            <li><a href="our-team.html">Our Team</a></li>
+            <li><a href="donate.html">Donate</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <p style="font-size: 0.9rem;">Videophone: (503) 894-7817<br>Phone: (888) 312-8584<br>Email: info@cymaspace.org</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 CymaSpace. 501(c)(3) nonprofit in Portland, Oregon.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/events.js"></script>
+</body>
+</html>
