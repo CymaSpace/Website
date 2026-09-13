@@ -304,10 +304,50 @@ textarea.form-control {
   font-weight: 700;
 }
 
+/* Calendar Embed Section */
+.calendar-embed-card {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 1.75rem;
+  margin-bottom: 3.5rem;
+}
+
+.calendar-embed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.calendar-embed-wrapper {
+  position: relative;
+  width: 100%;
+  height: 640px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+}
+
+.calendar-embed-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .home-hero-grid, .contact-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+  .calendar-embed-wrapper {
+    height: 500px;
   }
 }
