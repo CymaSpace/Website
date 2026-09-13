@@ -17,14 +17,14 @@ CymaSpace makes arts, media, and culture accessible and inclusive to the Deaf an
    - **Media, Film & Puppetry (`projects/media.html`)**: Productions from the CymaSpace Media Lab including *DEAFNESS + MUSIC*, *Mouth Language Device* ASL comedy satire, and community videos.
    - **Woodstock Cafe Events (`community-events.html`)**: Dedicated schedule for Portland's "Sign Language Cafe" (4103 SE Woodstock Blvd), hosting Sign Squad, Sidelined Signers, and community markets.
    - **Events Archive (`events-archive.html`)**: Retrospective history of past festivals, museum residencies, and jam sessions.
-   - **Our Team (`our-team.html`)**: Profiles of operations staff and leadership.
    - **Board of Directors (`board-of-directors.html`)**: Profiles of the full governing Board of Directors (Andre Gray, Susan Anderson, Rae Davis, Lennox Zher, Mariya Klintsevich, Scott Kalama).
+   - **Our Team (`our-team.html`)**: Forwards seamlessly to `board-of-directors.html`.
    - **Our Mission (`mission.html`)**: Detailed overview of cymatics science, equity, diversity, and inclusion principles.
    - **Code of Conduct (`code-of-conduct.html`)**: The 11 Community Agreements, conflict resolution process, and visitor etiquette.
    - **News & Articles (`news.html`, `news-article.html`)**: Announcements, job postings, and feature articles including our partnership with the Portland Jazz Composers' Ensemble (PJCE).
    - **Support & Donate (`donate.html`)**: Tax-deductible giving tiers, sustaining monthly donor links ([Givebutter](https://givebutter.com/CymaMonthly)), and 501(c)(3) tax disclosures.
    - **Volunteer (`volunteer.html`)**: Community volunteer roles and direct form signup.
-   - **Contact (`contact.html`)**: Direct videophone (VP), voice/text, physical locations, and an accessible message form.
+   - **Contact (`contact.html`)**: Toll-free voice/text, physical locations, and an accessible message form.
 
 2. **Interactive In-Browser Cymatic Visualizer**:
    - Built directly with HTML5 Canvas and the Web Audio API (`js/visualizer.js`).
@@ -35,7 +35,7 @@ CymaSpace makes arts, media, and culture accessible and inclusive to the Deaf an
    - WCAG 2.1 AA compliant color contrast on a modern dark cymatics palette.
    - Full keyboard accessibility with skip-to-content links and ARIA attributes.
    - Respects `prefers-reduced-motion` settings.
-   - Prominently displays direct Videophone (VP) numbers for ASL callers alongside text/voice channels.
+   - Clearly provides accessible phone, text, and email communication channels.
 
 ---
 
@@ -47,15 +47,15 @@ Website/
 ├── projects.html                # Projects Directory (Filterable grid)
 ├── community-events.html        # Woodstock Cafe / Sign Language Cafe Events
 ├── events-archive.html          # Historical Events Archive
-├── our-team.html                # Leadership & Operations Staff
 ├── board-of-directors.html      # Dedicated Board of Directors Page
+├── our-team.html                # Legacy alias (redirects to Board of Directors)
 ├── mission.html                 # Mission, Pillars & Cymatics Science
 ├── code-of-conduct.html         # Code of Conduct & Etiquette
 ├── news.html                    # News & Updates Feed
 ├── news-article.html            # Single Article Reader Template
 ├── donate.html                  # Support Us & Sustaining Donor Tiers
 ├── volunteer.html               # Volunteer Program & Sign-Up
-├── contact.html                 # Contact Info, Videophone & Form
+├── contact.html                 # Contact Info, Phone, Text & Message Form
 ├── projects/
 │   ├── signkids.html            # SignKids Program Deep Dive
 │   ├── technology.html          # Hardware: Audiolux One, Triangles & Haptics
@@ -122,7 +122,7 @@ To update event dates, projects, or news items:
 2. Update the text, date, and link.
 3. Commit and push your changes to Git.
 
-For inquiries or partnership proposals, contact **[info@cymaspace.org](mailto:info@cymaspace.org)** or call Videophone: **(503) 894-7817**.
+For inquiries or partnership proposals, contact **[info@cymaspace.org](mailto:info@cymaspace.org)** or call/text **(888) 312-8584**.
 
 ---
 
