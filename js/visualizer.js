@@ -157,8 +157,8 @@ class CymaticsVisualizer {
     const w = this.width;
     const h = this.height;
 
-    // Dark background fade for trailing effect
-    ctx.fillStyle = 'rgba(10, 14, 23, 0.25)';
+    // Dark background fade for trailing effect in resonant chamber
+    ctx.fillStyle = 'rgba(15, 3, 7, 0.28)';
     ctx.fillRect(0, 0, w, h);
 
     // Render depending on mode
@@ -187,7 +187,7 @@ class CymaticsVisualizer {
     // Plate Boundary Circle
     ctx.beginPath();
     ctx.arc(0, 0, maxRadius, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(0, 240, 255, 0.25)';
+    ctx.strokeStyle = 'rgba(255, 77, 109, 0.35)';
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
@@ -195,10 +195,10 @@ class CymaticsVisualizer {
     ctx.beginPath();
     ctx.arc(0, 0, maxRadius * 0.65, 0, Math.PI * 2);
     ctx.arc(0, 0, maxRadius * 0.35, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(255, 42, 133, 0.12)';
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
     ctx.stroke();
 
-    // Geometric Chladni nodal curves
+    // Geometric Chladni nodal curves (Ruby Red)
     const petals = m * 2;
     const steps = 360;
 
@@ -215,13 +215,13 @@ class CymaticsVisualizer {
       if (i === 0) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
     }
-    ctx.strokeStyle = '#00f0ff';
+    ctx.strokeStyle = '#ff2d55';
     ctx.lineWidth = 2.5;
-    ctx.shadowColor = 'rgba(0, 240, 255, 0.8)';
+    ctx.shadowColor = 'rgba(255, 45, 85, 0.8)';
     ctx.shadowBlur = 12;
     ctx.stroke();
 
-    // Cross nodal ring (resonant harmonics)
+    // Cross nodal ring (Crisp White & Crimson Harmonics)
     ctx.beginPath();
     for (let i = 0; i <= steps; i++) {
       const angle = (i * Math.PI) / 180;
@@ -234,18 +234,18 @@ class CymaticsVisualizer {
       if (i === 0) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
     }
-    ctx.strokeStyle = '#ff2a85';
+    ctx.strokeStyle = '#ffffff';
     ctx.lineWidth = 2;
-    ctx.shadowColor = 'rgba(255, 42, 133, 0.8)';
+    ctx.shadowColor = 'rgba(255, 255, 255, 0.8)';
     ctx.shadowBlur = 10;
     ctx.stroke();
 
-    // Pulsing core node
+    // Pulsing core node (Signature CymaSpace Crimson)
     const corePulse = Math.sin(this.time * 3) * 6 + 12;
     ctx.beginPath();
     ctx.arc(0, 0, corePulse, 0, Math.PI * 2);
-    ctx.fillStyle = '#8b5cf6';
-    ctx.shadowColor = 'rgba(139, 92, 246, 1)';
+    ctx.fillStyle = '#c30443';
+    ctx.shadowColor = 'rgba(255, 45, 85, 1)';
     ctx.shadowBlur = 16;
     ctx.fill();
 
@@ -258,8 +258,8 @@ class CymaticsVisualizer {
 
     ctx.beginPath();
     ctx.lineWidth = 3;
-    ctx.strokeStyle = '#00f0ff';
-    ctx.shadowColor = 'rgba(0, 240, 255, 0.8)';
+    ctx.strokeStyle = '#ff2d55';
+    ctx.shadowColor = 'rgba(255, 45, 85, 0.8)';
     ctx.shadowBlur = 10;
 
     const points = 200;
@@ -287,9 +287,9 @@ class CymaticsVisualizer {
       const y = h - 40 - barHeight;
 
       const grad = ctx.createLinearGradient(0, y, 0, h - 40);
-      grad.addColorStop(0, '#ff2a85');
-      grad.addColorStop(0.5, '#8b5cf6');
-      grad.addColorStop(1, '#00f0ff');
+      grad.addColorStop(0, '#ff4d6d');
+      grad.addColorStop(0.5, '#e11d48');
+      grad.addColorStop(1, '#c30443');
 
       ctx.fillStyle = grad;
       ctx.fillRect(x, y, barWidth - 3, barHeight);

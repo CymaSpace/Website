@@ -1,14 +1,14 @@
 /* ==========================================================================
-   CYMASPACE - CYMATICS SOUND VISUALIZER STYLES
+   CYMASPACE - CYMATICS SOUND VISUALIZER STYLES (Red & White Theme)
    ========================================================================== */
 
 .cymatic-hero-container {
   position: relative;
-  background: radial-gradient(circle at center, #141f36 0%, #0c121e 75%, #070b12 100%);
-  border: 1px solid rgba(0, 240, 255, 0.2);
+  background: radial-gradient(circle at center, #260913 0%, #17040a 70%, #0d0205 100%);
+  border: 2px solid rgba(195, 4, 67, 0.35);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 0 40px rgba(0, 240, 255, 0.05);
+  box-shadow: 0 16px 40px rgba(195, 4, 67, 0.12), inset 0 0 50px rgba(195, 4, 67, 0.15);
   margin-bottom: 2rem;
 }
 
@@ -41,12 +41,14 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: #ffffff;
 }
 
 .visualizer-subtitle {
   font-size: 0.85rem;
-  color: var(--cyan-bright);
+  color: #ff4d6d;
   font-family: var(--font-heading);
+  letter-spacing: 0.05em;
 }
 
 .visualizer-controls-bar {
@@ -56,9 +58,9 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem 1.5rem;
-  background: rgba(10, 14, 23, 0.85);
+  background: #ffffff;
   border-top: 1px solid var(--border-subtle);
-  backdrop-filter: blur(8px);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.02);
 }
 
 .visualizer-btn-group {
@@ -68,8 +70,8 @@
 }
 
 .viz-btn {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--border-subtle);
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
   color: var(--text-secondary);
   padding: 0.45rem 0.9rem;
   font-size: 0.85rem;
@@ -84,22 +86,23 @@
 }
 
 .viz-btn:hover {
-  background: rgba(0, 240, 255, 0.15);
-  color: var(--cyan-bright);
-  border-color: var(--cyan-bright);
+  background: var(--red-soft);
+  color: var(--red-primary);
+  border-color: var(--red-primary);
 }
 
 .viz-btn.active {
-  background: var(--cyan-bright);
-  color: var(--bg-primary);
-  border-color: var(--cyan-bright);
+  background: var(--red-primary);
+  color: #ffffff;
+  border-color: var(--red-primary);
+  box-shadow: 0 2px 8px var(--red-glow);
 }
 
 .freq-slider-group {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   font-size: 0.85rem;
   font-family: var(--font-heading);
 }
@@ -109,7 +112,7 @@
   -webkit-appearance: none;
   width: 140px;
   height: 6px;
-  background: rgba(255, 255, 255, 0.15);
+  background: #e2e8f0;
   border-radius: var(--radius-full);
   outline: none;
   cursor: pointer;
@@ -121,13 +124,13 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: var(--cyan-bright);
+  background: var(--red-primary);
   cursor: pointer;
-  box-shadow: 0 0 10px var(--cyan-bright);
+  box-shadow: 0 0 10px rgba(195, 4, 67, 0.5);
 }
 
 .freq-val-display {
-  color: var(--cyan-bright);
+  color: var(--red-primary);
   font-weight: 700;
   min-width: 50px;
 }
