@@ -1,10 +1,12 @@
 /**
- * CYMASPACE - Sound-to-Light Frequency Visualizer
- * Fully overhauled to:
- * - Use ALL frequencies simultaneously (Low = Red, Mid = Blue, High = Purple)
- * - Provide butter-smooth temporal animation without skipping or jittering
- * - Decompose audio in real time across 3 frequency bands
- * - Support Pixelblaze animation patterns with layered tri-band color physics
+ * CYMASPACE - Sound-to-Light Frequency Visualizer (White / Light Liquid Stage)
+ * Features:
+ * - Clean white canvas surface with translucent watercolor / liquid dye diffusion
+ * - True multi-band sampling: each pulse wave carries ALL frequencies rippling out to the ends
+ * - Inner layer dyed Warm Red (0-200 Hz Bass)
+ * - Middle body dyed Electric Blue (200-1000 Hz Voice & Melodies)
+ * - Outer crest dyed Vibrant Purple (1000+ Hz Treble & Cymbals)
+ * - 60 FPS butter-smooth liquid wave simulation with zero stutter
  */
 
 class SoundLightVisualizer {
@@ -18,19 +20,19 @@ class SoundLightVisualizer {
     this.gainNode = null;
     this.micStream = null;
 
-    // Multi-oscillator synthesizer for rich composite sounds
+    // Multi-oscillator audio synthesizer
     this.oscillators = [];
     this.isPlayingAudio = false;
     this.isMicActive = false;
 
-    // Frequency state (Hz)
+    // Current sound mode and pitch
     this.sliderFreq = 440;
-    this.soundMode = 'all'; // 'all', 'bass', 'mid', 'high'
+    this.soundMode = 'all'; // 'all', 'bass', 'mid', 'high', 'custom'
 
-    // Real-time smoothed frequency band energies (0.0 to 1.0)
-    this.smoothLow = 0.45;   // 0 - 200 Hz (Red)
-    this.smoothMid = 0.55;   // 200 - 1000 Hz (Blue)
-    this.smoothHigh = 0.40;  // 1000+ Hz (Purple)
+    // Smooth tri-band frequency energies (0.0 to 1.0)
+    this.smoothLow = 0.50;   // 0 - 200 Hz (Red)
+    this.smoothMid = 0.60;   // 200 - 1000 Hz (Blue)
+    this.smoothHigh = 0.45;  // 1000+ Hz (Purple)
 
     // Pixelblaze pattern: 'pulse', 'chladni', 'spiral', 'spectrum', 'matrix', 'lissajous'
     this.animation = 'pulse';
@@ -40,8 +42,9 @@ class SoundLightVisualizer {
     this.bufferLength = 0;
     this.dataArray = null;
 
-    // Pulse wave particles buffer for multi-band concentric rings
-    this.wavefronts = [];
+    // Liquid pulse wave pool (pre-allocated for locked 60 FPS)
+    this.pulses = [];
+    this.pulseTimer = 0;
 
     this.initCanvasSize();
     window.addEventListener('resize', () => this.initCanvasSize());
@@ -96,26 +99,22 @@ class SoundLightVisualizer {
     const now = this.audioCtx.currentTime;
 
     if (mode === 'all') {
-      // Tri-Band Composite Chord: Low bass (80Hz), Mid voice (440Hz), High overtone (2400Hz)
-      const f1 = 80;
-      const f2 = 440;
-      const f3 = 2400;
-
+      // Tri-Band Composite Chord: 80Hz Bass + 440Hz Melody + 2400Hz Shimmer
       const osc1 = this.audioCtx.createOscillator();
       const osc2 = this.audioCtx.createOscillator();
       const osc3 = this.audioCtx.createOscillator();
 
       osc1.type = 'sine';
-      osc1.frequency.setValueAtTime(f1, now);
+      osc1.frequency.setValueAtTime(80, now);
       osc2.type = 'triangle';
-      osc2.frequency.setValueAtTime(f2, now);
+      osc2.frequency.setValueAtTime(440, now);
       osc3.type = 'sine';
-      osc3.frequency.setValueAtTime(f3, now);
+      osc3.frequency.setValueAtTime(2400, now);
 
       const g1 = this.audioCtx.createGain();
       const g2 = this.audioCtx.createGain();
       const g3 = this.audioCtx.createGain();
-      g1.gain.value = 0.5;
+      g1.gain.value = 0.55;
       g2.gain.value = 0.35;
       g3.gain.value = 0.15;
 
@@ -126,7 +125,6 @@ class SoundLightVisualizer {
       osc1.start(); osc2.start(); osc3.start();
       this.oscillators = [osc1, osc2, osc3];
     } else {
-      // Single band focus with gentle harmonics
       const osc = this.audioCtx.createOscillator();
       osc.type = mode === 'bass' ? 'sine' : (mode === 'mid' ? 'triangle' : 'sine');
       osc.frequency.setValueAtTime(freq, now);
@@ -186,7 +184,7 @@ class SoundLightVisualizer {
         }
       } catch (err) {
         console.warn('Microphone permission denied or unavailable:', err);
-        alert('Microphone access was denied. You can explore all frequency color animations using the sound buttons and presets below!');
+        alert('Microphone access was denied. You can explore all frequency color animations using the sound buttons and presets below.');
       }
     }
   }
@@ -196,7 +194,6 @@ class SoundLightVisualizer {
     const freqDisplay = document.getElementById('vizFreqVal');
     if (freqDisplay) freqDisplay.textContent = `${Math.round(freq)} Hz`;
 
-    // If currently playing a single oscillator, update frequency seamlessly
     if (this.isPlayingAudio && this.oscillators.length === 1 && this.audioCtx) {
       this.oscillators[0].frequency.setTargetAtTime(freq, this.audioCtx.currentTime, 0.05);
     }
@@ -250,11 +247,10 @@ class SoundLightVisualizer {
 
   /**
    * Multi-Band Frequency Decomposition
-   * Analyzes the real incoming FFT energy across 3 distinct continuous bands:
-   * 0 - 200 Hz   -> Low (Red)
-   * 200 - 1000 Hz -> Mid (Blue)
-   * 1000+ Hz      -> High (Purple)
-   * Applies smooth exponential filtering to eliminate jitter and skipping.
+   * Samples live audio energy across:
+   * Low: 0-200 Hz (Red)
+   * Mid: 200-1000 Hz (Blue)
+   * High: 1000+ Hz (Purple)
    */
   updateFrequencyEnergies() {
     let rawLow = 0;
@@ -286,45 +282,44 @@ class SoundLightVisualizer {
         }
       }
 
-      rawLow = countLow > 0 ? (sumLow / countLow) : 0;
-      rawMid = countMid > 0 ? (sumMid / countMid) : 0;
-      rawHigh = countHigh > 0 ? (sumHigh / countHigh) : 0;
+      rawLow = countLow > 0 ? (sumLow / countLow) * 1.6 : 0;
+      rawMid = countMid > 0 ? (sumMid / countMid) * 1.5 : 0;
+      rawHigh = countHigh > 0 ? (sumHigh / countHigh) * 1.4 : 0;
     } else {
-      // Natural, organic simulation wave when audio is idle
       const t = this.time;
       if (this.soundMode === 'all') {
-        rawLow = 0.35 + Math.sin(t * 1.5) * 0.25;
-        rawMid = 0.45 + Math.cos(t * 2.1) * 0.30;
-        rawHigh = 0.30 + Math.sin(t * 3.4) * 0.20;
+        rawLow = 0.40 + Math.sin(t * 1.6) * 0.25;
+        rawMid = 0.50 + Math.cos(t * 2.2) * 0.25;
+        rawHigh = 0.38 + Math.sin(t * 3.1) * 0.20;
       } else if (this.soundMode === 'bass' || this.sliderFreq <= 200) {
-        rawLow = 0.75 + Math.sin(t * 3.0) * 0.2;
-        rawMid = 0.20 + Math.sin(t * 1.5) * 0.1;
-        rawHigh = 0.10;
+        rawLow = 0.85 + Math.sin(t * 3.0) * 0.15;
+        rawMid = 0.20 + Math.sin(t * 1.4) * 0.1;
+        rawHigh = 0.12;
       } else if (this.soundMode === 'mid' || (this.sliderFreq > 200 && this.sliderFreq <= 1000)) {
-        rawLow = 0.20;
-        rawMid = 0.80 + Math.sin(t * 2.5) * 0.15;
-        rawHigh = 0.25 + Math.cos(t * 2.0) * 0.1;
+        rawLow = 0.18;
+        rawMid = 0.85 + Math.sin(t * 2.4) * 0.15;
+        rawHigh = 0.25 + Math.cos(t * 1.8) * 0.1;
       } else {
         rawLow = 0.15;
-        rawMid = 0.25;
-        rawHigh = 0.80 + Math.sin(t * 4.0) * 0.15;
+        rawMid = 0.22;
+        rawHigh = 0.85 + Math.sin(t * 3.8) * 0.15;
       }
     }
 
-    // Smooth Exponential Moving Average (Attack / Decay)
-    const smoothFactor = 0.18;
-    this.smoothLow = this.smoothLow * (1 - smoothFactor) + rawLow * smoothFactor;
-    this.smoothMid = this.smoothMid * (1 - smoothFactor) + rawMid * smoothFactor;
-    this.smoothHigh = this.smoothHigh * (1 - smoothFactor) + rawHigh * smoothFactor;
+    // Smooth Exponential Moving Average (Attack: fast response, Decay: gentle fade)
+    const smoothFactor = 0.20;
+    this.smoothLow = this.smoothLow * (1 - smoothFactor) + Math.min(1.0, rawLow) * smoothFactor;
+    this.smoothMid = this.smoothMid * (1 - smoothFactor) + Math.min(1.0, rawMid) * smoothFactor;
+    this.smoothHigh = this.smoothHigh * (1 - smoothFactor) + Math.min(1.0, rawHigh) * smoothFactor;
 
     // Update Tri-Band Meters in UI
     const meterRed = document.getElementById('meterRed');
     const meterBlue = document.getElementById('meterBlue');
     const meterPurple = document.getElementById('meterPurple');
 
-    if (meterRed) meterRed.style.width = `${Math.min(100, Math.max(8, this.smoothLow * 120))}%`;
-    if (meterBlue) meterBlue.style.width = `${Math.min(100, Math.max(8, this.smoothMid * 120))}%`;
-    if (meterPurple) meterPurple.style.width = `${Math.min(100, Math.max(8, this.smoothHigh * 120))}%`;
+    if (meterRed) meterRed.style.width = `${Math.min(100, Math.max(10, this.smoothLow * 120))}%`;
+    if (meterBlue) meterBlue.style.width = `${Math.min(100, Math.max(10, this.smoothMid * 120))}%`;
+    if (meterPurple) meterPurple.style.width = `${Math.min(100, Math.max(10, this.smoothHigh * 120))}%`;
   }
 
   animate() {
@@ -337,13 +332,13 @@ class SoundLightVisualizer {
     const w = this.width;
     const h = this.height;
 
-    // Clear with elegant translucent dark stage fade for light persistence
-    ctx.fillStyle = 'rgba(8, 12, 22, 0.24)';
+    // Clean white canvas clear with soft watercolor diffusion trails
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.24)';
     ctx.fillRect(0, 0, w, h);
 
     switch (this.animation) {
       case 'pulse':
-        this.renderPulseWaves(w, h);
+        this.renderLiquidPulseWaves(w, h);
         break;
       case 'chladni':
         this.renderChladniNodes(w, h);
@@ -361,98 +356,127 @@ class SoundLightVisualizer {
         this.renderLissajousScope(w, h);
         break;
       default:
-        this.renderPulseWaves(w, h);
+        this.renderLiquidPulseWaves(w, h);
         break;
     }
   }
 
   // =========================================================================
-  // PATTERN 1: Multi-Band Concentric Pulse Waves
-  // Renders all 3 frequency bands simultaneously:
-  // - Inner heavy crimson rings react to Bass (Low)
-  // - Middle azure rings react to Melody & Vocals (Mid)
-  // - Outer violet ripples react to Cymbals & Treble (High)
+  // PATTERN 1: Liquid Dyed Pulse Waves (All Frequencies Rippling Outward)
+  // Samples all 3 frequencies at pulse birth and ripples outward:
+  // - Inner ring dyed Warm Red (Bass)
+  // - Middle body dyed Electric Blue (Vocals / Melodies)
+  // - Outer wave crest dyed Radiant Purple (Cymbals / Treble)
+  // Ripples smoothly all the way to the ends of the canvas at 60 FPS
   // =========================================================================
-  renderPulseWaves(w, h) {
+  renderLiquidPulseWaves(w, h) {
     const ctx = this.ctx;
     const cx = w / 2;
     const cy = h / 2;
-    const maxR = Math.min(w, h) * 0.44;
+    const maxR = Math.hypot(w, h) * 0.56; // Ripples all the way to the canvas edges!
 
-    ctx.save();
-
-    // 1. LOW FREQUENCY LAYER (Red Bass Waves)
-    const bassCount = 4;
-    for (let i = 0; i < bassCount; i++) {
-      const progress = ((this.time * 0.6 + i / bassCount) % 1);
-      const r = progress * (maxR * 0.55);
-      const alpha = Math.sin(progress * Math.PI) * (0.4 + this.smoothLow * 0.6);
-
-      ctx.beginPath();
-      ctx.arc(cx, cy, r, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(239, 68, 68, ${alpha})`;
-      ctx.lineWidth = 3 + this.smoothLow * 5 * (1 - progress);
-      ctx.shadowColor = '#ef4444';
-      ctx.shadowBlur = 16 * this.smoothLow;
-      ctx.stroke();
+    // Spawn new pulse periodically or on bass peaks
+    this.pulseTimer++;
+    if (this.pulseTimer >= 26) {
+      this.pulseTimer = 0;
+      this.pulses.push({
+        r: 6,
+        maxR: maxR,
+        speed: 2.4 + (this.smoothLow * 1.6 + this.smoothMid * 1.2 + this.smoothHigh * 1.0),
+        // Sample ALL frequencies for this exact pulse:
+        low: this.smoothLow,
+        mid: this.smoothMid,
+        high: this.smoothHigh,
+        phase: Math.random() * Math.PI * 2
+      });
     }
 
-    // 2. MIDDLE FREQUENCY LAYER (Electric Blue Melodic Waves)
-    const midCount = 5;
-    for (let i = 0; i < midCount; i++) {
-      const progress = ((this.time * 0.9 + (i + 0.5) / midCount) % 1);
-      const r = (0.2 + progress * 0.6) * maxR;
-      const alpha = Math.sin(progress * Math.PI) * (0.35 + this.smoothMid * 0.65);
-
-      ctx.beginPath();
-      ctx.arc(cx, cy, r, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(37, 99, 235, ${alpha})`;
-      ctx.lineWidth = 2.5 + this.smoothMid * 3.5 * (1 - progress);
-      ctx.shadowColor = '#3b82f6';
-      ctx.shadowBlur = 14 * this.smoothMid;
-      ctx.stroke();
-    }
-
-    // 3. HIGH FREQUENCY LAYER (Luminous Purple Treble Wavefronts)
-    const highCount = 6;
-    for (let i = 0; i < highCount; i++) {
-      const progress = ((this.time * 1.3 + i / highCount) % 1);
-      const r = (0.45 + progress * 0.55) * maxR;
-      const alpha = Math.sin(progress * Math.PI) * (0.3 + this.smoothHigh * 0.7);
-
-      ctx.beginPath();
-      ctx.arc(cx, cy, r, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(168, 85, 247, ${alpha})`;
-      ctx.lineWidth = 1.5 + this.smoothHigh * 2;
-      ctx.shadowColor = '#a855f7';
-      ctx.shadowBlur = 12 * this.smoothHigh;
-      ctx.stroke();
-    }
-
-    // Center Tri-Color Core Pulse
-    const coreR = 12 + this.smoothLow * 14;
+    // Central Vibrating Liquid Reservoir (Core)
+    const coreR = 16 + this.smoothLow * 18;
+    // Central Red Droplet (Bass)
     ctx.beginPath();
-    ctx.arc(cx, cy, coreR, 0, Math.PI * 2);
-    ctx.fillStyle = '#ef4444';
-    ctx.shadowColor = '#ef4444';
-    ctx.shadowBlur = 20;
+    ctx.arc(cx, cy, coreR * 0.55, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(225, 29, 72, ${0.45 + this.smoothLow * 0.55})`;
     ctx.fill();
 
-    const midRing = coreR * (0.6 + this.smoothMid * 0.4);
+    // Central Blue Ring (Voice)
     ctx.beginPath();
-    ctx.arc(cx, cy, midRing, 0, Math.PI * 2);
-    ctx.strokeStyle = '#3b82f6';
-    ctx.lineWidth = 2.5;
+    ctx.arc(cx, cy, coreR * 0.85, 0, Math.PI * 2);
+    ctx.strokeStyle = `rgba(37, 99, 235, ${0.5 + this.smoothMid * 0.5})`;
+    ctx.lineWidth = 3;
     ctx.stroke();
 
-    ctx.restore();
+    // Central Purple Corona (Treble)
+    ctx.beginPath();
+    ctx.arc(cx, cy, coreR * 1.15, 0, Math.PI * 2);
+    ctx.strokeStyle = `rgba(147, 51, 234, ${0.4 + this.smoothHigh * 0.6})`;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Render active liquid pulses traveling outward
+    for (let p = this.pulses.length - 1; p >= 0; p--) {
+      const pulse = this.pulses[p];
+      pulse.r += pulse.speed;
+
+      if (pulse.r >= pulse.maxR) {
+        this.pulses.splice(p, 1);
+        continue;
+      }
+
+      const progress = pulse.r / pulse.maxR;
+      const fade = Math.pow(1.0 - progress, 0.7); // Gentle fade out as it reaches the ends
+      const thickness = 14 + progress * 40;
+      const points = 72; // Smooth 72-point liquid contour for high 60fps performance
+
+      // 1. INNER LIQUID LAYER (Warm Red - Bass)
+      ctx.beginPath();
+      const rInner = Math.max(8, pulse.r - thickness * 0.45);
+      for (let i = 0; i <= points; i++) {
+        const angle = (i / points) * Math.PI * 2;
+        const wobble = Math.sin(angle * 4 + pulse.phase + this.time * 1.5) * (3 + pulse.low * 6);
+        const curR = rInner + wobble;
+        const x = cx + curR * Math.cos(angle);
+        const y = cy + curR * Math.sin(angle);
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = `rgba(225, 29, 72, ${fade * (0.35 + pulse.low * 0.55)})`;
+      ctx.lineWidth = 3 + pulse.low * 4 * (1 - progress);
+      ctx.stroke();
+
+      // 2. MIDDLE LIQUID BODY (Electric Blue - Vocals & Melodies)
+      ctx.beginPath();
+      const rMid = pulse.r;
+      for (let i = 0; i <= points; i++) {
+        const angle = (i / points) * Math.PI * 2;
+        const wobble = Math.sin(angle * 6 - pulse.phase + this.time * 2.0) * (4 + pulse.mid * 7);
+        const curR = rMid + wobble;
+        const x = cx + curR * Math.cos(angle);
+        const y = cy + curR * Math.sin(angle);
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = `rgba(37, 99, 235, ${fade * (0.35 + pulse.mid * 0.55)})`;
+      ctx.lineWidth = 2.5 + pulse.mid * 3.5;
+      ctx.stroke();
+
+      // 3. OUTER WAVE CREST (Radiant Purple - Treble & Cymbals)
+      ctx.beginPath();
+      const rOuter = pulse.r + thickness * 0.45;
+      for (let i = 0; i <= points; i++) {
+        const angle = (i / points) * Math.PI * 2;
+        const wobble = Math.cos(angle * 8 + pulse.phase * 1.5 + this.time * 2.8) * (3 + pulse.high * 5);
+        const curR = rOuter + wobble;
+        const x = cx + curR * Math.cos(angle);
+        const y = cy + curR * Math.sin(angle);
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = `rgba(147, 51, 234, ${fade * (0.35 + pulse.high * 0.55)})`;
+      ctx.lineWidth = 2 + pulse.high * 2.5;
+      ctx.stroke();
+    }
   }
 
   // =========================================================================
-  // PATTERN 2: Chladni Nodes (Standing Wave Resonator)
-  // Lows drive plate diameter and core red standing wave.
-  // Mids drive secondary blue harmonic nodal curves.
-  // Highs drive high-order purple resonance petals and nodal particles.
+  // PATTERN 2: Chladni Nodes on White Canvas
   // =========================================================================
   renderChladniNodes(w, h) {
     const ctx = this.ctx;
@@ -466,63 +490,53 @@ class SoundLightVisualizer {
     const steps = 360;
 
     // 1. Red Bass Boundary Curve
-    const m = 3;
     ctx.beginPath();
     for (let i = 0; i <= steps; i++) {
       const angle = (i * Math.PI) / 180;
-      const wave = Math.cos(m * angle + this.time * 0.8) * (this.smoothLow * 0.25);
-      const r = maxR * (0.8 + wave);
+      const wave = Math.cos(3 * angle + this.time * 0.8) * (this.smoothLow * 0.22);
+      const r = maxR * (0.85 + wave);
       const x = r * Math.cos(angle);
       const y = r * Math.sin(angle);
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     }
-    ctx.strokeStyle = `rgba(239, 68, 68, ${0.4 + this.smoothLow * 0.6})`;
-    ctx.lineWidth = 3;
-    ctx.shadowColor = '#ef4444';
-    ctx.shadowBlur = 14;
+    ctx.strokeStyle = `rgba(225, 29, 72, ${0.45 + this.smoothLow * 0.55})`;
+    ctx.lineWidth = 3.5;
     ctx.stroke();
 
     // 2. Blue Mid-Frequency Nodal Curves
-    const n = 5;
     ctx.beginPath();
     for (let i = 0; i <= steps; i++) {
       const angle = (i * Math.PI) / 180;
-      const h1 = Math.cos(n * angle - this.time * 1.2);
-      const h2 = Math.sin((n - 1) * angle + this.time * 0.5);
-      const r = maxR * (0.45 + (h1 * h2) * (0.2 + this.smoothMid * 0.25));
+      const h1 = Math.cos(5 * angle - this.time * 1.2);
+      const h2 = Math.sin(4 * angle + this.time * 0.6);
+      const r = maxR * (0.48 + (h1 * h2) * (0.2 + this.smoothMid * 0.25));
       const x = r * Math.cos(angle);
       const y = r * Math.sin(angle);
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     }
-    ctx.strokeStyle = `rgba(59, 130, 246, ${0.5 + this.smoothMid * 0.5})`;
-    ctx.lineWidth = 2.5;
-    ctx.shadowColor = '#3b82f6';
-    ctx.shadowBlur = 12;
+    ctx.strokeStyle = `rgba(37, 99, 235, ${0.5 + this.smoothMid * 0.5})`;
+    ctx.lineWidth = 2.8;
     ctx.stroke();
 
-    // 3. Purple High-Frequency Harmonic Overtone Rings
-    const k = 7;
+    // 3. Purple High Harmonic Rings
     ctx.beginPath();
     for (let i = 0; i <= steps; i++) {
       const angle = (i * Math.PI) / 180;
-      const h3 = Math.sin(k * angle + this.time * 2.0) * (0.15 + this.smoothHigh * 0.2);
-      const r = maxR * (0.22 + h3);
+      const h3 = Math.sin(7 * angle + this.time * 2.0) * (0.15 + this.smoothHigh * 0.2);
+      const r = maxR * (0.24 + h3);
       const x = r * Math.cos(angle);
       const y = r * Math.sin(angle);
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     }
-    ctx.strokeStyle = `rgba(168, 85, 247, ${0.4 + this.smoothHigh * 0.6})`;
-    ctx.lineWidth = 2;
-    ctx.shadowColor = '#a855f7';
-    ctx.shadowBlur = 10;
+    ctx.strokeStyle = `rgba(147, 51, 234, ${0.45 + this.smoothHigh * 0.55})`;
+    ctx.lineWidth = 2.2;
     ctx.stroke();
 
     ctx.restore();
   }
 
   // =========================================================================
-  // PATTERN 3: Harmonic Spiral (Tri-Band Orbital Particles)
-  // Inner particles = Red (Bass), Middle = Blue (Vocals), Outer = Purple (Treble)
+  // PATTERN 3: Harmonic Spiral (Liquid Dyed Particles)
   // =========================================================================
   renderHarmonicSpiral(w, h) {
     const ctx = this.ctx;
@@ -540,22 +554,18 @@ class SoundLightVisualizer {
       const baseR = Math.pow(ratio, 0.75) * maxR;
 
       let pColor, pRadius, energy;
-
       if (ratio < 0.33) {
-        // Low Band (Red)
         energy = this.smoothLow;
-        pColor = `rgba(239, 68, 68, ${0.4 + energy * 0.6})`;
-        pRadius = 2.5 + energy * 3.5;
+        pColor = `rgba(225, 29, 72, ${0.5 + energy * 0.5})`;
+        pRadius = 3.0 + energy * 3.5;
       } else if (ratio < 0.68) {
-        // Mid Band (Blue)
         energy = this.smoothMid;
-        pColor = `rgba(59, 130, 246, ${0.4 + energy * 0.6})`;
-        pRadius = 2.0 + energy * 3.0;
+        pColor = `rgba(37, 99, 235, ${0.5 + energy * 0.5})`;
+        pRadius = 2.5 + energy * 3.0;
       } else {
-        // High Band (Purple)
         energy = this.smoothHigh;
-        pColor = `rgba(168, 85, 247, ${0.4 + energy * 0.6})`;
-        pRadius = 1.8 + energy * 2.8;
+        pColor = `rgba(147, 51, 234, ${0.5 + energy * 0.5})`;
+        pRadius = 2.0 + energy * 2.5;
       }
 
       const wave = Math.sin(ratio * 18 - this.time * 3) * (5 + energy * 8);
@@ -573,10 +583,7 @@ class SoundLightVisualizer {
   }
 
   // =========================================================================
-  // PATTERN 4: Real-Time Spectrum EQ
-  // 0 - 200 Hz: Red bars
-  // 200 - 1000 Hz: Blue bars
-  // 1000+ Hz: Purple bars
+  // PATTERN 4: Frequency Spectrum EQ on Clean White
   // =========================================================================
   renderFrequencySpectrum(w, h) {
     const ctx = this.ctx;
@@ -588,22 +595,20 @@ class SoundLightVisualizer {
     for (let i = 0; i < bars; i++) {
       const x = padding + i * barWidth;
       const ratio = i / bars;
-      // Map 0 to 1 across 30Hz to 3800Hz
       const freq = 30 + Math.pow(ratio, 1.8) * 3800;
 
-      let barColor, energy;
+      let hex, energy;
       if (freq <= 200) {
-        barColor = { hex: '#ef4444', r: 239, g: 68, b: 68 };
+        hex = '#dc2626';
         energy = this.smoothLow;
       } else if (freq <= 1000) {
-        barColor = { hex: '#3b82f6', r: 59, g: 130, b: 246 };
+        hex = '#2563eb';
         energy = this.smoothMid;
       } else {
-        barColor = { hex: '#a855f7', r: 168, g: 85, b: 247 };
+        hex = '#9333ea';
         energy = this.smoothHigh;
       }
 
-      // Height influenced by real FFT or smoothed band
       let amp = 0.2;
       if (this.dataArray && (this.isMicActive || this.isPlayingAudio)) {
         const fftIdx = Math.min(this.bufferLength - 1, Math.floor(ratio * (this.bufferLength * 0.75)));
@@ -616,25 +621,17 @@ class SoundLightVisualizer {
       const barHeight = Math.max(8, amp * (h * 0.65));
       const y = baseH - barHeight;
 
-      const grad = ctx.createLinearGradient(0, y, 0, baseH);
-      grad.addColorStop(0, barColor.hex);
-      grad.addColorStop(1, `rgba(${barColor.r}, ${barColor.g}, ${barColor.b}, 0.2)`);
-
-      ctx.fillStyle = grad;
+      ctx.fillStyle = hex;
       ctx.fillRect(x, y, barWidth - 3, barHeight);
 
-      // White peak indicator
-      ctx.fillStyle = '#ffffff';
-      ctx.fillRect(x, y - 2, barWidth - 3, 2);
+      // Top peak cap
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(x, y - 3, barWidth - 3, 2);
     }
   }
 
   // =========================================================================
-  // PATTERN 5: Pixelblaze 2D LED Matrix
-  // Columns partitioned into 3 color zones:
-  // - Columns 0 - 7:   Red LEDs (Low Bass)
-  // - Columns 8 - 15:  Blue LEDs (Mid Vocals)
-  // - Columns 16 - 23: Purple LEDs (High Treble)
+  // PATTERN 5: Pixelblaze 2D LED Matrix on Clean Light Panel
   // =========================================================================
   renderPixelblazeMatrix(w, h) {
     const ctx = this.ctx;
@@ -648,15 +645,15 @@ class SoundLightVisualizer {
     const cellH = gridH / rows;
 
     for (let c = 0; c < cols; c++) {
-      let zoneColor, energy;
+      let rgb, energy;
       if (c < 8) {
-        zoneColor = { hex: '#ef4444', r: 239, g: 68, b: 68 };
+        rgb = '225, 29, 72'; // Red
         energy = this.smoothLow;
       } else if (c < 16) {
-        zoneColor = { hex: '#3b82f6', r: 59, g: 130, b: 246 };
+        rgb = '37, 99, 235'; // Blue
         energy = this.smoothMid;
       } else {
-        zoneColor = { hex: '#a855f7', r: 168, g: 85, b: 247 };
+        rgb = '147, 51, 234'; // Purple
         energy = this.smoothHigh;
       }
 
@@ -664,22 +661,18 @@ class SoundLightVisualizer {
         const x = padX + c * cellW + cellW * 0.5;
         const y = padY + (rows - 1 - r) * cellH + cellH * 0.5;
 
-        // Sound intensity flowing upward
         const normR = r / rows;
         const phase = Math.sin(c * 0.45 + this.time * 3.5) * 0.3 + 0.5;
         const intensity = Math.max(0.08, (energy * 1.1 + phase * 0.4) - normR * 0.7);
 
         ctx.beginPath();
-        const dotRadius = Math.min(cellW, cellH) * (0.18 + Math.min(0.3, intensity * 0.25));
+        const dotRadius = Math.min(cellW, cellH) * (0.22 + Math.min(0.28, intensity * 0.25));
         ctx.arc(x, y, dotRadius, 0, Math.PI * 2);
 
         if (intensity > 0.35) {
-          ctx.fillStyle = `rgba(${zoneColor.r}, ${zoneColor.g}, ${zoneColor.b}, ${Math.min(1.0, intensity)})`;
-          ctx.shadowColor = zoneColor.hex;
-          ctx.shadowBlur = intensity * 10;
+          ctx.fillStyle = `rgba(${rgb}, ${Math.min(1.0, intensity * 1.1)})`;
         } else {
-          ctx.fillStyle = 'rgba(255, 255, 255, 0.12)';
-          ctx.shadowBlur = 0;
+          ctx.fillStyle = '#e2e8f0'; // Light grey inactive LED socket
         }
         ctx.fill();
       }
@@ -688,7 +681,6 @@ class SoundLightVisualizer {
 
   // =========================================================================
   // PATTERN 6: Lissajous Resonance Scope
-  // Composite phase resonance ribbon combining Red, Blue, and Purple harmonics
   // =========================================================================
   renderLissajousScope(w, h) {
     const ctx = this.ctx;
@@ -703,21 +695,19 @@ class SoundLightVisualizer {
     const steps = 360;
     const delta = this.time * 1.2;
 
-    // 1. Red Base Curve (Lows)
+    // 1. Red Low Phase Curve
     ctx.beginPath();
     for (let i = 0; i <= steps; i++) {
       const t = (i / steps) * Math.PI * 2;
-      const x = scaleX * Math.sin(2 * t + delta) * (0.7 + this.smoothLow * 0.3);
-      const y = scaleY * Math.sin(3 * t) * (0.7 + this.smoothLow * 0.3);
+      const x = scaleX * Math.sin(2 * t + delta) * (0.75 + this.smoothLow * 0.25);
+      const y = scaleY * Math.sin(3 * t) * (0.75 + this.smoothLow * 0.25);
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     }
-    ctx.strokeStyle = `rgba(239, 68, 68, ${0.4 + this.smoothLow * 0.6})`;
+    ctx.strokeStyle = `rgba(225, 29, 72, ${0.5 + this.smoothLow * 0.5})`;
     ctx.lineWidth = 3.5;
-    ctx.shadowColor = '#ef4444';
-    ctx.shadowBlur = 14;
     ctx.stroke();
 
-    // 2. Blue Mid Harmonic Ribbon (Mids)
+    // 2. Blue Mid Phase Ribbon
     ctx.beginPath();
     for (let i = 0; i <= steps; i++) {
       const t = (i / steps) * Math.PI * 2;
@@ -725,13 +715,11 @@ class SoundLightVisualizer {
       const y = (scaleY * 0.85) * Math.sin(4 * t);
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     }
-    ctx.strokeStyle = `rgba(59, 130, 246, ${0.45 + this.smoothMid * 0.55})`;
-    ctx.lineWidth = 2.5;
-    ctx.shadowColor = '#3b82f6';
-    ctx.shadowBlur = 12;
+    ctx.strokeStyle = `rgba(37, 99, 235, ${0.5 + this.smoothMid * 0.5})`;
+    ctx.lineWidth = 2.8;
     ctx.stroke();
 
-    // 3. Purple High Transient Ribbon (Highs)
+    // 3. Purple High Phase Ribbon
     ctx.beginPath();
     for (let i = 0; i <= steps; i++) {
       const t = (i / steps) * Math.PI * 2;
@@ -739,10 +727,8 @@ class SoundLightVisualizer {
       const y = (scaleY * 0.65) * Math.sin(6 * t);
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     }
-    ctx.strokeStyle = `rgba(168, 85, 247, ${0.4 + this.smoothHigh * 0.6})`;
-    ctx.lineWidth = 1.8;
-    ctx.shadowColor = '#a855f7';
-    ctx.shadowBlur = 10;
+    ctx.strokeStyle = `rgba(147, 51, 234, ${0.45 + this.smoothHigh * 0.55})`;
+    ctx.lineWidth = 2.0;
     ctx.stroke();
 
     ctx.restore();
