@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal Music Design (UMD) | CymaSpace - Accessible Haptics &amp; Gesture Tech</title>
+  <meta name="description" content="Universal Music Design (UMD) pioneers multi-sensory music accessibility with spatial haptics, wearable gesture instruments (GestoLumina), and Deaf-led audio production.">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/cymaspace-logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top Accessibility Notice Bar -->
+  <div class="top-notice-bar" role="region" aria-label="Announcement">
+    <div class="container top-notice-content">
+      <div>
+        <span class="badge badge-accent" style="margin-right: 0.5rem; background: #ffe4e6; color: #b91c1c; border: 1px solid #fecdd3;">ASL &bull; Deaf-Led</span>
+        <span>Visit the Woodstock Cafe ("Sign Language Cafe") &bull; 4103 SE Woodstock Blvd</span>
+      </div>
+      <div class="top-notice-links">
+        <a href="../community-events.html" class="top-notice-link">Cafe Events &rarr;</a>
+        <a href="../donate.html" class="top-notice-link" style="color: var(--magenta-bright);">Support Our Mission</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container navbar">
+      <a href="../index.html" class="brand-logo" aria-label="CymaSpace Homepage">
+        <img src="../assets/images/cymaspace-logo.svg" alt="CymaSpace Logo" class="brand-icon">
+        <div>
+          <span class="brand-text">CymaSpace</span>
+          <span class="brand-tagline">Sound Made Visible</span>
+        </div>
+      </a>
+
+      <nav class="desktop-nav" role="navigation" aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li class="nav-item-dropdown">
+            <a href="../projects.html" class="nav-link nav-dropdown-toggle active">Projects <span aria-hidden="true">&#9662;</span></a>
+            <div class="nav-dropdown-menu">
+              <a href="../projects.html" class="nav-dropdown-item">All Projects</a>
+              <a href="universal-music-design.html" class="nav-dropdown-item active">Universal Music Design</a>
+              <a href="signkids.html" class="nav-dropdown-item">SignKids Program</a>
+              <a href="technology.html" class="nav-dropdown-item">Our Technology</a>
+              <a href="see-sound.html" class="nav-dropdown-item">See Sound (OMSI Piano)</a>
+              <a href="media.html" class="nav-dropdown-item">Media, Film &amp; Puppetry</a>
+            </div>
+          </li>
+          <li><a href="../community-events.html" class="nav-link">Events</a></li>
+          <li><a href="../mission.html" class="nav-link">About</a></li>
+          <li><a href="../news.html" class="nav-link">News</a></li>
+          <li><a href="../volunteer.html" class="nav-link">Volunteer</a></li>
+          <li><a href="../contact.html" class="nav-link">Contact</a></li>
+          <li><a href="../donate.html" class="btn btn-magenta btn-sm">Donate</a></li>
+        </ul>
+      </nav>
+
+      <button class="nav-toggle-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-backdrop"></div>
+  <aside id="mobileDrawer" class="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <a href="../index.html" class="mobile-drawer-brand" aria-label="CymaSpace Home">
+        <img src="../assets/images/cymaspace-logo.svg" alt="CymaSpace Logo" class="brand-icon">
+        <span class="brand-text">CymaSpace</span>
+      </a>
+      <button class="mobile-drawer-close-btn" aria-label="Close navigation menu" type="button">&times;</button>
+    </div>
+    <div class="mobile-drawer-body">
+      <ul class="mobile-nav-list">
+        <li><a href="../index.html" class="mobile-nav-link">Home</a></li>
+        <li>
+          <a href="../projects.html" class="mobile-nav-link active">Projects</a>
+          <div class="mobile-subnav">
+            <a href="universal-music-design.html" class="active">Universal Music Design</a>
+            <a href="signkids.html">SignKids Program</a>
+            <a href="technology.html">Our Technology</a>
+            <a href="see-sound.html">See Sound (OMSI Piano)</a>
+            <a href="media.html">Media &amp; Film</a>
+          </div>
+        </li>
+        <li>
+          <a href="../community-events.html" class="mobile-nav-link">Events</a>
+          <div class="mobile-subnav">
+            <a href="../community-events.html">Woodstock Cafe Events</a>
+            <a href="../events-archive.html">Past Events Archive</a>
+          </div>
+        </li>
+        <li>
+          <a href="../mission.html" class="mobile-nav-link">About Us</a>
+          <div class="mobile-subnav">
+            <a href="../mission.html">Mission &amp; Cymatics</a>
+            <a href="../board-of-directors.html">Board of Directors</a>
+            <a href="../code-of-conduct.html">Code of Conduct</a>
+          </div>
+        </li>
+        <li><a href="../news.html" class="mobile-nav-link">News &amp; Updates</a></li>
+        <li><a href="../volunteer.html" class="mobile-nav-link">Volunteer</a></li>
+        <li><a href="../contact.html" class="mobile-nav-link">Contact Us</a></li>
+      </ul>
+      <div class="mobile-drawer-footer">
+        <a href="../donate.html" class="btn btn-magenta" style="width: 100%;">Donate Today</a>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main-content" class="main-content">
+    <!-- Hero Section -->
+    <section class="page-hero">
+      <div class="container">
+        <!-- Breadcrumb -->
+        <nav aria-label="Breadcrumb" style="margin-bottom: 1rem; font-size: 0.88rem;">
+          <a href="../index.html" style="color: var(--text-muted);">Home</a>
+          <span style="margin: 0 0.5rem; color: var(--text-muted);">&gt;</span>
+          <a href="../projects.html" style="color: var(--text-muted);">Projects</a>
+          <span style="margin: 0 0.5rem; color: var(--text-muted);">&gt;</span>
+          <span style="color: var(--red-primary); font-weight: 600;">Universal Music Design</span>
+        </nav>
+
+        <span class="section-tag">Accessible Music &amp; Spatial Haptics</span>
+        <h1 class="page-hero-title">Universal Music Design (UMD)</h1>
+        <p class="page-hero-desc">
+          Enhancing the accessibility of dance, music, and performance for the Deaf and Hard of Hearing community. By combining Universal Design principles with spatial haptic vibration technology and wearable gesture instruments, UMD transforms music from an exclusive auditory experience into a tangible, full-body sensation.
+        </p>
+        <div class="hero-actions" style="margin-top: 2rem;">
+          <a href="https://67a9ec34816a3c0008f1083a--bejewelled-kelpie-6a1941.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit UMD site &rarr;</a>
+          <a href="https://github.com/DillonSimeone/Gestolumina" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Gestolumina GitHub</a>
+          <a href="https://prezi.com/view/BKSwKoRpNLLlaCZ8I6HS/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Prezi Presentation</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Body -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container" style="max-width: 980px;">
+
+        <!-- Vision Banner Card -->
+        <div class="card" style="margin-bottom: 3rem; border-left: 4px solid var(--red-primary); background: #ffffff;">
+          <h2 style="font-size: 1.85rem; margin-bottom: 1rem; color: var(--text-primary);">Our Vision: Beyond Auditory Sound</h2>
+          <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            Music has historically been defined almost exclusively as an auditory phenomenon, creating systemic barriers for Deaf and Hard of Hearing (DHH) individuals. Universal Music Design (UMD) rejects this limitation. Music is rhythm, frequency, geometry, vibration, and emotional resonance.
+          </p>
+          <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin: 0;">
+            Guided by Universal Design principles, UMD creates tools, instruments, and environments where musical expression is felt on the skin, mapped to synchronized chromatic light, and controlled through physical movement. Our mission is to ensure that anyone, regardless of hearing ability, can independently compose, perform, dance to, and experience music in its fullest fidelity.
+          </p>
+        </div>
+
+        <!-- Goals Grid -->
+        <div style="margin-bottom: 3.5rem;">
+          <h2 style="font-size: 1.85rem; text-align: center; margin-bottom: 0.5rem;">Core Goals of Universal Music Design</h2>
+          <p style="text-align: center; color: var(--text-muted); max-width: 680px; margin: 0 auto 2.5rem;">
+            Five foundational pillars guiding our research, hardware development, and community programming.
+          </p>
+
+          <div class="grid grid-3" style="gap: 1.5rem;">
+            <div class="card">
+              <h3 style="color: var(--red-primary); font-size: 1.25rem; margin-bottom: 0.75rem;">1. Multi-Sensory Translation</h3>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); margin: 0;">
+                Translating sound waves across sensory modalities by combining tactile spatial vibration, synchronized visual lighting arrays, and acoustic feedback into a cohesive aesthetic experience.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3 style="color: var(--red-primary); font-size: 1.25rem; margin-bottom: 0.75rem;">2. Spatial Channel Separation</h3>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); margin: 0;">
+                Preventing complex compositions from degrading into muddied white noise by distributing audio across discrete directional haptic channels (left/right, chest, back, and limbs).
+              </p>
+            </div>
+
+            <div class="card">
+              <h3 style="color: var(--red-primary); font-size: 1.25rem; margin-bottom: 0.75rem;">3. Deaf-Led Production</h3>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); margin: 0;">
+                Equipping Deaf music producers and DJs with precision vibrotactile monitoring (SubPac, tactile subwoofers) to independently track, balance, master, and perform live music.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3 style="color: var(--red-primary); font-size: 1.25rem; margin-bottom: 0.75rem;">4. Movement-to-Music Tech</h3>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); margin: 0;">
+                Creating intuitive wearable instruments that transform natural bodily gestures and dance into real-time sound synthesis, lighting patterns, and haptic pulses.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3 style="color: var(--red-primary); font-size: 1.25rem; margin-bottom: 0.75rem;">5. Accessible Cultural Spaces</h3>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); margin: 0;">
+                Deploying vibrating floors, haptic gear fleets, and visualizers at live venues and festivals, ensuring public performances are welcoming and inclusive for all attendees.
+              </p>
+            </div>
+
+            <div class="card" style="background: var(--red-soft); border-color: rgba(195, 4, 67, 0.2);">
+              <h3 style="color: var(--red-primary); font-size: 1.25rem; margin-bottom: 0.75rem;">Universal Design Framework</h3>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); margin: 0;">
+                Building accessibility in from the design phase rather than retrofitting afterthoughts, setting an open benchmark for music tech manufacturers and venues worldwide.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Major Technological Innovations -->
+        <div style="margin-bottom: 3.5rem;">
+          <h2 style="font-size: 1.85rem; margin-bottom: 1.5rem;">Key Innovations &amp; Initiatives</h2>
+
+          <!-- Gestolumina (GeLu) -->
+          <div class="card" style="margin-bottom: 2rem; border-color: rgba(195, 4, 67, 0.25);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+              <div>
+                <span class="badge badge-accent" style="background: #ffe4e6; color: #b91c1c; margin-bottom: 0.5rem;">Flagship Wearable Interface</span>
+                <h3 style="font-size: 1.6rem; margin: 0; color: var(--text-primary);">Gestolumina (GeLu)</h3>
+              </div>
+              <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="https://github.com/DillonSimeone/Gestolumina" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">GitHub Repository &rarr;</a>
+                <a href="https://prezi.com/view/BKSwKoRpNLLlaCZ8I6HS/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">View Prezi &rarr;</a>
+              </div>
+            </div>
+            <p style="font-size: 1rem; line-height: 1.65; color: var(--text-secondary); margin-bottom: 1rem;">
+              Gestolumina (GeLu) is a modular musical interface engineered to redefine how human bodies interact with sound. The system features two specialized styles of wearable bracelets: one powered by Pixelblaze and the other by ESP32 microcontrollers, integrated alongside a fingertip ring sensor.
+            </p>
+            <p style="font-size: 1rem; line-height: 1.65; color: var(--text-secondary); margin-bottom: 1rem;">
+              Through onboard IMU and gesture sensors, GeLu detects subtle finger, wrist, and arm movements, immediately converting physical gestures into synthesizer audio, synchronized addressable LED visuals, and haptic feedback. By bridging gesture, light, and vibration, wearers do not just listen to music: their movements become audible, turning the human body into an expressive instrument.
+            </p>
+            <div style="background: #f8fafc; padding: 1rem 1.25rem; border-radius: var(--radius-sm); border-left: 3px solid var(--red-primary);">
+              <strong style="color: var(--text-primary); font-size: 0.95rem;">Key Capabilities:</strong>
+              <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                <li>Real-time gesture sensing via dual Pixelblaze and ESP32 architectures</li>
+                <li>Direct fingertip and wrist haptic stimulation paired with dynamic color-mapped LED feedback</li>
+                <li>Open-source hardware codebase available for community iteration and educational workshops</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Woojer Vest 3 Rental Program -->
+          <div class="card" style="margin-bottom: 2rem;">
+            <span class="badge badge-accent" style="background: #f1f5f9; color: #475569; margin-bottom: 0.5rem;">Spatial Haptic Fleet</span>
+            <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem;">Woojer Vest 3 Fleet &amp; Haptic Event Rental</h3>
+            <p style="font-size: 1rem; line-height: 1.65; color: var(--text-secondary); margin-bottom: 1rem;">
+              Universal Music Design operates a specialized rental fleet of 50 high-end Woojer Vest 3 units. Designed for festivals, dance events, concerts, and educational workshops, these vests deliver multi-point spatial haptics across the torso.
+            </p>
+            <p style="font-size: 1rem; line-height: 1.65; color: var(--text-secondary); margin: 0;">
+              By separating stereo audio and frequency bands into discrete physical locations, wearers can perceive sub-bass punch, rhythm lines, and mid-range melodies independently across their chest and back. This spatial clarity provides an authentic connection to musical arrangements that avoids auditory sensory overload.
+            </p>
+          </div>
+
+          <!-- Confluence Recording Studio -->
+          <div class="card" style="margin-bottom: 2rem;">
+            <span class="badge badge-accent" style="background: #f1f5f9; color: #475569; margin-bottom: 0.5rem;">Deaf-Led Studio</span>
+            <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem;">Confluence Recording Studio</h3>
+            <p style="font-size: 1rem; line-height: 1.65; color: var(--text-secondary); margin-bottom: 1rem;">
+              Situated in Troutdale, Oregon, near the confluence of the Sandy and Columbia Rivers, Confluence Recording Co. is one of the world's first recording studios founded and operated by a Deaf music producer.
+            </p>
+            <p style="font-size: 1rem; line-height: 1.65; color: var(--text-secondary); margin: 0;">
+              Recognized as fellows of the Oregon Community Foundation Creative Heights Award and supported by CymaSpace, Confluence serves as an active research incubator and production facility. Utilizing tactile subwoofers, SubPac body monitors, and visual feedback monitors, Confluence proves that deafness is no barrier to high-end audio mastering and electronic composition.
+            </p>
+          </div>
+
+          <!-- The Bodysuit Evolution -->
+          <div class="card">
+            <span class="badge badge-accent" style="background: #f1f5f9; color: #475569; margin-bottom: 0.5rem;">Future Research</span>
+            <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem;">The Evolution Toward Full-Body Vibrotactile Suits</h3>
+            <p style="font-size: 1rem; line-height: 1.65; color: var(--text-secondary); margin: 0;">
+              Building upon the success of bracelet controllers and torso vests, UMD researchers are actively prototyping whole-body vibrotactile garments. The vision encompasses head-to-toe sensory immersion, allowing musical arrangements, orchestral dynamics, and spatial acoustics to wash across the skin with nuance, resolution, and emotional depth.
+            </p>
+          </div>
+        </div>
+
+        <!-- Published Research Papers -->
+        <div style="margin-bottom: 3.5rem;">
+          <h2 style="font-size: 1.85rem; margin-bottom: 0.5rem;">Published Academic Research</h2>
+          <p style="color: var(--text-muted); margin-bottom: 2rem;">
+            Peer-reviewed papers authored by the Universal Music Design research team advancing the academic and scientific foundations of sensory accessibility.
+          </p>
+
+          <!-- Paper 1: GestoLumina -->
+          <div class="card" style="margin-bottom: 1.5rem; border-left: 4px solid var(--red-primary);">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span class="badge" style="background: #ffe4e6; color: #b91c1c; font-weight: 700;">NIME 2024 Conference Paper</span>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">DOI: 10.5281/zenodo.13904794</span>
+            </div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--text-primary);">
+              GestoLumina: Gesture interpreted Light, Sound and Haptics. Towards a Framework for Universal Music Design
+            </h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+              <strong>Authors:</strong> Nate Hergert, Dillon Simeone, Doğa Çavdır, Duncan MacConnell, Shawn Trail, Myles de Bastion
+            </p>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 1rem;">
+              Published in the <em>Proceedings of the International Conference on New Interfaces for Musical Expression (NIME 2024)</em>. This paper presents GestoLumina (GeLu), detailing its modular architecture, tactile ring sensor, audio-reactive LED wristbands, and interaction design frameworks tailored specifically to enhance musical education and performance for the Deaf and Hard of Hearing community.
+            </p>
+            <div>
+              <a href="https://doi.org/10.5281/zenodo.13904794" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Read on Zenodo / NIME &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Paper 2: Sonic Agency -->
+          <div class="card" style="border-left: 4px solid var(--red-primary);">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span class="badge" style="background: #ffe4e6; color: #b91c1c; font-weight: 700;">ACM ASSETS Conference Paper</span>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">SIGACCESS Accessibility</span>
+            </div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--text-primary);">
+              Sonic Agency: A Group Autoethnography of Technology-mediated Performance Practice by Deaf and Hard of Hearing Musicians
+            </h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+              <strong>Authors:</strong> Dillon Simeone, Shawn Trail, Doğa Çavdır, and collaborators
+            </p>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 1rem;">
+              Published in the <em>ACM SIGACCESS Conference on Computers and Accessibility (ASSETS)</em>. This research presents a group autoethnography exploring how Deaf and Hard of Hearing musicians appropriate, perform with, and co-design technology-mediated sonic practices. It documents how spatial haptics, tactile subwoofers, and visualizers enable artists to reclaim creative agency and define new modalities of musical artistry beyond auditory listening.
+            </p>
+            <div>
+              <span style="font-size: 0.88rem; color: var(--text-muted); font-style: italic;">ACM SIGACCESS Conference on Computers and Accessibility</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Research & Production Team -->
+        <div style="margin-bottom: 3.5rem;">
+          <h2 style="font-size: 1.85rem; margin-bottom: 0.5rem;">The Team</h2>
+          <p style="color: var(--text-muted); margin-bottom: 2rem;">
+            Meet the researchers, engineers, writers, and producers driving Universal Music Design.
+          </p>
+
+          <div class="grid grid-2" style="gap: 1.5rem;">
+            <!-- Shawn Trail -->
+            <div class="card">
+              <div class="card-badge"><span class="asl-pill">PI Lead</span></div>
+              <h3 style="font-size: 1.35rem; margin-bottom: 0.25rem;">Shawn Trail, PhD</h3>
+              <span style="display: block; font-size: 0.88rem; color: var(--red-primary); font-weight: 600; margin-bottom: 0.75rem;">Principal Investigator &amp; Research Lead</span>
+              <p style="font-size: 0.92rem; line-height: 1.6; color: var(--text-secondary); margin: 0;">
+                Percussionist, audio engineer, and computer scientist. Shawn leads the overarching research trajectory, experimental testing, and academic collaborations for Universal Music Design. His work bridges acoustic signal processing, machine learning, physical computing, and haptic interface development, creating empirical methodologies for multi-sensory music accessibility.
+              </p>
+            </div>
+
+            <!-- Dillon Simeone -->
+            <div class="card">
+              <div class="card-badge"><span class="asl-pill">Design Lead</span></div>
+              <h3 style="font-size: 1.35rem; margin-bottom: 0.25rem;">Dillon Simeone</h3>
+              <span style="display: block; font-size: 0.88rem; color: var(--red-primary); font-weight: 600; margin-bottom: 0.75rem;">Lead Design Engineer</span>
+              <p style="font-size: 0.92rem; line-height: 1.6; color: var(--text-secondary); margin: 0;">
+                A hardware and software engineer from the Deaf community, Dillon specializes in audio-reactive haptic systems, embedded microcontrollers (ESP32, Pixelblaze), and wearable accessibility tech. He is the lead designer of the Gestolumina (GeLu) gesture-sensing haptic bracelets and co-author on technology-mediated performance practice for Deaf musicians.
+              </p>
+            </div>
+
+            <!-- Tracy Held -->
+            <div class="card">
+              <div class="card-badge"><span class="asl-pill">Operations</span></div>
+              <h3 style="font-size: 1.35rem; margin-bottom: 0.25rem;">Tracy Held</h3>
+              <span style="display: block; font-size: 0.88rem; color: var(--red-primary); font-weight: 600; margin-bottom: 0.75rem;">Project Coordinator</span>
+              <p style="font-size: 0.92rem; line-height: 1.6; color: var(--text-secondary); margin: 0;">
+                An award-winning writer for stage and screen with an MFA in Dramatic Writing from Carnegie Mellon University, co-founder of Erosion (a climate-conscious film production company), and veteran nonprofit marketing and fundraising consultant. Tracy orchestrates grant development, project administration, community partnerships, and strategic storytelling for Universal Music Design.
+              </p>
+            </div>
+
+            <!-- Nate Hergert -->
+            <div class="card">
+              <div class="card-badge"><span class="asl-pill">Music Maker</span></div>
+              <h3 style="font-size: 1.35rem; margin-bottom: 0.25rem;">Nate Hergert</h3>
+              <span style="display: block; font-size: 0.88rem; color: var(--red-primary); font-weight: 600; margin-bottom: 0.75rem;">Music Maker &amp; Deaf DJ (DJ Deafwish)</span>
+              <p style="font-size: 0.92rem; line-height: 1.6; color: var(--text-secondary); margin: 0;">
+                Deaf electronic music producer, DJ, and founder of Confluence Recording Studio. A fellow of the Oregon Community Foundation Creative Heights Award, Nate pioneers tactile mixing and performance methodologies using SubPac vibrotactile feedback, crafting bass-driven electronic music that resonates deeply across sensory boundaries.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Direct Archive Callout Card -->
+        <div class="card" style="background: #ffffff; border: 2px solid var(--red-primary); padding: 2.5rem 2rem; text-align: center; margin-bottom: 3rem;">
+          <h2 style="font-size: 1.75rem; margin-bottom: 1rem; color: var(--text-primary);">Explore the Original UMD Archive Site</h2>
+          <p style="max-width: 640px; margin: 0 auto 1.75rem; color: var(--text-secondary); line-height: 1.65; font-size: 1rem;">
+            Visit the original Confluence and Universal Music Design web archive to explore historical announcements, listen to foundational audio compositions such as <em>Igaki Prelude</em> by DJ Deafwish, and review our early research documentation.
+          </p>
+          <a href="https://67a9ec34816a3c0008f1083a--bejewelled-kelpie-6a1941.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 1.05rem; padding: 0.85rem 2rem;">
+            Visit UMD site &rarr;
+          </a>
+        </div>
+
+        <!-- Back Link -->
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="../projects.html" class="btn btn-outline">&larr; Back to All Projects</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="brand-logo">
+          <img src="../assets/images/cymaspace-logo.svg" alt="CymaSpace Logo" class="brand-icon">
+          <div>
+            <span class="brand-text">CymaSpace</span>
+            <span class="brand-tagline">Sound Made Visible</span>
+          </div>
+        </a>
+        <p class="footer-desc">
+          A Deaf-owned 501(c)(3) nonprofit technology and arts organization based in Portland, Oregon. Dedicated to making cultural events and the arts universally accessible through cymatic technology, light, and vibration.
+        </p>
+        <div class="social-links">
+          <a href="https://facebook.com/cymaspace" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer">&#102;</a>
+          <a href="https://instagram.com/cymaspace" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener noreferrer">&#9901;</a>
+          <a href="https://youtube.com/cymaspace" class="social-btn" aria-label="YouTube" target="_blank" rel="noopener noreferrer">&#9654;</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Initiatives</h3>
+        <ul class="footer-links">
+          <li><a href="universal-music-design.html">Universal Music Design</a></li>
+          <li><a href="signkids.html">SignKids Program</a></li>
+          <li><a href="technology.html">Our Technology</a></li>
+          <li><a href="see-sound.html">See Sound (OMSI Piano)</a></li>
+          <li><a href="media.html">Media &amp; Puppetry</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">About &amp; Community</h3>
+        <ul class="footer-links">
+          <li><a href="../mission.html">Mission &amp; Cymatics</a></li>
+          <li><a href="../community-events.html">Woodstock Cafe Events</a></li>
+          <li><a href="../board-of-directors.html">Board of Directors</a></li>
+          <li><a href="../code-of-conduct.html">Code of Conduct</a></li>
+          <li><a href="../contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Join the Movement</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+          Subscribe for updates on accessibility breakthroughs, community events, and creative workshops.
+        </p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" class="input-text" placeholder="Enter your email" required aria-label="Email address">
+          <button type="submit" class="btn btn-primary btn-sm" style="width: 100%;">Subscribe</button>
+        </form>
+        <div style="margin-top: 1.25rem;">
+          <a href="../donate.html" class="btn btn-magenta btn-sm" style="width: 100%;">Support Our Work</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 CymaSpace. All rights reserved. 501(c)(3) Nonprofit Organization.</p>
+      <div class="footer-bottom-links">
+        <a href="../code-of-conduct.html">Code of Conduct</a>
+        <a href="../contact.html">Privacy &amp; Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

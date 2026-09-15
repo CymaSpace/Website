@@ -1,7 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" fill="none">
-  <rect width="240" height="50" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
-  <circle cx="28" cy="25" r="14" fill="#C30443" opacity="0.12" />
-  <circle cx="28" cy="25" r="8" stroke="#C30443" stroke-width="2" />
-  <text x="52" y="24" fill="#0F172A" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="1">OREGON CULTURAL TRUST</text>
-  <text x="52" y="37" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="500">Cultural Partner &amp; Supporter</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="60" viewBox="0 0 220 60" fill="none">
+  <!-- Oregon State Map with Sunburst Emblem -->
+  <g transform="translate(8, 8)">
+    <rect width="44" height="44" rx="10" fill="#E6F4F6" />
+    <!-- Oregon State Outline silhouette -->
+    <path d="M12 14 L34 14 L34 32 L15 32 L13 28 L11 20 Z" fill="#0E585F" />
+    <!-- Radiant Golden Sunburst Center -->
+    <circle cx="23" cy="22" r="5" fill="#F59E0B" />
+    <path d="M23 15 L23 18 M23 26 L23 29 M16 22 L19 22 M27 22 L30 22" stroke="#FBBF24" stroke-width="1.5" stroke-linecap="round" />
+  </g>
+  <!-- Typography -->
+  <g transform="translate(60, 0)">
+    <text x="0" y="27" fill="#0E585F" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="700">Oregon Cultural Trust</text>
+    <text x="0" y="43" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" letter-spacing="1">CULTURAL PARTNER</text>
+  </g>
 </svg>

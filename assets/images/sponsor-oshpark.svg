@@ -1,7 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" fill="none">
-  <rect width="240" height="50" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
-  <circle cx="28" cy="25" r="14" fill="#C30443" opacity="0.12" />
-  <circle cx="28" cy="25" r="7" fill="#C30443" />
-  <text x="52" y="24" fill="#0F172A" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="1">OSH PARK</text>
-  <text x="52" y="37" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="500">Hardware &amp; Electronics</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="60" viewBox="0 0 220 60" fill="none">
+  <!-- Iconic Purple PCB Badge -->
+  <g transform="translate(10, 8)">
+    <rect width="44" height="44" rx="10" fill="#3B154C" />
+    <!-- PCB Copper Traces and Pads -->
+    <circle cx="22" cy="22" r="13" stroke="#CA8A04" stroke-width="2" fill="none" stroke-dasharray="6 3" />
+    <circle cx="22" cy="22" r="6" fill="#FACC15" />
+    <rect x="14" y="20.5" width="4" height="3" fill="#CA8A04" rx="1" />
+    <rect x="26" y="20.5" width="4" height="3" fill="#CA8A04" rx="1" />
+    <circle cx="16" cy="14" r="1.5" fill="#CA8A04" />
+    <circle cx="28" cy="14" r="1.5" fill="#CA8A04" />
+    <circle cx="16" cy="30" r="1.5" fill="#CA8A04" />
+    <circle cx="28" cy="30" r="1.5" fill="#CA8A04" />
+  </g>
+  <!-- Typography -->
+  <g transform="translate(64, 0)">
+    <text x="0" y="27" fill="#3B154C" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="900" letter-spacing="1">OSH PARK</text>
+    <text x="0" y="43" fill="#7E22CE" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="600">Perfect Purple PCBs</text>
+  </g>
 </svg>
