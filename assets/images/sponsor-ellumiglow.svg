@@ -1,7 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" fill="none">
-  <rect width="240" height="50" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
-  <circle cx="28" cy="25" r="14" fill="#C30443" opacity="0.12" />
-  <path d="M22 25 L28 17 L34 25 L28 33 Z" fill="#C30443" />
-  <text x="52" y="24" fill="#0F172A" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="1">ELLUMIGLOW</text>
-  <text x="52" y="37" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="500">Electric Optics</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="60" viewBox="0 0 220 60" fill="none">
+  <!-- Electroluminescent Neon Prism Emblem -->
+  <g transform="translate(10, 8)">
+    <rect width="44" height="44" rx="10" fill="#E0F2FE" />
+    <!-- Glowing light ray hexagon / optics mark -->
+    <path d="M22 12 L33 18 L33 30 L22 36 L11 30 L11 18 Z" fill="#0284C7" />
+    <path d="M22 17 L29 21 L29 27 L22 31 L15 27 L15 21 Z" fill="#38BDF8" />
+    <circle cx="22" cy="24" r="3.5" fill="#FFFFFF" />
+  </g>
+  <!-- Typography -->
+  <g transform="translate(64, 0)">
+    <text x="0" y="27" fill="#0369A1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="900" letter-spacing="1.2">ELLUMIGLOW</text>
+    <text x="0" y="43" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="600">Electric Optics &amp; Lighting</text>
+  </g>
 </svg>

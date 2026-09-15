@@ -142,41 +142,124 @@
           </div>
         </div>
 
-        <!-- Cymatic Interactive Visualizer Box -->
+        <!-- Sound-to-Light Frequency Visualizer Box -->
         <div id="visualizer" class="cymatic-hero-container">
-          <div class="visualizer-overlay-info">
-            <div class="visualizer-title">
-              <span style="color: var(--red-primary);">&#10022;</span>
-              <span>Cymatic Resonance Field</span>
+          <div class="visualizer-top-bar">
+            <div class="visualizer-header-title">
+              <span style="color: var(--red-primary); font-size: 1.25rem;">&#10022;</span>
+              <div>
+                <div class="visualizer-title-text">Sound-to-Light Visualizer</div>
+                <div class="visualizer-subtitle-text">Translating Sound Frequency into Dynamic Color</div>
+              </div>
             </div>
-            <div class="visualizer-subtitle">Chladni Waveform Harmonic Simulation</div>
+            
+            <div class="freq-status-pill">
+              <span id="vizStatusIndicator" class="freq-status-indicator"></span>
+              <span id="vizFreqStatusText">120 Hz &bull; Low Frequency (Warm Red)</span>
+            </div>
           </div>
           
           <div class="visualizer-canvas-wrapper">
             <canvas id="cymaticsCanvas"></canvas>
+            <div class="canvas-hud-overlay">
+              <div class="hud-color-zone">
+                <span id="hudZoneText">Low Frequency &rarr; Warm Red</span>
+              </div>
+            </div>
           </div>
 
-          <!-- Controls Bar -->
+          <!-- Pixelblaze-Style Animation Pattern Selector Row (One Row) -->
+          <div class="visualizer-animation-row" role="toolbar" aria-label="Select animation pattern">
+            <span class="animation-row-label"><span>&#10024;</span> Animations:</span>
+            <button class="anim-btn active" data-viz-anim="pulse" title="Concentric Pulse Waves">
+              <span class="anim-icon">&#9678;</span> Pulse Waves
+            </button>
+            <button class="anim-btn" data-viz-anim="chladni" title="Standing Wave Modal Resonator">
+              <span class="anim-icon">&#10040;</span> Chladni Nodes
+            </button>
+            <button class="anim-btn" data-viz-anim="spiral" title="Harmonic Cymatic Spiral">
+              <span class="anim-icon">&#10034;</span> Harmonic Spiral
+            </button>
+            <button class="anim-btn" data-viz-anim="spectrum" title="Frequency Band Spectrum Analyzer">
+              <span class="anim-icon">&#9776;</span> Spectrum EQ
+            </button>
+            <button class="anim-btn" data-viz-anim="matrix" title="Pixelblaze 2D LED Dot Matrix">
+              <span class="anim-icon">&#9638;</span> Pixelblaze Matrix
+            </button>
+            <button class="anim-btn" data-viz-anim="lissajous" title="Lissajous Resonance Scope">
+              <span class="anim-icon">&#8734;</span> Lissajous Scope
+            </button>
+          </div>
+
+          <!-- Audio & Frequency Controls Bar -->
           <div class="visualizer-controls-bar">
-            <div class="visualizer-btn-group">
-              <button id="vizToneBtn" class="viz-btn" aria-pressed="false">
-                <span>&#9654;</span> <span class="btn-text">Play Tone</span>
-              </button>
-              <button id="vizMicBtn" class="viz-btn" aria-pressed="false">
+            <!-- Audio Toggle Buttons -->
+            <div class="visualizer-audio-group">
+              <button id="vizMicBtn" class="viz-control-btn" aria-pressed="false" title="Listen with live microphone">
                 <span>&#127908;</span> <span class="btn-text">Live Mic</span>
               </button>
+              <button id="vizToneBtn" class="viz-control-btn" aria-pressed="false" title="Generate tone at selected frequency">
+                <span>&#9654;</span> <span class="btn-text">Play Tone</span>
+              </button>
             </div>
 
+            <!-- Quick Color / Frequency Presets -->
+            <div class="freq-presets-group" title="Quick frequency range presets">
+              <button class="freq-preset-btn preset-red active" data-freq="80">Bass (80Hz Red)</button>
+              <button class="freq-preset-btn preset-blue" data-freq="440">Mid (440Hz Blue)</button>
+              <button class="freq-preset-btn preset-purple" data-freq="2200">High (2.2kHz Purple)</button>
+            </div>
+
+            <!-- Continuous Frequency Slider -->
             <div class="freq-slider-group">
-              <label for="vizFreqSlider">Freq:</label>
-              <input type="range" id="vizFreqSlider" class="freq-slider" min="60" max="880" value="432" step="2" aria-label="Frequency adjust in Hertz">
-              <span id="vizFreqVal" class="freq-val-display">432 Hz</span>
+              <label for="vizFreqSlider" style="font-weight: 700;">Pitch:</label>
+              <input type="range" id="vizFreqSlider" class="freq-slider" min="40" max="3200" value="120" step="5" aria-label="Adjust frequency in Hertz">
+              <span id="vizFreqVal" class="freq-val-display">120 Hz</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Frequency-to-Color Deaf Accessibility Feature Section -->
+      <div class="container">
+        <div class="viz-accessibility-card">
+          <div class="viz-access-header">
+            <span class="section-tag">&#128065; Sensory Substitution &amp; Deaf Accessibility</span>
+            <h3>How Frequency-to-Color Translation Enables Deaf Inclusion</h3>
+            <p>Hearing sound is only one way to experience acoustic vibration. By translating sound frequencies into an intuitive, consistent color spectrum, Deaf and Hard of Hearing individuals can visually track pitch, rhythm, vocal melodies, and musical arrangement in real time.</p>
+          </div>
+
+          <div class="viz-freq-guide-grid">
+            <!-- Low Frequency / Red Card -->
+            <div class="viz-freq-card freq-red">
+              <span class="freq-badge">0 – 200 Hz</span>
+              <h4>Low Frequencies &bull; Warm Reds</h4>
+              <div class="freq-sound-type">Bass, Kick Drums, Sub-bass, Seismic Rhythms</div>
+              <p class="freq-desc">These deep frequencies generate powerful vibrations felt physically in the body through bone conduction and vibrohaptic flooring. Visually rendering them in warm red reinforces the physical impact that Deaf audiences physically feel.</p>
             </div>
 
-            <div class="visualizer-btn-group">
-              <button class="viz-btn active" data-viz-mode="cymatics">Cymatics</button>
-              <button class="viz-btn" data-viz-mode="waveform">Wave</button>
-              <button class="viz-btn" data-viz-mode="spectrum">Spectrum</button>
+            <!-- Middle Frequency / Blue Card -->
+            <div class="viz-freq-card freq-blue">
+              <span class="freq-badge">200 – 1,000 Hz</span>
+              <h4>Middle Frequencies &bull; Electric Blues</h4>
+              <div class="freq-sound-type">Human Voice, Guitars, Pianos, Melodic Harmonies</div>
+              <p class="freq-desc">The core conversational and melodic range of speech and music. Vibrant electric blue illumination allows viewers to visually track dialogue cadence, melodic contours, and musical phrasing without needing acoustic hearing.</p>
+            </div>
+
+            <!-- High Frequency / Purple Card -->
+            <div class="viz-freq-card freq-purple">
+              <span class="freq-badge">1,000+ Hz</span>
+              <h4>High Frequencies &bull; Luminous Purples</h4>
+              <div class="freq-sound-type">Cymbals, Brass Overtones, Sibilants, Synthesizer Shimmer</div>
+              <p class="freq-desc">Fast transients and airy acoustic details often missed in muffled acoustics. Rendered in radiant purple and violet, bringing the crisp attack, shimmer, and percussive brilliance into crystal-clear visual perception.</p>
+            </div>
+          </div>
+
+          <!-- Real World Application Footer in Card -->
+          <div class="viz-access-footer">
+            <div class="viz-access-icon">&#128161;</div>
+            <div>
+              <strong>How CymaSpace Applies This Technology:</strong> We embed these frequency-to-light translation algorithms into sound-reactive stage lighting, Pixelblaze-controlled LED matrices, and tactile venue installations. At live concerts, theater productions, and community gatherings at the Woodstock Community Cafe, Deaf, Hard of Hearing, and hearing guests share an identical, synchronized sensory experience.
             </div>
           </div>
         </div>
@@ -355,23 +438,23 @@
     </section>
 
     <!-- Sponsors & Community Partners -->
-    <section class="section-sm" style="border-top: 1px solid var(--border-subtle); background: #070b12;">
+    <section class="section-sm" style="border-top: 1px solid var(--border-subtle); background: #0b0f19;">
       <div class="container">
-        <div style="text-align: center; margin-bottom: 1.5rem;">
+        <div style="text-align: center; margin-bottom: 1.75rem;">
           <span class="section-tag" style="margin-bottom: 0;">Our Proud Sponsors &amp; Cultural Partners</span>
         </div>
         <div class="sponsors-grid">
           <a href="https://www.portland.gov/arts" target="_blank" rel="noopener noreferrer" class="sponsor-item" title="City of Portland Office of Arts &amp; Culture">
-            <img src="assets/images/sponsor-oac.svg" alt="City of Portland Office of Arts &amp; Culture logo" class="sponsor-logo">
+            <img src="assets/images/sponsor-oac.svg" alt="City of Portland Office of Arts &amp; Culture logo" class="sponsor-logo" width="220" height="60" loading="lazy">
           </a>
           <a href="http://culturaltrust.org/" target="_blank" rel="noopener noreferrer" class="sponsor-item" title="Oregon Cultural Trust">
-            <img src="assets/images/sponsor-oct.svg" alt="Oregon Cultural Trust logo" class="sponsor-logo">
+            <img src="assets/images/sponsor-oct.svg" alt="Oregon Cultural Trust logo" class="sponsor-logo" width="220" height="60" loading="lazy">
           </a>
           <a href="http://www.ellumiglow.com/" target="_blank" rel="noopener noreferrer" class="sponsor-item" title="Ellumiglow Electric Optics">
-            <img src="assets/images/sponsor-ellumiglow.svg" alt="Ellumiglow Electric Optics logo" class="sponsor-logo">
+            <img src="assets/images/sponsor-ellumiglow.svg" alt="Ellumiglow Electric Optics logo" class="sponsor-logo" width="220" height="60" loading="lazy">
           </a>
           <a href="https://oshpark.com/" target="_blank" rel="noopener noreferrer" class="sponsor-item" title="OSH Park">
-            <img src="assets/images/sponsor-oshpark.svg" alt="OSH Park logo" class="sponsor-logo">
+            <img src="assets/images/sponsor-oshpark.svg" alt="OSH Park logo" class="sponsor-logo" width="220" height="60" loading="lazy">
           </a>
         </div>
       </div>
