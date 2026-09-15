@@ -128,56 +128,99 @@
   <main id="main-content" class="main-content">
     <!-- Hero Section -->
     <section class="section home-hero">
-      <div class="container home-hero-grid">
-        <div class="hero-text-col">
-          <span class="section-tag">&#128266; Translating Sound Into Light &amp; Touch</span>
-          <h1 class="page-hero-title">Experience Sound Through <span class="text-gradient">Light, Motion &amp; Vibration</span></h1>
-          <p class="lead">
-            CymaSpace is a Deaf-owned 501(c)(3) nonprofit technology hub in Portland, Oregon. We pioneer accessible arts, media, and culture for the Deaf and Hard of Hearing community using cutting-edge cymatics and inclusive design.
-          </p>
-          <div class="hero-actions">
-            <a href="#visualizer" class="btn btn-primary">Try Cymatic Visualizer</a>
-            <a href="community-events.html" class="btn btn-outline">Woodstock Cafe Events</a>
-            <a href="donate.html" class="btn btn-magenta">Support Us</a>
-          </div>
+      <!-- Centered Hero Intro -->
+      <div class="container" style="max-width: 860px; text-align: center; margin-bottom: 2rem;">
+        <span class="section-tag">&#128266; Translating Sound Into Light &amp; Touch</span>
+        <h1 class="page-hero-title">Experience Sound Through <span class="text-gradient">Light, Motion &amp; Vibration</span></h1>
+        <p class="lead" style="margin: 0 auto 1.75rem; color: #475569;">
+          CymaSpace is a Deaf-owned 501(c)(3) nonprofit technology hub in Portland, Oregon. We pioneer accessible arts, media, and culture for the Deaf and Hard of Hearing community using cutting-edge cymatics and inclusive design.
+        </p>
+        <div class="hero-actions" style="justify-content: center;">
+          <a href="#visualizer" class="btn btn-primary">Try Sound-to-Light Visualizer</a>
+          <a href="community-events.html" class="btn btn-outline">Woodstock Cafe Events</a>
+          <a href="donate.html" class="btn btn-magenta">Support Us</a>
         </div>
+      </div>
 
-        <!-- Sound-to-Light Frequency Visualizer Box -->
+      <!-- Centered Sound-to-Light Frequency Visualizer Box -->
+      <div class="container">
         <div id="visualizer" class="cymatic-hero-container">
+          <!-- Header & Purpose Explanation Area -->
           <div class="visualizer-top-bar">
-            <div class="visualizer-header-title">
-              <span style="color: var(--red-primary); font-size: 1.25rem;">&#10022;</span>
-              <div>
-                <div class="visualizer-title-text">Sound-to-Light Visualizer</div>
-                <div class="visualizer-subtitle-text">Translating Sound Frequency into Dynamic Color</div>
+            <div class="visualizer-header-row">
+              <div class="visualizer-title-group">
+                <div class="visualizer-title-badge">&#10022;</div>
+                <div>
+                  <div class="visualizer-title-text">Sound-to-Light Visualizer</div>
+                  <div class="visualizer-subtitle-text">Translating Sound Frequency into Dynamic Color &bull; Deaf Arts Accessibility Engine</div>
+                </div>
+              </div>
+              
+              <div class="hud-live-tag">
+                <span class="hud-pulse-dot"></span>
+                <span>Live Tri-Band Audio Engine</span>
               </div>
             </div>
-            
-            <div class="freq-status-pill">
-              <span id="vizStatusIndicator" class="freq-status-indicator"></span>
-              <span id="vizFreqStatusText">120 Hz &bull; Low Frequency (Warm Red)</span>
+
+            <!-- Clear Purpose Explanation Banner -->
+            <div class="visualizer-purpose-box">
+              <strong>Purpose of this Visualizer:</strong> Deaf and Hard of Hearing individuals experience music through sight and physical vibration. This visualizer breaks down sound into three synchronized frequency tiers—<strong>Low Bass (Red)</strong>, <strong>Mid Vocals &amp; Melodies (Blue)</strong>, and <strong>High Treble (Purple)</strong>. Instead of snapping to a single pitch, all frequencies animate together simultaneously, enabling non-hearing viewers to see musical composition, dialogue dynamics, and rhythm in real time.
+            </div>
+
+            <!-- Tri-Band Live Frequency Meters -->
+            <div class="tri-band-meters-row">
+              <div class="band-meter-card">
+                <div class="band-meter-header">
+                  <span class="band-label-red">&#9679; Low (0–200 Hz)</span>
+                  <span style="color: #64748b;">Bass &amp; Kick Drums</span>
+                </div>
+                <div class="band-meter-track">
+                  <div id="meterRed" class="band-meter-fill fill-red" style="width: 45%;"></div>
+                </div>
+              </div>
+
+              <div class="band-meter-card">
+                <div class="band-meter-header">
+                  <span class="band-label-blue">&#9679; Mid (200–1000 Hz)</span>
+                  <span style="color: #64748b;">Voice &amp; Melodies</span>
+                </div>
+                <div class="band-meter-track">
+                  <div id="meterBlue" class="band-meter-fill fill-blue" style="width: 55%;"></div>
+                </div>
+              </div>
+
+              <div class="band-meter-card">
+                <div class="band-meter-header">
+                  <span class="band-label-purple">&#9679; High (1000+ Hz)</span>
+                  <span style="color: #64748b;">Cymbals &amp; Treble</span>
+                </div>
+                <div class="band-meter-track">
+                  <div id="meterPurple" class="band-meter-fill fill-purple" style="width: 40%;"></div>
+                </div>
+              </div>
             </div>
           </div>
           
+          <!-- Canvas Viewport Frame -->
           <div class="visualizer-canvas-wrapper">
             <canvas id="cymaticsCanvas"></canvas>
             <div class="canvas-hud-overlay">
-              <div class="hud-color-zone">
-                <span id="hudZoneText">Low Frequency &rarr; Warm Red</span>
+              <div class="hud-color-spectrum">
+                <span>🔴 Bass (0-200Hz) &bull; 🔵 Mid (200-1kHz) &bull; 🟣 High (1kHz+)</span>
               </div>
             </div>
           </div>
 
-          <!-- Pixelblaze-Style Animation Pattern Selector Row (One Row) -->
+          <!-- Pixelblaze-Style Animation Pattern Selector Row -->
           <div class="visualizer-animation-row" role="toolbar" aria-label="Select animation pattern">
             <span class="animation-row-label"><span>&#10024;</span> Animations:</span>
-            <button class="anim-btn active" data-viz-anim="pulse" title="Concentric Pulse Waves">
+            <button class="anim-btn active" data-viz-anim="pulse" title="Concentric Multi-Band Pulse Waves">
               <span class="anim-icon">&#9678;</span> Pulse Waves
             </button>
             <button class="anim-btn" data-viz-anim="chladni" title="Standing Wave Modal Resonator">
               <span class="anim-icon">&#10040;</span> Chladni Nodes
             </button>
-            <button class="anim-btn" data-viz-anim="spiral" title="Harmonic Cymatic Spiral">
+            <button class="anim-btn" data-viz-anim="spiral" title="Harmonic Tri-Band Spiral">
               <span class="anim-icon">&#10034;</span> Harmonic Spiral
             </button>
             <button class="anim-btn" data-viz-anim="spectrum" title="Frequency Band Spectrum Analyzer">
@@ -196,25 +239,27 @@
             <!-- Audio Toggle Buttons -->
             <div class="visualizer-audio-group">
               <button id="vizMicBtn" class="viz-control-btn" aria-pressed="false" title="Listen with live microphone">
-                <span>&#127908;</span> <span class="btn-text">Live Mic</span>
+                <span>&#127908;</span> <span class="btn-text">Live Microphone</span>
               </button>
-              <button id="vizToneBtn" class="viz-control-btn" aria-pressed="false" title="Generate tone at selected frequency">
-                <span>&#9654;</span> <span class="btn-text">Play Tone</span>
+              <button id="vizToneBtn" class="viz-control-btn" aria-pressed="false" title="Play harmonic audio demo">
+                <span>&#9654;</span> <span class="btn-text">Play Sound Demo</span>
               </button>
             </div>
 
             <!-- Quick Color / Frequency Presets -->
             <div class="freq-presets-group" title="Quick frequency range presets">
-              <button class="freq-preset-btn preset-red active" data-freq="80">Bass (80Hz Red)</button>
-              <button class="freq-preset-btn preset-blue" data-freq="440">Mid (440Hz Blue)</button>
-              <button class="freq-preset-btn preset-purple" data-freq="2200">High (2.2kHz Purple)</button>
+              <span class="preset-group-title">Presets:</span>
+              <button class="freq-preset-btn preset-all active" data-mode="all" title="Full spectrum rich composite sound">✦ Tri-Band Soundscape</button>
+              <button class="freq-preset-btn preset-red" data-mode="bass" data-freq="80" title="Low frequency bass drum">Bass (80Hz Red)</button>
+              <button class="freq-preset-btn preset-blue" data-mode="mid" data-freq="440" title="Middle frequency vocal melody">Vocal (440Hz Blue)</button>
+              <button class="freq-preset-btn preset-purple" data-mode="high" data-freq="2400" title="High frequency cymbal shimmer">Treble (2.4kHz Purple)</button>
             </div>
 
             <!-- Continuous Frequency Slider -->
             <div class="freq-slider-group">
               <label for="vizFreqSlider" style="font-weight: 700;">Pitch:</label>
-              <input type="range" id="vizFreqSlider" class="freq-slider" min="40" max="3200" value="120" step="5" aria-label="Adjust frequency in Hertz">
-              <span id="vizFreqVal" class="freq-val-display">120 Hz</span>
+              <input type="range" id="vizFreqSlider" class="freq-slider" min="40" max="3200" value="440" step="5" aria-label="Adjust frequency in Hertz">
+              <span id="vizFreqVal" class="freq-val-display">440 Hz</span>
             </div>
           </div>
         </div>
