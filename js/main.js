@@ -18,6 +18,36 @@ function initNavigation() {
 
   if (!toggleBtn || !drawer || !backdrop) return;
 
+  // Auto-inject header and wrap body if not already present in static HTML
+  if (!drawer.querySelector('.mobile-drawer-header')) {
+    const existingLogo = document.querySelector('.brand-logo img');
+    const logoSrc = existingLogo ? existingLogo.getAttribute('src') : 'assets/images/cymaspace-logo.svg';
+    const isSubDir = logoSrc.startsWith('../');
+    const homeHref = isSubDir ? '../index.html' : 'index.html';
+
+    const header = document.createElement('div');
+    header.className = 'mobile-drawer-header';
+    header.innerHTML = `
+      <a href="${homeHref}" class="mobile-drawer-brand" aria-label="CymaSpace Home">
+        <img src="${logoSrc}" alt="CymaSpace Logo" class="brand-icon">
+        <span class="brand-text">CymaSpace</span>
+      </a>
+      <button class="mobile-drawer-close-btn" aria-label="Close navigation menu" type="button">&times;</button>
+    `;
+
+    if (!drawer.querySelector('.mobile-drawer-body')) {
+      const body = document.createElement('div');
+      body.className = 'mobile-drawer-body';
+      while (drawer.firstChild) {
+        body.appendChild(drawer.firstChild);
+      }
+      drawer.appendChild(header);
+      drawer.appendChild(body);
+    } else {
+      drawer.insertBefore(header, drawer.firstChild);
+    }
+  }
+
   function toggleMenu() {
     const isOpen = drawer.classList.toggle('open');
     backdrop.classList.toggle('open', isOpen);
@@ -34,6 +64,13 @@ function initNavigation() {
 
   toggleBtn.addEventListener('click', toggleMenu);
   backdrop.addEventListener('click', closeMenu);
+
+  // Close drawer on close button click or link navigation via delegation
+  drawer.addEventListener('click', (e) => {
+    if (e.target.closest('.mobile-drawer-close-btn') || e.target.closest('a')) {
+      closeMenu();
+    }
+  });
 
   // Close drawer on Escape key
   document.addEventListener('keydown', (e) => {
