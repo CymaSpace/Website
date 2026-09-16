@@ -165,39 +165,67 @@
 
             <!-- Clear Purpose Explanation Banner -->
             <div class="visualizer-purpose-box">
-              <strong>Purpose of this Visualizer:</strong> Deaf and Hard of Hearing individuals experience music through sight and physical vibration. This visualizer translates incoming sound into three synchronized color layers: <strong>Low Bass (Red)</strong>, <strong>Mid Vocals and Melodies (Blue)</strong>, and <strong>High Treble (Purple)</strong>. Instead of snapping to a single pitch, each pulse ripples outward with dyed liquid color representing all frequencies simultaneously, enabling non-hearing viewers to see musical composition, dialogue dynamics, and rhythm in real time.
+              <strong>Sound-to-Light Chromatic Translation:</strong> Deaf and Hard of Hearing individuals experience music through sight and physical vibration. This visualizer maps incoming sound directly from <strong>0 Hz to 20,000 Hz</strong> into <strong>0–255 Hue</strong>, transitioning continuously from deep red bass (Hue 0 at 0 Hz) across the visible spectrum to luminous purple (Hue 255 at 20 kHz). Each frequency in live speech, music, or synthesized tones is rendered in its true chromatic color in real time.
             </div>
 
-            <!-- Tri-Band Live Frequency Meters -->
-            <div class="tri-band-meters-row">
-              <div class="band-meter-card">
-                <div class="band-meter-header">
-                  <span class="band-label-red">Low (0-200 Hz)</span>
-                  <span style="color: #64748b;">Bass and Kick Drums</span>
+            <!-- Online Tone Generator Explainer & External Link Banner -->
+            <div class="tone-gen-explainer-card">
+              <div class="tone-gen-explainer-header">
+                <div class="tone-gen-title-badge">
+                  <span class="tone-gen-icon">&#9835;</span>
+                  <strong>Control Colors with the Online Tone Generator</strong>
                 </div>
-                <div class="band-meter-track">
-                  <div id="meterRed" class="band-meter-fill fill-red" style="width: 45%;"></div>
+                <a href="https://www.szynalski.com/tone-generator/" target="_blank" rel="noopener noreferrer" class="tone-gen-cta-btn" title="Open szynalski.com online tone generator in a new tab">
+                  <span>Open Tone Generator (szynalski.com)</span>
+                  <span class="external-icon">&nearr;</span>
+                </a>
+              </div>
+              <p class="tone-gen-explainer-body">
+                <strong>What it's for &amp; How to use it:</strong> Want to test how specific musical frequencies translate into colors? Turn on <strong>Live Microphone</strong> below, then open the free tone generator on your smartphone, tablet, or a separate browser tab. As you slide the tone frequency from <strong>20 Hz up to 10,000–20,000 Hz</strong> through your speaker, watch this visualizer smoothly shift colors in real time from <strong>deep Red bass &rarr; Yellow &rarr; Green &rarr; Cyan &rarr; Blue &rarr; radiant Purple treble</strong>!
+              </p>
+            </div>
+
+            <!-- Continuous 0-255 Hue to Frequency Spectrum Meter -->
+            <div class="hue-spectrum-meter-card">
+              <div class="hue-spectrum-header">
+                <div class="hue-header-left">
+                  <span id="hueMeterTitle" class="hue-meter-title">0 Hz – 10,000 Hz &rarr; 0–255 Hue Chromatic Mapping</span>
+                  <span id="hueMeterSubtitle" class="hue-meter-subtitle">Continuous sound-to-light spectrum: 0 Hz (Hue 0 &bull; Red) to 10,000 Hz (Hue 255 &bull; Purple)</span>
+                </div>
+                <div class="hue-header-status">
+                  <div class="max-freq-selector-group">
+                    <label for="maxFreqSelect">Max Freq:</label>
+                    <select id="maxFreqSelect" class="max-freq-select" title="Set upper frequency ceiling for 0-255 Hue mapping">
+                      <option value="10000" selected>10 kHz (Default &bull; Standard Mics)</option>
+                      <option value="15000">15 kHz (Extended Range)</option>
+                      <option value="20000">20 kHz (Full Audio &bull; Studio Mics)</option>
+                    </select>
+                  </div>
+                  <span id="activeHueSwatch" class="hue-active-swatch" style="background-color: hsl(0, 95%, 50%);" title="Live Color Swatch"></span>
+                  <span id="activeFreqLabel" class="hue-freq-badge">0 Hz (Silence)</span>
+                  <span id="activeHueLabel" class="hue-val-badge">Hue: 0 / 255</span>
                 </div>
               </div>
 
-              <div class="band-meter-card">
-                <div class="band-meter-header">
-                  <span class="band-label-blue">Mid (200-1000 Hz)</span>
-                  <span style="color: #64748b;">Voice and Melodies</span>
+              <!-- Microphone Limitation Advisory (Shown when > 10 kHz) -->
+              <div id="micRangeNotice" class="mic-range-notice" style="display: none;" role="status">
+                <span class="mic-notice-icon">&#9888;</span>
+                <div class="mic-notice-text">
+                  <strong>Why your microphone might flip frequencies above 10 kHz:</strong> Most consumer built-in laptop and smartphone microphones are physically tuned for speech and have automatic hardware capsules and browser noise filters that steeply roll off frequencies above <strong>8–10 kHz</strong>. When a high-pitch tone exceeds 10 kHz, your mic may be unable to register the signal, causing the visualizer to pick up background room noise or sub-harmonics (~300–500 Hz). If this occurs, keep your range set to <strong>10 kHz</strong>, or connect an external studio measurement microphone.
                 </div>
-                <div class="band-meter-track">
-                  <div id="meterBlue" class="band-meter-fill fill-blue" style="width: 55%;"></div>
-                </div>
+                <button type="button" id="dismissMicNotice" class="mic-notice-close" aria-label="Dismiss advisory">&times;</button>
               </div>
 
-              <div class="band-meter-card">
-                <div class="band-meter-header">
-                  <span class="band-label-purple">High (1000+ Hz)</span>
-                  <span style="color: #64748b;">Cymbals and Treble</span>
-                </div>
-                <div class="band-meter-track">
-                  <div id="meterPurple" class="band-meter-fill fill-purple" style="width: 40%;"></div>
-                </div>
+              <div class="hue-track-wrapper">
+                <div class="hue-gradient-bar"></div>
+                <div id="hueIndicatorPin" class="hue-indicator-pin" style="left: 0%;"></div>
+              </div>
+              <div id="hueScaleLabels" class="hue-scale-labels">
+                <span>0 Hz (Hue 0 &bull; Red)</span>
+                <span>2.5 kHz (Hue 64 &bull; Green)</span>
+                <span>5 kHz (Hue 128 &bull; Cyan-Blue)</span>
+                <span>7.5 kHz (Hue 191 &bull; Violet)</span>
+                <span>10 kHz (Hue 255 &bull; Purple)</span>
               </div>
             </div>
           </div>
@@ -207,10 +235,10 @@
             <canvas id="cymaticsCanvas"></canvas>
           </div>
 
-          <!-- Pixelblaze-Style Animation Pattern Selector Row (Strict Single Row) -->
+          <!-- Animation Pattern Selector Row -->
           <div class="visualizer-animation-row" role="toolbar" aria-label="Select animation pattern">
             <span class="animation-row-label">Animations:</span>
-            <button class="anim-btn active" data-viz-anim="pulse" title="Liquid Multi-Band Pulse Waves">
+            <button class="anim-btn active" data-viz-anim="pulse" title="Volume-Reactive Liquid Multi-Band Pulse Waves">
               Pulse Waves
             </button>
             <button class="anim-btn" data-viz-anim="chladni" title="Standing Wave Modal Resonator">
@@ -222,8 +250,8 @@
             <button class="anim-btn" data-viz-anim="spectrum" title="Frequency Band Spectrum Analyzer">
               Spectrum EQ
             </button>
-            <button class="anim-btn" data-viz-anim="matrix" title="Pixelblaze 2D LED Dot Matrix">
-              Pixelblaze Matrix
+            <button class="anim-btn" data-viz-anim="matrix" title="2D LED Dot Matrix">
+              Matrix
             </button>
             <button class="anim-btn" data-viz-anim="lissajous" title="Lissajous Resonance Scope">
               Lissajous Scope
@@ -232,30 +260,41 @@
 
           <!-- Audio & Frequency Controls Bar -->
           <div class="visualizer-controls-bar">
-            <!-- Audio Toggle Buttons -->
-            <div class="visualizer-audio-group">
+            <!-- Row 1: Centered Live Audio Volume / Level Meter -->
+            <div class="viz-controls-row viz-controls-row-meter">
+              <div class="viz-audio-level-display" title="Live audio input volume level">
+                <span class="viz-level-label">Audio Level:</span>
+                <div class="viz-level-track">
+                  <div id="vizLevelBar" class="viz-level-bar" style="width: 4%;"></div>
+                </div>
+                <span id="vizLevelText" class="viz-level-text">Silent</span>
+              </div>
+            </div>
+
+            <!-- Row 2: Centered Audio Action Buttons -->
+            <div class="viz-controls-row viz-controls-row-buttons">
               <button id="vizMicBtn" class="viz-control-btn" aria-pressed="false" title="Listen with live microphone">
+                <span class="btn-icon">&#127908;</span>
                 <span class="btn-text">Live Microphone</span>
               </button>
-              <button id="vizToneBtn" class="viz-control-btn" aria-pressed="false" title="Play harmonic audio demo">
-                <span class="btn-text">Play Sound Demo</span>
+              <button id="vizToneBtn" class="viz-control-btn btn-rock-demo" aria-pressed="false" title="Play high-energy rock band audio demo with drums, bass, and distorted guitars">
+                <span class="btn-icon">&#127928;</span>
+                <span class="btn-text">Play Rock Band Demo</span>
+              </button>
+
+              <!-- Upload Custom Audio / MP4 Video File -->
+              <input type="file" id="vizAudioUpload" accept="audio/*,video/mp4,video/*,.mp3,.wav,.ogg,.m4a,.flac,.aac,.mp4,.webm" style="display: none;">
+              <button type="button" id="vizUploadBtn" class="viz-control-btn btn-upload" title="Upload an MP3, WAV, or MP4 video to loop and visualize">
+                <span class="btn-icon">&#128193;</span>
+                <span class="btn-text">Upload Audio / MP4</span>
               </button>
             </div>
 
-            <!-- Quick Color / Frequency Presets -->
-            <div class="freq-presets-group" title="Quick frequency range presets">
-              <span class="preset-group-title">Presets:</span>
-              <button class="freq-preset-btn preset-all active" data-mode="all" title="Full spectrum rich composite sound">Tri-Band Soundscape</button>
-              <button class="freq-preset-btn preset-red" data-mode="bass" data-freq="80" title="Low frequency bass drum">Bass (80Hz Red)</button>
-              <button class="freq-preset-btn preset-blue" data-mode="mid" data-freq="440" title="Middle frequency vocal melody">Vocal (440Hz Blue)</button>
-              <button class="freq-preset-btn preset-purple" data-mode="high" data-freq="2400" title="High frequency cymbal shimmer">Treble (2.4kHz Purple)</button>
-            </div>
-
-            <!-- Continuous Frequency Slider -->
-            <div class="freq-slider-group">
-              <label for="vizFreqSlider" style="font-weight: 700;">Pitch:</label>
-              <input type="range" id="vizFreqSlider" class="freq-slider" min="40" max="3200" value="440" step="5" aria-label="Adjust frequency in Hertz">
-              <span id="vizFreqVal" class="freq-val-display">440 Hz</span>
+            <!-- Row 3: Track Info Banner (Displays loaded file name with looping badge & stop button) -->
+            <div id="vizTrackInfoRow" class="viz-track-info-row" style="display: none;">
+              <span class="track-info-badge">&#128257; Looping:</span>
+              <span id="vizTrackName" class="track-info-name">Uploaded Audio</span>
+              <button type="button" id="vizStopUploadedBtn" class="track-info-stop" title="Stop and remove uploaded track">&times; Stop &amp; Clear</button>
             </div>
           </div>
         </div>
@@ -266,33 +305,33 @@
         <div class="viz-accessibility-card">
           <div class="viz-access-header">
             <span class="section-tag">Sensory Substitution and Deaf Accessibility</span>
-            <h3>How Frequency-to-Color Translation Enables Deaf Inclusion</h3>
-            <p>Hearing sound is only one way to experience acoustic vibration. By translating sound frequencies into an intuitive, consistent color spectrum, Deaf and Hard of Hearing individuals can visually track pitch, rhythm, vocal melodies, and musical arrangement in real time.</p>
+            <h3>How Direct Frequency-to-Hue (0–255) Translation Enables Deaf Inclusion</h3>
+            <p>Hearing sound is only one way to experience acoustic vibration. By mapping the audible range directly to 0–255 Hue—from deep red bass at 0 Hz all the way to radiant purple at maximum frequency—Deaf and Hard of Hearing individuals can visually track pitch, rhythm, vocal melodies, and musical arrangement with absolute chromatic fidelity.</p>
           </div>
 
           <div class="viz-freq-guide-grid">
-            <!-- Low Frequency / Red Card -->
+            <!-- Low Frequencies (Red) -->
             <div class="viz-freq-card freq-red">
-              <span class="freq-badge">0-200 Hz</span>
-              <h4>Low Frequencies: Warm Reds</h4>
+              <span class="freq-badge">0–250 Hz &bull; Deep Red</span>
+              <h4>Deep Bass: Crimson Reds</h4>
               <div class="freq-sound-type">Bass, Kick Drums, Sub-bass, Seismic Rhythms</div>
-              <p class="freq-desc">These deep frequencies generate powerful vibrations felt physically in the body through bone conduction and vibrohaptic flooring. Visually rendering them in warm red reinforces the physical impact that Deaf audiences physically feel.</p>
+              <p class="freq-desc">Mapped to Hue 0 (pure red) up to deep vermilion. These deep frequencies generate physical vibrations felt through bone conduction and vibrohaptic flooring. Rendering them in deep red visually mirrors the visceral physical impact felt by Deaf audiences.</p>
             </div>
 
-            <!-- Middle Frequency / Blue Card -->
+            <!-- Mid Frequencies (Green & Blue) -->
             <div class="viz-freq-card freq-blue">
-              <span class="freq-badge">200-1000 Hz</span>
-              <h4>Middle Frequencies: Electric Blues</h4>
+              <span class="freq-badge">Mid Frequencies &bull; Green &amp; Blue</span>
+              <h4>Melodic Frequencies: Green &amp; Blue</h4>
               <div class="freq-sound-type">Human Voice, Guitars, Pianos, Melodic Harmonies</div>
-              <p class="freq-desc">The core conversational and melodic range of speech and music. Vibrant electric blue illumination allows viewers to visually track dialogue cadence, melodic contours, and musical phrasing without needing acoustic hearing.</p>
+              <p class="freq-desc">Mapped smoothly across yellow, green, cyan, and blue. The core conversational and melodic range of speech and music, allowing viewers to track vocal inflection and harmonic contours through smooth, intuitive color shifts.</p>
             </div>
 
-            <!-- High Frequency / Purple Card -->
+            <!-- High Frequencies (Purple) -->
             <div class="viz-freq-card freq-purple">
-              <span class="freq-badge">1000+ Hz</span>
-              <h4>High Frequencies: Luminous Purples</h4>
-              <div class="freq-sound-type">Cymbals, Brass Overtones, Sibilants, Synthesizer Shimmer</div>
-              <p class="freq-desc">Fast transients and airy acoustic details often missed in muffled acoustics. Rendered in radiant purple and violet, bringing the crisp attack, shimmer, and percussive brilliance into crystal-clear visual perception.</p>
+              <span class="freq-badge">Max Treble &bull; Radiant Purple</span>
+              <h4>Air &amp; Treble: Luminous Purples</h4>
+              <div class="freq-sound-type">Cymbals, Brass Overtones, Sibilants, Percussive Attack</div>
+              <p class="freq-desc">Mapped up to Hue 255 (radiant purple) at the acoustic ceiling. Fast percussive transients, cymbals, and airy acoustic details that are often completely inaudible to Deaf individuals are rendered in brilliant violet and purple light.</p>
             </div>
           </div>
 
@@ -300,6 +339,53 @@
           <div class="viz-access-footer">
             <div>
               <strong>How CymaSpace Applies This Technology:</strong> We embed these frequency-to-light translation algorithms into sound-reactive stage lighting, Pixelblaze-controlled LED matrices, and tactile venue installations. At live concerts, theater productions, and community gatherings at the Woodstock Community Cafe, Deaf, Hard of Hearing, and hearing guests share an identical, synchronized sensory experience.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Electromagnetic Spectrum vs. Acoustic Sound Waves Section -->
+      <div class="container">
+        <div class="em-spectrum-card">
+          <div class="em-spectrum-header">
+            <span class="section-tag">Physics of Light &amp; Sound</span>
+            <h3>Electromagnetic Spectrum vs. Acoustic Sound Waves</h3>
+            <p>
+              Sound and light belong to completely different physical domains: <strong>sound</strong> is a mechanical pressure wave propagating through physical matter (air, water, bone), while <strong>light</strong> is oscillating electromagnetic radiation propagating through space. Explore the interactive canvas below to see the microscopic sliver that human eyes can see, compare it to the acoustic range human ears work for, and see how CymaSpace proportionally maps <strong>0 Hz to Red</strong> and <strong>Max Sound Hz to Purple</strong>.
+            </p>
+          </div>
+
+          <!-- Interactive Canvas Viewport with Zoom, Drag and Inspection -->
+          <div class="em-canvas-wrapper" id="emCanvasWrapper">
+            <canvas id="emSpectrumCanvas"></canvas>
+            
+            <div class="em-canvas-toolbar" role="toolbar" aria-label="Spectrum canvas navigation controls">
+              <button type="button" id="emZoomInBtn" class="em-tool-btn" title="Zoom in to inspect details">+ Zoom In</button>
+              <button type="button" id="emZoomOutBtn" class="em-tool-btn" title="Zoom out to see whole spectrum">- Zoom Out</button>
+              <button type="button" id="emFocusBtn" class="em-tool-btn" title="Focus view on visible light and hearing comparison">&#128269; Focus Comparison</button>
+              <button type="button" id="emResetBtn" class="em-tool-btn" title="Reset view to default overview">&#8634; Reset</button>
+            </div>
+
+            <div class="em-canvas-hint">
+              <span id="emCanvasHintText">&#9757; Drag to pan &bull; Scroll / pinch to zoom &bull; Hover over bands to inspect</span>
+            </div>
+          </div>
+
+          <!-- Explanatory Comparative Architecture Cards -->
+          <div class="em-legend-grid">
+            <div class="em-legend-card">
+              <h4><span style="color: #dc2626;">&#9679;</span> Visible Light: 400 nm to 700 nm</h4>
+              <p>The visible spectrum is a tiny fraction of the electromagnetic spectrum ($\sim 4.3\times 10^{14}$ Hz to $7.5\times 10^{14}$ Hz). <strong>Red light</strong> is the lowest visible electromagnetic frequency (longest wavelength, ~700 nm), while <strong>Purple/Violet light</strong> is the highest visible frequency (shortest wavelength, ~400 nm).</p>
+            </div>
+
+            <div class="em-legend-card">
+              <h4><span style="color: #0284c7;">&#9679;</span> Acoustic Sound: 0 Hz to 10k–20k Hz</h4>
+              <p>Mechanical vibration detectable by human ear hair cells and bone conduction. <strong>Deep sub-bass (0–60 Hz)</strong> represents the base floor of human acoustic perception, while <strong>upper treble (10k–20k Hz)</strong> represents the physiological ceiling of human hearing.</p>
+            </div>
+
+            <div class="em-legend-card">
+              <h4><span style="color: #9333ea;">&#9679;</span> The CymaSpace Sensory Bridge</h4>
+              <p>Because humans cannot directly see acoustic vibrations, CymaSpace proportional mapping aligns the biological thresholds: <strong>Lowest Audible Sound (0 Hz) &rarr; Lowest Visible Light (Red)</strong>, and <strong>Upper Hearing Ceiling &rarr; Highest Visible Light (Purple)</strong>, giving sound an intuitive visual geometry.</p>
             </div>
           </div>
         </div>
@@ -569,7 +655,7 @@
 
       <div class="footer-bottom">
         <div>
-          &copy; 2026 CymaSpace. 501(c)(3) tax-exempt non-profit incorporated in Oregon.
+          &copy; 2026 CymaSpace. 501(c)(3) tax-exempt non-profit incorporated in Oregon. &bull; Website designed by <a href="https://dillonsimeone.com/" target="_blank" rel="noopener noreferrer">Dillon Simeone</a>
         </div>
         <div>
           <a href="contact.html" style="color: var(--text-muted); margin-right: 1.25rem;">Contact</a>

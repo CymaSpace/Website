@@ -29,7 +29,7 @@ CymaSpace makes arts, media, and culture accessible and inclusive to the Deaf an
 2. **Interactive In-Browser Cymatic Visualizer**:
    - Built directly with HTML5 Canvas and the Web Audio API (`js/visualizer.js`).
    - Simulates real-time Chladni nodal wave patterns and frequencies.
-   - Includes tone generator, frequency slider (60Hz–880Hz), live microphone mode, and view toggles (Cymatics, Waveform, Spectrum).
+   - Includes online tone generator integration, live microphone mode, dynamic musical frequency demo, real-time volume & frequency tracking, and view toggles (Pulse Waves, Chladni Nodes, Harmonic Spiral, Spectrum EQ, Matrix, Lissajous Scope).
 
 3. **Accessibility First (Deaf & Hard of Hearing Centered)**:
    - WCAG 2.1 AA compliant color contrast on a modern dark cymatics palette.
