@@ -1,0 +1,15 @@
+# Operating System & Editor Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# AI Agent Context & Instructions
+gemini.md
+GEMINI.md
+agents.md
+AGENTS.md
+
+# Logs & Temporary Artifacts
+*.log
+npm-debug.log*

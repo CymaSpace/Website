@@ -94,52 +94,125 @@
   font-weight: 600;
   transition: all var(--transition-fast);
 }
+/* Continuous Hue-to-Frequency Spectrum Meter Card */
+.hue-spectrum-meter-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
 
-.band-meter-header {
+.hue-spectrum-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.hue-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.hue-meter-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.hue-meter-subtitle {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.hue-header-status {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 0.5rem;
 }
 
-.band-label-red {
-  color: #dc2626;
-  font-weight: 700;
-}
-.band-label-blue {
-  color: #2563eb;
-  font-weight: 700;
-}
-.band-label-purple {
-  color: #9333ea;
-  font-weight: 700;
+.hue-active-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 1.5px #cbd5e1, 0 1px 4px rgba(0,0,0,0.15);
+  display: inline-block;
+  transition: background-color 0.08s ease-out;
 }
 
-.band-meter-track {
-  height: 6px;
+.hue-freq-badge {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.82rem;
   background: #f1f5f9;
+  color: #0f172a;
+  padding: 0.2rem 0.6rem;
   border-radius: 9999px;
-  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.hue-val-badge {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.82rem;
+  background: #ede9fe;
+  color: #6d28d9;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  border: 1px solid #ddd6fe;
+}
+
+.hue-track-wrapper {
   position: relative;
+  height: 14px;
+  margin-bottom: 0.5rem;
 }
 
-.band-meter-fill {
+.hue-gradient-bar {
+  width: 100%;
   height: 100%;
-  width: 25%;
   border-radius: 9999px;
-  transition: width 0.08s ease-out;
+  background: linear-gradient(90deg, 
+    hsl(0, 95%, 50%) 0%, 
+    hsl(35, 95%, 50%) 12%, 
+    hsl(60, 95%, 48%) 24%, 
+    hsl(110, 90%, 42%) 38%, 
+    hsl(175, 95%, 42%) 55%, 
+    hsl(220, 95%, 52%) 72%, 
+    hsl(255, 95%, 55%) 86%, 
+    hsl(285, 95%, 50%) 100%
+  );
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.15);
 }
 
-.fill-red {
-  background: linear-gradient(90deg, #ef4444, #dc2626);
-  box-shadow: 0 0 6px rgba(220, 38, 38, 0.4);
+.hue-indicator-pin {
+  position: absolute;
+  top: -4px;
+  width: 10px;
+  height: 22px;
+  background: #0f172a;
+  border: 2px solid #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.35);
+  transform: translateX(-50%);
+  transition: left 0.08s ease-out;
+  pointer-events: none;
 }
-.fill-blue {
-  background: linear-gradient(90deg, #3b82f6, #2563eb);
-  box-shadow: 0 0 6px rgba(37, 99, 235, 0.4);
-}
-.fill-purple {
-  background: linear-gradient(90deg, #c084fc, #9333ea);
-  box-shadow: 0 0 6px rgba(147, 51, 234, 0.4);
+
+.hue-scale-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  font-family: var(--font-heading);
+  color: #64748b;
+  font-weight: 600;
+  flex-wrap: wrap;
+  gap: 0.25rem;
 }
 
 /* Canvas Viewport Frame - Clean White Liquid Stage (No Dark Clashing) */
@@ -227,28 +300,84 @@
   box-shadow: 0 2px 10px rgba(195, 4, 67, 0.3);
 }
 
-/* Visualizer Controls Bar - White, Centered, Intuitive */
 .visualizer-controls-bar {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 1.25rem;
+  justify-content: center;
+  gap: 0.85rem;
   padding: 1.25rem 2rem;
   background: #ffffff;
 }
 
-.visualizer-audio-group {
+.viz-controls-row {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.viz-controls-row-meter {
+  margin-bottom: 0.15rem;
+}
+
+.viz-audio-level-display {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.4rem 1rem;
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 9999px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.viz-level-label {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.viz-level-track {
+  width: 140px;
+  height: 9px;
+  background: #e2e8f0;
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.viz-level-bar {
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #10b981 0%, #06b6d4 45%, #f59e0b 80%, #ef4444 100%);
+  transition: width 0.08s ease-out;
+}
+
+.viz-level-text {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  min-width: 54px;
+  text-align: left;
+  color: #94a3b8;
+  transition: color 0.15s ease;
+}
+
+.viz-controls-row-buttons {
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .viz-control-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.55rem 1.1rem;
+  padding: 0.6rem 1.15rem;
   background: #ffffff;
   border: 1.5px solid #cbd5e1;
   border-radius: var(--radius-sm);
@@ -261,10 +390,16 @@
   transition: all var(--transition-fast);
 }
 
+.viz-control-btn .btn-icon {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
 .viz-control-btn:hover {
   background: #f8fafc;
   border-color: var(--red-primary);
   color: var(--red-primary);
+  transform: translateY(-1px);
 }
 
 .viz-control-btn.active {
@@ -274,121 +409,197 @@
   box-shadow: 0 2px 10px rgba(195, 4, 67, 0.35);
 }
 
-/* Preset Modes Group */
-.freq-presets-group {
+.viz-control-btn.btn-rock-demo {
+  border-color: #fdba74;
+}
+
+.viz-control-btn.btn-rock-demo:hover {
+  border-color: #ea580c;
+  color: #ea580c;
+}
+
+.viz-control-btn.btn-rock-demo.active {
+  background: linear-gradient(135deg, #ef4444 0%, #ea580c 100%);
+  border-color: #dc2626;
+  color: #ffffff;
+  box-shadow: 0 2px 12px rgba(234, 88, 12, 0.4);
+}
+
+.viz-control-btn.btn-upload {
+  border-color: #7dd3fc;
+}
+
+.viz-control-btn.btn-upload:hover {
+  border-color: #0284c7;
+  color: #0284c7;
+}
+
+.viz-control-btn.btn-upload.active {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 2px 10px rgba(2, 132, 199, 0.35);
+}
+
+/* Uploaded Track Info Row */
+.viz-track-info-row {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 0.45rem;
+  justify-content: center;
+  gap: 0.65rem;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 8px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.84rem;
 }
 
-.preset-group-title {
-  font-size: 0.75rem;
-  font-family: var(--font-heading);
-  font-weight: 800;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-right: 0.25rem;
-}
-
-.freq-preset-btn {
-  padding: 0.4rem 0.8rem;
-  font-size: 0.78rem;
+.track-info-badge {
   font-weight: 700;
-  border-radius: 6px;
-  cursor: pointer;
-  border: 1px solid transparent;
-  transition: all var(--transition-fast);
-  font-family: var(--font-heading);
+  color: #16a34a;
 }
 
-.preset-all {
-  background: #f1f5f9;
+.track-info-name {
+  font-weight: 600;
   color: #0f172a;
-  border-color: #cbd5e1;
-}
-.preset-all:hover, .preset-all.active {
-  background: #0f172a;
-  color: #ffffff;
-  border-color: #0f172a;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25);
+  max-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.preset-red {
+.track-info-stop {
+  background: #ffffff;
+  border: 1px solid #fca5a5;
+  border-radius: 4px;
+  padding: 0.15rem 0.45rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #dc2626;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.track-info-stop:hover {
   background: #fee2e2;
-  color: #b91c1c;
-  border-color: #fca5a5;
-}
-.preset-red:hover, .preset-red.active {
-  background: #dc2626;
-  color: #ffffff;
-  border-color: #dc2626;
-  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.35);
+  border-color: #ef4444;
 }
 
-.preset-blue {
-  background: #dbeafe;
-  color: #1d4ed8;
-  border-color: #93c5fd;
-}
-.preset-blue:hover, .preset-blue.active {
-  background: #2563eb;
-  color: #ffffff;
-  border-color: #2563eb;
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
-}
-
-.preset-purple {
-  background: #f3e8ff;
-  color: #7e22ce;
-  border-color: #d8b4fe;
-}
-.preset-purple:hover, .preset-purple.active {
-  background: #9333ea;
-  color: #ffffff;
-  border-color: #9333ea;
-  box-shadow: 0 2px 8px rgba(147, 51, 234, 0.35);
+/* ==========================================================================
+   ONLINE TONE GENERATOR EXPLAINER CARD (Above Spectrum Meter)
+   ========================================================================== */
+.tone-gen-explainer-card {
+  background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+  border: 1.5px solid #7dd3fc;
+  border-radius: 12px;
+  padding: 1.1rem 1.4rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 2px 10px rgba(2, 132, 199, 0.08);
 }
 
-/* Continuous Frequency Slider */
-.freq-slider-group {
+.tone-gen-explainer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.tone-gen-title-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: #0369a1;
+}
+
+.tone-gen-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: #0284c7;
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 0.85rem;
+}
+
+.tone-gen-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.95rem;
+  background: #0284c7;
+  color: #ffffff;
+  border-radius: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
+  transition: all 0.15s ease;
+}
+
+.tone-gen-cta-btn:hover {
+  background: #0369a1;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+}
+
+.tone-gen-explainer-body {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #334155;
+}
+
+/* Live Audio Input Volume Level Display */
+.viz-audio-level-display {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: #334155;
-  font-size: 0.85rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.45rem 0.85rem;
+}
+
+.viz-level-label {
   font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
-.freq-slider {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 150px;
-  height: 6px;
-  background: linear-gradient(to right, #ef4444 0%, #3b82f6 50%, #a855f7 100%);
-  border-radius: var(--radius-full);
-  outline: none;
-  cursor: pointer;
+.viz-level-track {
+  width: 140px;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
 }
 
-.freq-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 3px solid #0f172a;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+.viz-level-bar {
+  height: 100%;
+  width: 4%;
+  background: linear-gradient(90deg, #22c55e 0%, #eab308 65%, #ef4444 100%);
+  border-radius: 4px;
+  transition: width 0.08s ease-out;
 }
 
-.freq-val-display {
-  color: #0f172a;
+.viz-level-text {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
   font-weight: 800;
+  color: #0f172a;
   min-width: 55px;
-  text-align: right;
 }
 
 /* ==========================================================================
@@ -560,4 +771,235 @@
   .viz-accessibility-card {
     padding: 1.5rem;
   }
+}
+
+/* ==========================================================================
+   Max Frequency Range Selector & Microphone Hardware Warning Notice
+   ========================================================================== */
+.max-freq-selector-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.max-freq-select {
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  font-size: 0.82rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: #0f172a;
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.max-freq-select:focus {
+  border-color: var(--magenta-bright);
+}
+
+.mic-range-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-left: 4px solid #f59e0b;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  margin-top: 0.85rem;
+  font-size: 0.88rem;
+  color: #92400e;
+  line-height: 1.5;
+  box-shadow: 0 1px 3px rgba(245, 158, 11, 0.1);
+}
+
+.mic-notice-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.mic-notice-text {
+  flex: 1;
+}
+
+.mic-notice-close {
+  background: transparent;
+  border: none;
+  font-size: 1.35rem;
+  color: #b45309;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 0.25rem;
+  border-radius: 4px;
+}
+
+.mic-notice-close:hover {
+  background: rgba(180, 83, 9, 0.1);
+}
+
+/* External Tone Generator Link Button */
+.tone-gen-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #0284c7;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.tone-gen-btn:hover {
+  background: #e0f2fe;
+  border-color: #38bdf8;
+  color: #0369a1;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.2);
+}
+
+/* ==========================================================================
+   Interactive Zoomable/Draggable Electromagnetic vs Acoustic Canvas
+   ========================================================================== */
+.em-spectrum-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 2.25rem 2rem;
+  box-shadow: var(--shadow-sm);
+  margin-top: 3.5rem;
+}
+
+.em-spectrum-header {
+  margin-bottom: 1.75rem;
+}
+
+.em-spectrum-header h3 {
+  font-size: 1.65rem;
+  color: #0f172a;
+  margin-top: 0.35rem;
+  margin-bottom: 0.65rem;
+}
+
+.em-spectrum-header p {
+  color: #64748b;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.em-canvas-wrapper {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  background: #0f172a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.6);
+  border: 1px solid #1e293b;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.em-canvas-wrapper.is-dragging {
+  cursor: grabbing;
+}
+
+#emSpectrumCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.em-canvas-toolbar {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(10px);
+  padding: 0.35rem 0.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 10;
+}
+
+.em-tool-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f8fafc;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.em-tool-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+}
+
+.em-canvas-hint {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(10px);
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.76rem;
+  color: #94a3b8;
+  pointer-events: none;
+  font-family: var(--font-heading);
+}
+
+.em-legend-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+}
+
+.em-legend-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.25rem 1.4rem;
+}
+
+.em-legend-card h4 {
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #0f172a;
+}
+
+.em-legend-card p {
+  font-size: 0.88rem;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0;
 }
