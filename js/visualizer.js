@@ -1348,14 +1348,7 @@ class ElectromagneticSpectrumCanvas {
   initInteraction() {
     const wrapper = this.wrapper;
 
-    // Cache canvas client rect on interaction entry to prevent layout thrashing in mousemove/wheel
-    let cachedRect = null;
-    const updateRect = () => {
-      cachedRect = this.canvas.getBoundingClientRect();
-    };
-    wrapper.addEventListener('pointerenter', updateRect, { passive: true });
-    window.addEventListener('resize', () => { cachedRect = null; }, { passive: true });
-    window.addEventListener('scroll', () => { cachedRect = null; }, { passive: true });
+    const canvas = this.canvas;
 
     // 2D Mouse drag
     wrapper.addEventListener('mousedown', (e) => {
@@ -1367,27 +1360,24 @@ class ElectromagneticSpectrumCanvas {
       wrapper.classList.add('is-dragging');
     });
 
+    // Hover detection directly on the canvas using offsetX/offsetY without geometric DOM queries
+    canvas.addEventListener('mousemove', (e) => {
+      this.mouse.x = e.offsetX;
+      this.mouse.y = e.offsetY;
+      if (!this.isDragging) {
+        this.updateHoverState();
+        this.render();
+      }
+    }, { passive: true });
+
+    // Drag tracking on window: only active when dragging
     window.addEventListener('mousemove', (e) => {
-      if (!cachedRect && wrapper.contains(e.target)) {
-        cachedRect = this.canvas.getBoundingClientRect();
-      }
-      if (cachedRect) {
-        this.mouse.x = e.clientX - cachedRect.left;
-        this.mouse.y = e.clientY - cachedRect.top;
-      } else {
-        this.mouse.x = e.offsetX;
-        this.mouse.y = e.offsetY;
-      }
-
-      if (this.isDragging) {
-        this.panX = this.startPanX + (e.clientX - this.startX);
-        this.panY = this.startPanY + (e.clientY - this.startY);
-        this.clampPan();
-      }
-
-      this.updateHoverState();
+      if (!this.isDragging) return;
+      this.panX = this.startPanX + (e.clientX - this.startX);
+      this.panY = this.startPanY + (e.clientY - this.startY);
+      this.clampPan();
       this.render();
-    });
+    }, { passive: true });
 
     window.addEventListener('mouseup', () => {
       if (this.isDragging) {
@@ -1396,21 +1386,18 @@ class ElectromagneticSpectrumCanvas {
       }
     });
 
-    wrapper.addEventListener('mouseleave', () => {
+    canvas.addEventListener('mouseleave', () => {
       this.mouse.x = -1;
       this.mouse.y = -1;
       this.updateHoverState();
       this.render();
-    });
+    }, { passive: true });
 
-    // Mouse wheel zoom centered on cursor
+    // Mouse wheel zoom centered on cursor using e.offsetX / e.offsetY directly
     wrapper.addEventListener('wheel', (e) => {
       e.preventDefault();
-      if (!cachedRect) {
-        cachedRect = this.canvas.getBoundingClientRect();
-      }
-      const mouseX = cachedRect ? e.clientX - cachedRect.left : e.offsetX;
-      const mouseY = cachedRect ? e.clientY - cachedRect.top : e.offsetY;
+      const mouseX = e.offsetX;
+      const mouseY = e.offsetY;
 
       const zoomFactor = e.deltaY < 0 ? 1.15 : 0.87;
       const newZoom = Math.max(0.7, Math.min(5.0, this.zoom * zoomFactor));
