@@ -49,7 +49,7 @@ class SiteNav extends HTMLElement {
           </div>
           <div class="top-notice-links">
             <a href="${base}community-events.html" class="top-notice-link">Cafe Events &rarr;</a>
-            <a href="${base}donate.html" class="top-notice-link" style="color: var(--magenta-bright);">Support Our Mission &hearts;</a>
+            <a href="${base}donate.html" class="top-notice-link top-notice-donate">Support Our Mission &hearts;</a>
           </div>
         </div>
       </div>
@@ -156,7 +156,7 @@ class SiteNav extends HTMLElement {
               <div class="mobile-subnav">
                 <a href="${base}projects.html" class="${currentFile === 'projects.html' ? 'active' : ''}">All Projects</a>
                 <a href="${base}projects/universal-music-design.html" class="${currentFile === 'universal-music-design.html' ? 'active' : ''}">Universal Music Design</a>
-                <a href="${base}projects/umd-news/index.html" class="${currentPath.includes('/umd-news/') ? 'active' : ''}" style="padding-left: 1.5rem; font-size: 0.88rem; color: var(--text-muted);">&bull; UMD Announcements</a>
+                <a href="${base}projects/umd-news/index.html" class="mobile-subnav-indent ${currentPath.includes('/umd-news/') ? 'active' : ''}">&bull; UMD Announcements</a>
                 <a href="${base}projects/signkids.html" class="${currentFile === 'signkids.html' ? 'active' : ''}">SignKids Program</a>
                 <a href="${base}projects/technology.html" class="${currentFile === 'technology.html' ? 'active' : ''}">Our Technology</a>
                 <a href="${base}projects/see-sound.html" class="${currentFile === 'see-sound.html' ? 'active' : ''}">See Sound (OMSI Piano)</a>

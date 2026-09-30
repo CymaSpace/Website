@@ -135,10 +135,8 @@ class SoundLightVisualizer {
 
   initCanvasSize(w, h) {
     if (!w || !h) {
-      const parent = this.canvas.parentElement;
-      if (!parent) return;
-      w = parent.clientWidth || 800;
-      h = parent.clientHeight || 440;
+      w = 800;
+      h = 440;
     }
     const dpr = Math.max(window.devicePixelRatio || 1, 2);
     this.dpr = dpr;
@@ -1300,9 +1298,8 @@ class ElectromagneticSpectrumCanvas {
 
   initCanvasSize(w, h) {
     if (!w || !h) {
-      if (!this.wrapper) return;
-      w = this.wrapper.clientWidth || 1000;
-      h = this.wrapper.clientHeight || 520;
+      w = 1000;
+      h = 520;
     }
     const dpr = Math.max(window.devicePixelRatio || 1, 2);
     this.dpr = dpr;
