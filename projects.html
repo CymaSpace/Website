@@ -31,20 +31,26 @@
   <meta name="twitter:description" content="Explore CymaSpace">
   <meta name="twitter:image" content="https://www.cymaspace.org/assets/images/projects/gestolumina-banner.jpg">
 
+    <!-- AI Agents & LLM Discovery (WebMCP / llms.txt / ARD) -->
+  <link rel="alternate" type="text/markdown" href="llms.txt" title="LLM Context">
+  <link rel="service-doc" href="ai-catalog.json" type="application/json" title="AI Agent Tool Catalog">
+
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="assets/images/cymaspace-logo.svg">
 
   <!-- Google Fonts & Stylesheets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap"></noscript>
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/pages.css">
 
   <!-- Shared Single Source of Truth Navigation Script -->
-  <script src="js/site-nav.js"></script>
+  <script src="js/site-nav.min.js" defer></script>
 
   <!-- Structured Data JSON-LD Schema -->
   <script type="application/ld+json">
@@ -209,7 +215,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem;">
+          <a href="index.html" class="brand-logo">
             <img src="assets/images/cymaspace-logo.svg" alt="CymaSpace Logo" class="brand-icon">
             <span class="brand-text">CymaSpace</span>
           </a>
@@ -245,7 +251,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js" defer></script>
   <script src="js/events.js"></script>
 </body>
 </html>

@@ -34,7 +34,7 @@
   /* Typography Colors - High Contrast WCAG 2.1 AA Compliant on White */
   --text-primary: #0f172a;         /* Charcoal / Deep Slate */
   --text-secondary: #334155;       /* Slate body text */
-  --text-muted: #64748b;          /* Soft slate */
+  --text-muted: #475569;           /* High-contrast slate (WCAG AAA 7.5:1 on white) */
   --text-inverse: #ffffff;
 
   /* Gradients */

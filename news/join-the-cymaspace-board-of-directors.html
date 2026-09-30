@@ -31,20 +31,26 @@
   <meta name="twitter:description" content="Join the CymaSpace Board of Directors – Strategic Roles with Flexible Commitment CymaSpace is seeking passionate and experienced professionals to join our">
   <meta name="twitter:image" content="https://www.cymaspace.org/assets/images/news/2016-03-DSC3862-e1459988280731.jpg">
 
+    <!-- AI Agents & LLM Discovery (WebMCP / llms.txt / ARD) -->
+  <link rel="alternate" type="text/markdown" href="../llms.txt" title="LLM Context">
+  <link rel="service-doc" href="../ai-catalog.json" type="application/json" title="AI Agent Tool Catalog">
+
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="../assets/images/cymaspace-logo.svg">
 
   <!-- Google Fonts & Stylesheets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap"></noscript>
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/pages.css">
 
   <!-- Shared Single Source of Truth Navigation Script -->
-  <script src="../js/site-nav.js"></script>
+  <script src="../js/site-nav.min.js" defer></script>
 
   <!-- Structured Data JSON-LD Schema -->
   <script type="application/ld+json">
@@ -85,17 +91,17 @@
   <site-nav base="../"></site-nav>
 
   <main id="main-content" class="main-content">
-    <article class="section" style="padding-top: 3rem;">
-      <div class="container" style="max-width: 820px;">
+    <article class="section article-section">
+      <div class="container article-container">
         
-        <div style="margin-bottom: 2rem;">
-          <a href="../news.html" style="color: var(--red-primary); font-weight: 600; font-size: 0.95rem;">&larr; Back to All News</a>
+        <div class="article-back-nav">
+          <a href="../news.html" class="article-back-link">&larr; Back to All News</a>
         </div>
 
         <span class="section-tag">News & Updates</span>
         <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.75rem); line-height: 1.25; margin: 0.75rem 0 1.25rem;">Join the CymaSpace Board of Directors</h1>
         
-        <div style="display: flex; gap: 1.5rem; align-items: center; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1.25rem;">
+        <div class="article-meta-bar">
           <span>Published: September 26, 2024</span>
           <span>&bull;</span>
           <span>CymaSpace Community Archive</span>
@@ -152,7 +158,7 @@
 <p>Let’s explore how your expertise and resources can fit into our flexible roles. To express your interest, please contact us for an initial conversation at <span id="eeb-269772-76804"></span><noscript>*protected email*</noscript> with the subject “CymaSpace Board of Directors Inquiry”.</p>
         </div>
 
-        <div style="margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div class="article-footer-nav">
           <a href="../news.html" class="btn btn-outline">&larr; Return to News</a>
           <a href="../donate.html" class="btn btn-magenta">Support CymaSpace</a>
         </div>
@@ -166,11 +172,11 @@
     <div class="container">
       <div class="footer-bottom">
         <div>&copy; 2026 CymaSpace. 501(c)(3) nonprofit in Portland, Oregon. &bull; Website designed by <a href="https://dillonsimeone.com/" target="_blank" rel="noopener noreferrer">Dillon Simeone</a></div>
-        <div><a href="../news.html" style="color: var(--text-muted);">Back to News</a></div>
+        <div><a href="../news.html">Back to News</a></div>
       </div>
     </div>
   </footer>
 
-  <script src="../js/main.js"></script>
+  <script src="../js/main.min.js" defer></script>
 </body>
 </html>

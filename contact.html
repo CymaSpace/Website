@@ -31,20 +31,26 @@
   <meta name="twitter:description" content="Get in touch with CymaSpace and Woodstock Cafe. Voice/text, mailing address, directions, and direct message inquiry form.">
   <meta name="twitter:image" content="https://www.cymaspace.org/assets/images/projects/gestolumina-banner.jpg">
 
+    <!-- AI Agents & LLM Discovery (WebMCP / llms.txt / ARD) -->
+  <link rel="alternate" type="text/markdown" href="llms.txt" title="LLM Context">
+  <link rel="service-doc" href="ai-catalog.json" type="application/json" title="AI Agent Tool Catalog">
+
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="assets/images/cymaspace-logo.svg">
 
   <!-- Google Fonts & Stylesheets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap"></noscript>
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/pages.css">
 
   <!-- Shared Single Source of Truth Navigation Script -->
-  <script src="js/site-nav.js"></script>
+  <script src="js/site-nav.min.js" defer></script>
 
   <!-- Structured Data JSON-LD Schema -->
   <script type="application/ld+json">
@@ -130,20 +136,36 @@
           <h2 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Send Us a Message</h2>
           <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Fill out the form below and a CymaSpace representative will respond promptly.</p>
           
-          <form id="contactForm">
+          <form id="contactForm"
+                data-webmcp-tool="send_contact_message"
+                data-webmcp-description="Send an inquiry message to the CymaSpace team."
+                data-webmcp-action="submit"
+                aria-description="Contact inquiry form for CymaSpace">
             <div class="form-group">
-              <label for="contactName" class="form-label">Your Name <span style="color: var(--magenta-bright);">*</span></label>
-              <input type="text" id="contactName" class="form-control" placeholder="Jane Doe" required>
+              <label for="contactName" class="form-label">Your Name <span class="bullet-red">*</span></label>
+              <input type="text" id="contactName" class="form-control" placeholder="Jane Doe" required
+                     data-webmcp-param="name"
+                     data-webmcp-type="string"
+                     data-webmcp-description="Sender's full name"
+                     data-webmcp-required="true">
             </div>
 
             <div class="form-group">
-              <label for="contactEmail" class="form-label">Email Address <span style="color: var(--magenta-bright);">*</span></label>
-              <input type="email" id="contactEmail" class="form-control" placeholder="jane@example.com" required>
+              <label for="contactEmail" class="form-label">Email Address <span class="bullet-red">*</span></label>
+              <input type="email" id="contactEmail" class="form-control" placeholder="jane@example.com" required
+                     data-webmcp-param="email"
+                     data-webmcp-type="string"
+                     data-webmcp-format="email"
+                     data-webmcp-description="Sender's email address"
+                     data-webmcp-required="true">
             </div>
 
             <div class="form-group">
               <label for="contactTopic" class="form-label">Topic of Interest</label>
-              <select id="contactTopic" class="form-control" style="background: var(--bg-surface);">
+              <select id="contactTopic" class="form-control"
+                      data-webmcp-param="topic"
+                      data-webmcp-type="string"
+                      data-webmcp-description="Category of inquiry">
                 <option value="general">General Inquiries</option>
                 <option value="woodstock">Woodstock Cafe &amp; Events</option>
                 <option value="signkids">SignKids Youth Program</option>
@@ -153,12 +175,16 @@
             </div>
 
             <div class="form-group">
-              <label for="contactMessage" class="form-label">Message <span style="color: var(--magenta-bright);">*</span></label>
-              <textarea id="contactMessage" class="form-control" placeholder="How can we assist you?" required></textarea>
+              <label for="contactMessage" class="form-label">Message <span class="bullet-red">*</span></label>
+              <textarea id="contactMessage" class="form-control" placeholder="How can we assist you?" required
+                        data-webmcp-param="message"
+                        data-webmcp-type="string"
+                        data-webmcp-description="Inquiry message content"
+                        data-webmcp-required="true"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-            <div id="contactStatus" role="status" aria-live="polite" style="margin-top: 1rem; display: none; font-weight: 600;"></div>
+            <button type="submit" class="btn btn-primary btn-card-action">Send Message</button>
+            <div id="contactStatus" role="status" aria-live="polite" class="newsletter-status"></div>
           </form>
         </div>
 
@@ -171,7 +197,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem;">
+          <a href="index.html" class="brand-logo">
             <img src="assets/images/cymaspace-logo.svg" alt="CymaSpace Logo" class="brand-icon">
             <span class="brand-text">CymaSpace</span>
           </a>
@@ -204,7 +230,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js" defer></script>
   <script src="js/contact.js"></script>
 </body>
 </html>

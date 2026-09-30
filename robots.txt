@@ -5,3 +5,7 @@ Allow: /
 
 # Canonical XML Sitemap
 Sitemap: https://www.cymaspace.org/sitemap.xml
+
+# AI Agent & LLM Context References
+# LLM Context: https://www.cymaspace.org/llms.txt
+# AI Catalog: https://www.cymaspace.org/ai-catalog.json
