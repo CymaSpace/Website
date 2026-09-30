@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
  * Mobile Navigation Drawer & Backdrop Handling
  */
 function initNavigation() {
+  // If site-nav custom component is present, drawer and events are managed by <site-nav>
+  if (document.querySelector('site-nav')) return;
+
   const toggleBtn = document.querySelector('.nav-toggle-btn');
   const drawer = document.querySelector('.mobile-drawer');
   const backdrop = document.querySelector('.mobile-backdrop');

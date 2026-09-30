@@ -5,7 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CymaSpace | Sound Made Visible - Deaf-Led Arts &amp; Technology</title>
   <meta name="description" content="CymaSpace is a nonprofit, Deaf-owned technology and cultural hub in Portland, Oregon. We make arts, media, and culture accessible and inclusive through cymatics, technology, and outreach.">
+  <meta name="keywords" content="CymaSpace, Deaf arts, Deaf culture, cymatics, sound made visible, accessibility, Deaf-led nonprofit, Portland Oregon, vibration, haptics, assistive technology, inclusive arts">
+  <meta name="author" content="CymaSpace">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#c30443">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.cymaspace.org/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CymaSpace">
+  <meta property="og:title" content="CymaSpace | Sound Made Visible - Deaf-Led Arts &amp; Technology">
+  <meta property="og:description" content="CymaSpace is a nonprofit, Deaf-owned technology and cultural hub in Portland, Oregon. We make arts, media, and culture accessible and inclusive through cymatics, technology, and outreach.">
+  <meta property="og:url" content="https://www.cymaspace.org/">
+  <meta property="og:image" content="https://www.cymaspace.org/assets/images/projects/gestolumina-banner.jpg">
+  <meta property="og:image:alt" content="CymaSpace | Sound Made Visible - Deaf-Led Arts &amp; Technology">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@cymaspace">
+  <meta name="twitter:creator" content="@cymaspace">
+  <meta name="twitter:title" content="CymaSpace | Sound Made Visible - Deaf-Led Arts &amp; Technology">
+  <meta name="twitter:description" content="CymaSpace is a nonprofit, Deaf-owned technology and cultural hub in Portland, Oregon. We make arts, media, and culture accessible and inclusive through cymatics, technology, and outreach.">
+  <meta name="twitter:image" content="https://www.cymaspace.org/assets/images/projects/gestolumina-banner.jpg">
+
+  <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="assets/images/cymaspace-logo.svg">
+
+  <!-- Google Fonts & Stylesheets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -14,134 +43,75 @@
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/visualizer.css">
   <link rel="stylesheet" href="css/pages.css">
+
+  <!-- Shared Single Source of Truth Navigation Script -->
+  <script src="js/site-nav.js"></script>
+
+  <!-- Structured Data JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "NonprofitOrganization",
+        "@id": "https://www.cymaspace.org/#organization",
+        "name": "CymaSpace",
+        "url": "https://www.cymaspace.org/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.cymaspace.org/assets/images/cymaspace-logo.svg"
+        },
+        "description": "CymaSpace is a nonprofit, Deaf-owned technology and cultural hub in Portland, Oregon. We make arts, media, and culture accessible and inclusive through cymatics, technology, and outreach.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "4103 SE Woodstock Blvd",
+          "addressLocality": "Portland",
+          "addressRegion": "OR",
+          "postalCode": "97202",
+          "addressCountry": "US"
+        },
+        "sameAs": [
+          "https://facebook.com/cymaspace",
+          "https://instagram.com/cymaspace",
+          "https://youtube.com/cymaspace",
+          "https://github.com/cymaspace"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.cymaspace.org/#website",
+        "url": "https://www.cymaspace.org/",
+        "name": "CymaSpace",
+        "publisher": {
+          "@id": "https://www.cymaspace.org/#organization"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Top Announcement Bar -->
-  <div class="top-notice-bar">
-    <div class="container top-notice-content">
-      <div>
-        <span class="asl-pill">ASL &bull; Deaf-Led</span>
-        <span>Visit the <strong>Woodstock Cafe</strong> ("Sign Language Cafe") &bull; 4103 SE Woodstock Blvd</span>
-      </div>
-      <div class="top-notice-links">
-        <a href="community-events.html" class="top-notice-link">Cafe Events &rarr;</a>
-        <a href="donate.html" class="top-notice-link" style="color: var(--magenta-bright);">Support Our Mission &hearts;</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Main Site Header -->
-  <header class="site-header" role="banner">
-    <div class="container navbar">
-      <a href="index.html" class="brand-logo" aria-label="CymaSpace Homepage">
-        <img src="assets/images/cymaspace-logo.svg" alt="CymaSpace Cymatic Logo" class="brand-icon">
-        <div>
-          <span class="brand-text">CymaSpace</span>
-          <span class="brand-tagline">Sound Made Visible</span>
-        </div>
-      </a>
-
-      <!-- Desktop Navigation -->
-      <nav class="desktop-nav" role="navigation" aria-label="Primary Navigation">
-        <ul class="nav-menu">
-          <li class="nav-item-dropdown">
-            <a href="projects.html" class="nav-link nav-dropdown-toggle">Projects <span aria-hidden="true">&#9662;</span></a>
-            <div class="nav-dropdown-menu">
-              <a href="projects.html" class="nav-dropdown-item">All Projects</a>
-              <!-- <a href="projects/universal-music-design.html" class="nav-dropdown-item">Universal Music Design</a> -->
-              <a href="projects/signkids.html" class="nav-dropdown-item">SignKids Program</a>
-              <a href="projects/technology.html" class="nav-dropdown-item">Our Technology</a>
-              <a href="projects/see-sound.html" class="nav-dropdown-item">See Sound (OMSI Piano)</a>
-              <a href="projects/media.html" class="nav-dropdown-item">Media, Film &amp; Puppetry</a>
-            </div>
-          </li>
-          <li class="nav-item-dropdown">
-            <a href="community-events.html" class="nav-link nav-dropdown-toggle">Events <span aria-hidden="true">&#9662;</span></a>
-            <div class="nav-dropdown-menu">
-              <a href="community-events.html" class="nav-dropdown-item">Cafe Events (Woodstock)</a>
-              <a href="events-archive.html" class="nav-dropdown-item">Events Archive</a>
-            </div>
-          </li>
-          <li class="nav-item-dropdown">
-            <a href="mission.html" class="nav-link nav-dropdown-toggle">About <span aria-hidden="true">&#9662;</span></a>
-            <div class="nav-dropdown-menu">
-              <a href="mission.html" class="nav-dropdown-item">Our Mission &amp; Cymatics</a>
-              <a href="board-of-directors.html" class="nav-dropdown-item">Board of Directors</a>
-              <a href="code-of-conduct.html" class="nav-dropdown-item">Code of Conduct</a>
-            </div>
-          </li>
-          <li><a href="news.html" class="nav-link">News</a></li>
-          <li><a href="volunteer.html" class="nav-link">Volunteer</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
-          <li><a href="donate.html" class="btn btn-magenta btn-sm">Donate</a></li>
-        </ul>
-      </nav>
-
-      <!-- Mobile Hamburger Toggle -->
-      <button class="nav-toggle-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- Mobile Drawer Menu -->
-  <div class="mobile-backdrop"></div>
-  <aside id="mobileDrawer" class="mobile-drawer" aria-label="Mobile Navigation">
-    <div class="mobile-drawer-header">
-      <a href="index.html" class="mobile-drawer-brand" aria-label="CymaSpace Home">
-        <img src="assets/images/cymaspace-logo.svg" alt="CymaSpace Logo" class="brand-icon">
-        <span class="brand-text">CymaSpace</span>
-      </a>
-      <button class="mobile-drawer-close-btn" aria-label="Close navigation menu" type="button">&times;</button>
-    </div>
-    <div class="mobile-drawer-body">
-      <ul class="mobile-nav-list">
-        <li><a href="index.html" class="mobile-nav-link">Home</a></li>
-        <li>
-          <a href="projects.html" class="mobile-nav-link">Projects</a>
-          <div class="mobile-subnav">
-            <!-- <a href="projects/universal-music-design.html">Universal Music Design</a> -->
-            <a href="projects/signkids.html">SignKids Program</a>
-            <a href="projects/technology.html">Our Technology</a>
-            <a href="projects/see-sound.html">See Sound (OMSI Piano)</a>
-            <a href="projects/media.html">Media &amp; Film</a>
-          </div>
-        </li>
-        <li>
-          <a href="community-events.html" class="mobile-nav-link">Events</a>
-          <div class="mobile-subnav">
-            <a href="community-events.html">Woodstock Cafe Events</a>
-            <a href="events-archive.html">Past Events Archive</a>
-          </div>
-        </li>
-        <li>
-          <a href="mission.html" class="mobile-nav-link">About Us</a>
-          <div class="mobile-subnav">
-            <a href="mission.html">Mission &amp; Cymatics</a>
-            <a href="board-of-directors.html">Board of Directors</a>
-            <a href="code-of-conduct.html">Code of Conduct</a>
-          </div>
-        </li>
-        <li><a href="news.html" class="mobile-nav-link">News &amp; Updates</a></li>
-        <li><a href="volunteer.html" class="mobile-nav-link">Volunteer</a></li>
-        <li><a href="contact.html" class="mobile-nav-link">Contact Us</a></li>
-      </ul>
-      <div class="mobile-drawer-footer">
-        <a href="donate.html" class="btn btn-magenta" style="width: 100%;">Donate Today</a>
-      </div>
-    </div>
-  </aside>
+  <!-- Shared Single Source of Truth Navigation -->
+  <site-nav></site-nav>
 
   <main id="main-content" class="main-content">
     <!-- Hero Section -->
     <section class="section home-hero">
       <!-- Centered Hero Intro -->
       <div class="container" style="max-width: 860px; text-align: center; margin-bottom: 2rem;">
-        <span class="section-tag">Translating Sound Into Light &amp; Touch</span>
+        
+        <!-- Modern Hero News Pill Badge (NEA Grant) -->
+        <a href="news/nea-grant-music-education.html" class="hero-news-pill" aria-label="NEA Grant Award announcement">
+          <span class="hero-news-tag">✨ NEA Grant</span>
+          <span class="hero-news-text">$90,000 for Deaf-Led Music Education with OHSU</span>
+          <span class="hero-news-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+
+        <div>
+          <span class="section-tag">Translating Sound Into Light &amp; Touch</span>
+        </div>
         <h1 class="page-hero-title">Experience Sound Through <span class="text-gradient">Light, Motion &amp; Vibration</span></h1>
         <p class="lead" style="margin: 0 auto 1.75rem; color: #475569;">
           CymaSpace is a Deaf-owned 501(c)(3) nonprofit technology hub in Portland, Oregon. We pioneer accessible arts, media, and culture for the Deaf and Hard of Hearing community using cutting-edge cymatics and inclusive design.
@@ -539,25 +509,28 @@
         </div>
 
         <div class="grid grid-3">
+          <!-- Card 1: NEA Grant Award -->
+          <div class="card" style="border-top: 3px solid var(--red-primary);">
+            <div class="card-date" style="color: var(--red-primary); font-weight: 700;">September 30, 2026 &bull; Grant Award</div>
+            <h3 class="card-title"><a href="news/nea-grant-music-education.html">CymaSpace’s Research Supported by National Endowment for the Arts</a></h3>
+            <p class="card-body">Portland nonprofit’s Universal Music Design project is backed by a $90,000 NEA grant, pairing hands-on research at OHSU with a Deaf-led K-12 STEAM curriculum.</p>
+            <a href="news/nea-grant-music-education.html" style="color: var(--red-primary); font-weight: 600; margin-top: auto; display: inline-flex; align-items: center; gap: 0.35rem;">Read Press Release &rarr;</a>
+          </div>
+
+          <!-- Card 2: PJCE Contemporary Jazz -->
           <div class="card">
-            <div class="card-date">February 2026</div>
-            <h3 class="card-title"><a href="news-article.html">Bridging Sound &amp; Sight in Contemporary Jazz</a></h3>
+            <div class="card-date">February 2026 &bull; Artistic Partnership</div>
+            <h3 class="card-title"><a href="news/bridging-sound-and-sight-jazz.html">Bridging Sound &amp; Sight in Contemporary Jazz</a></h3>
             <p class="card-body">CymaSpace partners with the Portland Jazz Composers' Ensemble (PJCE) and Audiolux to bring responsive cymatics into orchestral jazz performance.</p>
-            <a href="news-article.html" style="color: var(--red-primary); font-weight: 600;">Read Article &rarr;</a>
+            <a href="news/bridging-sound-and-sight-jazz.html" style="color: var(--red-primary); font-weight: 600; margin-top: auto; display: inline-flex; align-items: center; gap: 0.35rem;">Read Article &rarr;</a>
           </div>
 
+          <!-- Card 3: SUMA Partnership -->
           <div class="card">
-            <div class="card-date">Community Partnership</div>
-            <h3 class="card-title"><a href="news.html">Help Shape SUMA's App for Community Savings</a></h3>
+            <div class="card-date">July 2025 &bull; Community Advocacy</div>
+            <h3 class="card-title"><a href="news/help-shape-sumas-app-and-get-a-25-gift-card.html">Help Shape SUMA's App for Community Savings</a></h3>
             <p class="card-body">CymaSpace collaborates with SUMA to ensure economic empowerment tools are accessible and visually intuitive for Deaf and hard-of-hearing users.</p>
-            <a href="news.html" style="color: var(--red-primary); font-weight: 600;">Read Article &rarr;</a>
-          </div>
-
-          <div class="card">
-            <div class="card-date">Opportunities</div>
-            <h3 class="card-title"><a href="news.html">Join the CymaSpace Board of Directors</a></h3>
-            <p class="card-body">We are seeking passionate professionals, artists, and community leaders to join our strategic leadership team and expand accessibility initiatives.</p>
-            <a href="news.html" style="color: var(--red-primary); font-weight: 600;">Read Article &rarr;</a>
+            <a href="news/help-shape-sumas-app-and-get-a-25-gift-card.html" style="color: var(--red-primary); font-weight: 600; margin-top: auto; display: inline-flex; align-items: center; gap: 0.35rem;">Read Article &rarr;</a>
           </div>
         </div>
       </div>
@@ -624,7 +597,7 @@
           <h3>Programs &amp; Projects</h3>
           <ul class="footer-links">
             <li><a href="projects.html">All Projects</a></li>
-            <!-- <li><a href="projects/universal-music-design.html">Universal Music Design</a></li> -->
+            <li><a href="projects/universal-music-design.html">Universal Music Design</a></li>
             <li><a href="projects/signkids.html">SignKids Program</a></li>
             <li><a href="projects/technology.html">Our Technology</a></li>
             <li><a href="projects/see-sound.html">See Sound (OMSI Piano)</a></li>

@@ -21,7 +21,7 @@ CymaSpace makes arts, media, and culture accessible and inclusive to the Deaf an
    - **Our Team (`our-team.html`)**: Forwards seamlessly to `board-of-directors.html`.
    - **Our Mission (`mission.html`)**: Detailed overview of cymatics science, equity, diversity, and inclusion principles.
    - **Code of Conduct (`code-of-conduct.html`)**: The 11 Community Agreements, conflict resolution process, and visitor etiquette.
-   - **News & Articles (`news.html`, `news-article.html`)**: Announcements, job postings, and feature articles including our partnership with the Portland Jazz Composers' Ensemble (PJCE).
+   - **News & Articles (`news.html`, `news/`)**: Press releases, artistic partnerships, and complete historical archive.
    - **Support & Donate (`donate.html`)**: Tax-deductible giving tiers, sustaining monthly donor links ([Givebutter](https://givebutter.com/CymaMonthly)), and 501(c)(3) tax disclosures.
    - **Volunteer (`volunteer.html`)**: Community volunteer roles and direct form signup.
    - **Contact (`contact.html`)**: Toll-free voice/text, physical locations, and an accessible message form.
@@ -51,12 +51,15 @@ Website/
 ├── our-team.html                # Legacy alias (redirects to Board of Directors)
 ├── mission.html                 # Mission, Pillars & Cymatics Science
 ├── code-of-conduct.html         # Code of Conduct & Etiquette
-├── news.html                    # News & Updates Feed
-├── news-article.html            # Single Article Reader Template
+├── news.html                    # News & Updates Feed with Historical Archive
 ├── donate.html                  # Support Us & Sustaining Donor Tiers
 ├── volunteer.html               # Volunteer Program & Sign-Up
 ├── contact.html                 # Contact Info, Phone, Text & Message Form
+├── news/
+│   ├── nea-grant-music-education.html        # $90,000 NEA Grant Research Press Release
+│   └── bridging-sound-and-sight-jazz.html     # PJCE Contemporary Jazz Collaboration
 ├── projects/
+│   ├── universal-music-design.html # Universal Music Design (GeLu & Haptics)
 │   ├── signkids.html            # SignKids Program Deep Dive
 │   ├── technology.html          # Hardware: Audiolux One, Triangles & Haptics
 │   ├── see-sound.html           # #seeingsounds OMSI Piano & Installations
