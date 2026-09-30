@@ -1,0 +1,7 @@
+# Robots.txt for CymaSpace (https://www.cymaspace.org)
+# Welcoming all search engine spiders, crawlers, and AI indexing bots!
+User-agent: *
+Allow: /
+
+# Canonical XML Sitemap
+Sitemap: https://www.cymaspace.org/sitemap.xml

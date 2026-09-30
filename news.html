@@ -5,7 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>News &amp; Stories | CymaSpace</title>
   <meta name="description" content="Stay updated with the latest news, artistic partnerships, and community announcements from CymaSpace and Woodstock Cafe.">
+  <meta name="keywords" content="CymaSpace, Deaf arts, Deaf culture, cymatics, sound made visible, accessibility, Deaf-led nonprofit, Portland Oregon, vibration, haptics, assistive technology, inclusive arts">
+  <meta name="author" content="CymaSpace">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#c30443">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.cymaspace.org/news.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CymaSpace">
+  <meta property="og:title" content="News &amp; Stories | CymaSpace">
+  <meta property="og:description" content="Stay updated with the latest news, artistic partnerships, and community announcements from CymaSpace and Woodstock Cafe.">
+  <meta property="og:url" content="https://www.cymaspace.org/news.html">
+  <meta property="og:image" content="https://www.cymaspace.org/assets/images/projects/gestolumina-banner.jpg">
+  <meta property="og:image:alt" content="News &amp; Stories | CymaSpace">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@cymaspace">
+  <meta name="twitter:creator" content="@cymaspace">
+  <meta name="twitter:title" content="News &amp; Stories | CymaSpace">
+  <meta name="twitter:description" content="Stay updated with the latest news, artistic partnerships, and community announcements from CymaSpace and Woodstock Cafe.">
+  <meta name="twitter:image" content="https://www.cymaspace.org/assets/images/projects/gestolumina-banner.jpg">
+
+  <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="assets/images/cymaspace-logo.svg">
+
+  <!-- Google Fonts & Stylesheets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -13,60 +42,31 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/pages.css">
+
+  <!-- Shared Single Source of Truth Navigation Script -->
+  <script src="js/site-nav.js"></script>
+
+  <!-- Structured Data JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "News &amp; Stories | CymaSpace",
+    "description": "Stay updated with the latest news, artistic partnerships, and community announcements from CymaSpace and Woodstock Cafe.",
+    "url": "https://www.cymaspace.org/news.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "CymaSpace",
+      "url": "https://www.cymaspace.org/"
+    }
+  }
+  </script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Header -->
-  <header class="site-header" role="banner">
-    <div class="container navbar">
-      <a href="index.html" class="brand-logo" aria-label="CymaSpace Homepage">
-        <img src="assets/images/cymaspace-logo.svg" alt="CymaSpace Logo" class="brand-icon">
-        <div>
-          <span class="brand-text">CymaSpace</span>
-          <span class="brand-tagline">Sound Made Visible</span>
-        </div>
-      </a>
-
-      <nav class="desktop-nav" role="navigation" aria-label="Primary Navigation">
-        <ul class="nav-menu">
-          <li><a href="projects.html" class="nav-link">Projects</a></li>
-          <li><a href="community-events.html" class="nav-link">Events</a></li>
-          <li class="nav-item-dropdown">
-            <a href="mission.html" class="nav-link nav-dropdown-toggle">About <span aria-hidden="true">&#9662;</span></a>
-            <div class="nav-dropdown-menu">
-              <a href="mission.html" class="nav-dropdown-item">Our Mission &amp; Cymatics</a>
-              <a href="board-of-directors.html" class="nav-dropdown-item">Board of Directors</a>
-              <a href="code-of-conduct.html" class="nav-dropdown-item">Code of Conduct</a>
-            </div>
-          </li>
-          <li><a href="news.html" class="nav-link active">News</a></li>
-          <li><a href="volunteer.html" class="nav-link">Volunteer</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
-          <li><a href="donate.html" class="btn btn-magenta btn-sm">Donate</a></li>
-        </ul>
-      </nav>
-
-      <button class="nav-toggle-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- Mobile Drawer -->
-  <div class="mobile-backdrop"></div>
-  <aside id="mobileDrawer" class="mobile-drawer">
-    <ul class="mobile-nav-list">
-      <li><a href="index.html" class="mobile-nav-link">Home</a></li>
-      <li><a href="projects.html" class="mobile-nav-link">Projects</a></li>
-      <li><a href="community-events.html" class="mobile-nav-link">Events</a></li>
-      <li><a href="mission.html" class="mobile-nav-link">About Us</a></li>
-      <li><a href="news.html" class="mobile-nav-link active">News</a></li>
-      <li><a href="volunteer.html" class="mobile-nav-link">Volunteer</a></li>
-      <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
-    </ul>
-    <div style="margin-top: auto;"><a href="donate.html" class="btn btn-magenta" style="width: 100%;">Donate</a></div>
-  </aside>
+  <!-- Shared Single Source of Truth Navigation -->
+  <site-nav></site-nav>
 
   <main id="main-content" class="main-content">
     <section class="page-hero">
@@ -81,60 +81,493 @@
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
+
+        <!-- Featured Press Release (Latest Announcement) -->
+        <article class="card" style="border-color: var(--red-primary); border-top: 4px solid var(--red-primary); margin-bottom: 3rem; box-shadow: 0 8px 28px rgba(195, 4, 67, 0.12); padding: 2.5rem 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <div class="card-date" style="color: var(--red-primary); font-weight: 700; margin: 0;">September 30, 2026 &bull; Official Press Release</div>
+            <span class="badge" style="background: #ffe4e6; color: #b91c1c; font-weight: 700; font-size: 0.75rem; text-transform: uppercase;">$90,000 NEA Grant Award</span>
+          </div>
+          <h2 class="card-title" style="font-size: clamp(1.5rem, 2.5vw, 2.1rem); line-height: 1.3; margin-bottom: 1rem;">
+            <a href="news/nea-grant-music-education.html">CymaSpace’s Research on Deaf and Hard-of-Hearing Music Education Supported by the National Endowment for the Arts</a>
+          </h2>
+          <p class="card-body" style="font-size: 1.08rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.5rem;">
+            Portland nonprofit’s Universal Music Design (UMD) project is backed by a $90,000 NEA grant, pairing hands-on cochlear implant and multisensory research at Oregon Health &amp; Science University (OHSU) with a Deaf-led K-12 STEAM curriculum for schools across the Pacific Northwest.
+          </p>
+          <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <span class="asl-pill">Universal Music Design</span>
+              <span class="asl-pill">OHSU Research</span>
+              <span class="asl-pill">STEAM Education</span>
+            </div>
+            <a href="news/nea-grant-music-education.html" class="btn btn-primary">Read Full Press Release &rarr;</a>
+          </div>
+        </article>
+
+        <!-- All News & Historical Archive Grid -->
         <div class="grid grid-2">
-          
-          <!-- Article 1: PJCE Contemporary Jazz -->
-          <article class="card" style="border-color: rgba(195, 4, 67, 0.35);">
-            <div class="card-date">February 2026 &bull; Artistic Collaboration</div>
-            <h2 class="card-title" style="font-size: 1.6rem;"><a href="news-article.html">Bridging Sound and Sight in Contemporary Jazz</a></h2>
-            <p class="card-body">
-              CymaSpace is proud to partner with the Portland Jazz Composers' Ensemble (PJCE), a 12-piece jazz chamber orchestra. In collaboration with Audiolux One technology, we're bringing responsive cymatic lighting into high-level jazz improvisation.
-            </p>
+
+          <!-- Article: Bridging Sound and Sight in Contemporary Jazz -->
+          <article class="card">
+            <div class="card-date">February 2, 2026 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/bridging-sound-and-sight-jazz.html">Bridging Sound and Sight in Contemporary Jazz</a></h2>
+            <p class="card-body">The Partnership We are proud to partner with the Portland Jazz Composers’ Ensemble (PJCE), a 12-piece jazz chamber orchestra dedicated to commissioning and performing original works. In collaboration with de Bastion, Inc's Audiolux ...</p>
             <div class="card-footer">
-              <span class="asl-pill">Featured Story</span>
-              <a href="news-article.html" class="btn btn-primary btn-sm">Read Full Story &rarr;</a>
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/bridging-sound-and-sight-jazz.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
             </div>
           </article>
 
-          <!-- Article 2: SUMA Partnership -->
+          <!-- Article: Help Shape SUMA’s App, and Get a $25 Gift Card! -->
           <article class="card">
-            <div class="card-date">July 2025 &bull; Community Advocacy</div>
-            <h2 class="card-title" style="font-size: 1.6rem;"><a href="news-article.html">Help Shape SUMA's App, and Get a $25 Gift Card!</a></h2>
-            <p class="card-body">
-              CymaSpace has partnered with SUMA, a Portland-based nonprofit using community buying power to help low-income families save money. We are testing visual accessibility and user interfaces tailored for Deaf users.
-            </p>
+            <div class="card-date">July 3, 2025 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/help-shape-sumas-app-and-get-a-25-gift-card.html">Help Shape SUMA’s App, and Get a $25 Gift Card!</a></h2>
+            <p class="card-body">CymaSpace is partnering with SUMA, a Portland-based nonprofit that uses community power to help low-income households save money on the things they buy the most. SUMA is currently testing the visual design ...</p>
             <div class="card-footer">
-              <span class="asl-pill">Accessibility Testing</span>
-              <a href="news-article.html" class="btn btn-outline btn-sm">Read More &rarr;</a>
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/help-shape-sumas-app-and-get-a-25-gift-card.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
             </div>
           </article>
 
-          <!-- Article 3: Board Recruitment -->
+          <!-- Article: Join the CymaSpace Board of Directors -->
           <article class="card">
-            <div class="card-date">September 2024 &bull; Governance</div>
-            <h2 class="card-title" style="font-size: 1.6rem;"><a href="board-of-directors.html">Join the CymaSpace Board of Directors</a></h2>
-            <p class="card-body">
-              CymaSpace is seeking passionate and experienced professionals to join our Board of Directors. We are looking for individuals with expertise in nonprofit finance, legal governance, and disability justice.
-            </p>
+            <div class="card-date">September 26, 2024 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/join-the-cymaspace-board-of-directors.html">Join the CymaSpace Board of Directors</a></h2>
+            <p class="card-body">Join the CymaSpace Board of Directors – Strategic Roles with Flexible Commitment CymaSpace is seeking passionate and experienced professionals to join our Board of Directors. We understand that your time and resources ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/join-the-cymaspace-board-of-directors.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: We're hiring for our Sign Language Café! Join our team! -->
+          <article class="card">
+            <div class="card-date">January 20, 2024 &bull; Opportunities</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/were-hiring-for-our-sign-language-cafe-join-our-team.html">We're hiring for our Sign Language Café! Join our team!</a></h2>
+            <p class="card-body">Hello CymaSpace Community! Dedicated to serving the Deaf and Hard of Hearing community through innovative technology, education, and cultural outreach, CymaSpace invites driven individuals to join our mission. Currently, we're excited to ...</p>
             <div class="card-footer">
               <span class="asl-pill">Opportunities</span>
-              <a href="board-of-directors.html" class="btn btn-outline btn-sm">View Board Roles &rarr;</a>
+              <a href="news/were-hiring-for-our-sign-language-cafe-join-our-team.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
             </div>
-          </div>
+          </article>
 
-          <!-- Article 4: Sign Language Cafe Launch -->
+          <!-- Article: Holiday Greetings! -->
           <article class="card">
-            <div class="card-date">December 2023 &bull; Cafe Initiative</div>
-            <h2 class="card-title" style="font-size: 1.6rem;"><a href="community-events.html">Support the Opening of PDX's Sign Language Cafe!</a></h2>
-            <p class="card-body">
-              A note from the founders on creating Woodstock Cafe—a gathering place in the heart of Portland where communication knows no bounds and Deaf culture is centered and celebrated.
-            </p>
+            <div class="card-date">December 24, 2023 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/holiday-greetings.html">Holiday Greetings!</a></h2>
+            <p class="card-body">Dear Friends, Supporters, and Members of our Community, As we stand at the threshold of 2024, I am filled with immense gratitude and excitement for the journey ahead with CymaSpace. Our mission, ...</p>
             <div class="card-footer">
-              <span class="asl-pill">Woodstock Cafe</span>
-              <a href="community-events.html" class="btn btn-outline btn-sm">Read Note &rarr;</a>
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/holiday-greetings.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
             </div>
-          </div>
+          </article>
 
+          <!-- Article: Note from the Sign Language Café founders -->
+          <article class="card">
+            <div class="card-date">December 7, 2023 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/note-from-the-sign-language-cafe-founders.html">Note from the Sign Language Café founders</a></h2>
+            <p class="card-body">Dear Friends and Supporters, Representing the CymaSpace team, known for making arts and culture accessible to all, we're excited to introduce our newest endeavor: the Sign Language Café. This initiative is a ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/note-from-the-sign-language-cafe-founders.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Support the Opening of PDX's Sign Language Café! -->
+          <article class="card">
+            <div class="card-date">December 5, 2023 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/support-the-opening-of-pdxs-sign-language-cafe.html">Support the Opening of PDX's Sign Language Café!</a></h2>
+            <p class="card-body">Welcome to CymaSpace’s new Sign Language Cafe – Where Communication Knows No Bounds!CymaSpace is on a mission to create a unique space in the heart of Portland, Oregon, that goes beyond serving delicious ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/support-the-opening-of-pdxs-sign-language-cafe.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: We're hiring! See new opportunities to join our team in support of inclusive arts & culture -->
+          <article class="card">
+            <div class="card-date">October 18, 2023 &bull; Opportunities</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/were-hiring-see-new-opportunities-to-join-our-team-in-support-of-inclusive-arts-culture.html">We're hiring! See new opportunities to join our team in support of inclusive arts & culture</a></h2>
+            <p class="card-body">Hello CymaSpace Community! We are thrilled to announce new opportunities to join our team! As we continue to serve the Deaf and Hard of Hearing community through technology, education, and cultural outreach, ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">Opportunities</span>
+              <a href="news/were-hiring-see-new-opportunities-to-join-our-team-in-support-of-inclusive-arts-culture.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Press Release: Announcing #SignKids – Sign Language Immersion Summer Activity Session for Children & Families -->
+          <article class="card">
+            <div class="card-date">July 31, 2023 &bull; Press Release</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/press-release-announcing-signkids-sign-language-immersion-summer-activity-session-for-children-families.html">Press Release: Announcing #SignKids – Sign Language Immersion Summer Activity Session for Children & Families</a></h2>
+            <p class="card-body">SignKids, a transformative program by CymaSpace, addresses the prevalent issue of language deprivation among Deaf and Hard of Hearing children while strengthening bonds between Deaf parents and their hearing children. Enriched by ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">Press Release</span>
+              <a href="news/press-release-announcing-signkids-sign-language-immersion-summer-activity-session-for-children-families.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: TURN IT UP! CREATIVE EXPRESSION 2021 Give!Guide Now Live -->
+          <article class="card">
+            <div class="card-date">November 3, 2021 &bull; Fundraiser</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/2021-giveguide-for-creative-expression-now-live.html">TURN IT UP! CREATIVE EXPRESSION 2021 Give!Guide Now Live</a></h2>
+            <p class="card-body">Mission CymaSpace makes arts, media and culture accessible and inclusive to the Deaf and Hard of Hearing through technology, education and outreach. Through strategic partnerships and community support, we advocate for access, ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">Fundraiser</span>
+              <a href="news/2021-giveguide-for-creative-expression-now-live.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: CymaSpace Press Release: "Mouth Language Device" -->
+          <article class="card">
+            <div class="card-date">June 7, 2021 &bull; Press Release</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/cymaspace-press-release-mouth-language-device.html">CymaSpace Press Release: "Mouth Language Device"</a></h2>
+            <p class="card-body">June 7th 2021. Well-intentioned hearing inventors have been trying for years to create devices that help Deaf folks translate American Sign Language to written and/or spoken English. The devices, which look like ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">Press Release</span>
+              <a href="news/cymaspace-press-release-mouth-language-device.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: CymaSpace Announces Access Lab – A Space For All -->
+          <article class="card">
+            <div class="card-date">January 24, 2019 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/cymaspace-announces-access-lab-a-space-for-all.html">CymaSpace Announces Access Lab – A Space For All</a></h2>
+            <p class="card-body">PRESS RELEASE PORTLAND, Ore. (January 24th, 2019) – At CymaSpace we believe access to the world is a fundamental human right. For over 5 years we have committed our resources to affecting ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/cymaspace-announces-access-lab-a-space-for-all.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: An Experience Beyond Sound at the Northwest Deaf Arts Festival -->
+          <article class="card">
+            <div class="card-date">May 16, 2018 &bull; Community & Events</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/an-experience-beyond-sound-at-the-northwest-deaf-arts-festival.html">An Experience Beyond Sound at the Northwest Deaf Arts Festival</a></h2>
+            <p class="card-body">Press Release PORTLAND, Ore. (April 24, 2018) – CymaSpace is thrilled to announce that the first annual Northwest Deaf Arts Festival (NWDAF) will take place on June 16, 2018 at Mississippi Studios. ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">Community & Events</span>
+              <a href="news/an-experience-beyond-sound-at-the-northwest-deaf-arts-festival.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: CymaSpace at OMSI Maker Faire 2017 -->
+          <article class="card">
+            <div class="card-date">July 27, 2017 &bull; Community & Events</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/cymaspace-at-omsi-maker-faire-2017.html">CymaSpace at OMSI Maker Faire 2017</a></h2>
+            <p class="card-body">From September 16 to 17, 2017, CymaSpace will come back to Portland Mini Maker Faire. Hosted by the Oregon Museum of Science & Industry (OMSI), CymaSpace will take part in this event ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">Community & Events</span>
+              <a href="news/cymaspace-at-omsi-maker-faire-2017.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: CymaSpace at OAD DeafFest IV -->
+          <article class="card">
+            <div class="card-date">July 27, 2017 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/oad-deaffest-iv.html">CymaSpace at OAD DeafFest IV</a></h2>
+            <p class="card-body">On July 30, 2017, CymaSpace will be partnering with the Oregon Association of the Deaf (OAD) in its fourth annual DeafFest at Oaks Park. CymaSpace will be making an appearance at DeafFest ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/oad-deaffest-iv.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Breaking Down Barriers for Deaf Access at Music Venues -->
+          <article class="card">
+            <div class="card-date">November 3, 2016 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/breaking-down-barriers-for-deaf-access-at-music-venues.html">Breaking Down Barriers for Deaf Access at Music Venues</a></h2>
+            <p class="card-body">Kimberly Jack and Michelle Crane are two Deaf Portlanders who share a love of the diverse music and concert scene in Portland, Oregon. They planned to see a concert in October 2016 ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/breaking-down-barriers-for-deaf-access-at-music-venues.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Volunteer -->
+          <article class="card">
+            <div class="card-date">August 28, 2016 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/volunteer-sign-up.html">Volunteer</a></h2>
+            <p class="card-body">We are looking for awesome individuals who love CymaSpace's mission to make arts & cultural events more accessible & inclusive to the Deaf & Hard of Hearing through Technology, Education & Outreach. There is ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/volunteer-sign-up.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: What is CymaSpace? -->
+          <article class="card">
+            <div class="card-date">July 11, 2016 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/what-is-cymaspace.html">What is CymaSpace?</a></h2>
+            <p class="card-body">CymaSpace is a Portland, OR based non-profit that focuses on making cultural events inclusive for the Deaf and Hard of Hearing.</p>
+            <div class="card-footer">
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/what-is-cymaspace.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: ASL Hideaway receives attention and critical acclaim from Kiesza herself. -->
+          <article class="card">
+            <div class="card-date">July 11, 2016 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/kiesasealofapproval.html">ASL Hideaway receives attention and critical acclaim from Kiesza herself.</a></h2>
+            <p class="card-body">ASL Hideaway was seen by Kiesza and got their seal of approval when she tweeted, "Wow, this is amazing." to her followers. Wow this is amazing! https://t.co/ipu7g74D7U — Kiesza (@Kiesza) July 10, ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/kiesasealofapproval.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: ASL Hideaway Press Release -->
+          <article class="card">
+            <div class="card-date">July 6, 2016 &bull; Press Release</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/lets-get-hideaway-viral.html">ASL Hideaway Press Release</a></h2>
+            <p class="card-body">Check out this stunning ASL Dance video from Cymaspace featuring a cast of amazing #‎DeafTalent in this addictive rendition of Kiesza's run-away hit Hideaway, made accessible for the Deaf & Hard-of-Hearing. Choreographed ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">Press Release</span>
+              <a href="news/lets-get-hideaway-viral.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Arts & Accessibility Event Series Press Release -->
+          <article class="card">
+            <div class="card-date">July 6, 2016 &bull; Press Release</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/new-arts-accessibility-event-series.html">Arts & Accessibility Event Series Press Release</a></h2>
+            <p class="card-body">Announcing the first installment in a showcase series celebrating the future of inclusive cultural events brought to you by CymaSpace: www.cymaspace.org/events RESERVE YOUR TICKET NOW! We have a very limited number of ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">Press Release</span>
+              <a href="news/new-arts-accessibility-event-series.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: CymaSpace seeks part-time event coordinator. -->
+          <article class="card">
+            <div class="card-date">June 5, 2016 &bull; Opportunities</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/cymaspace-seeks-part-time-event-coordinator.html">CymaSpace seeks part-time event coordinator.</a></h2>
+            <p class="card-body">Performing Arts nonprofit seeks event coordinator. CymaSpace, a young but fast growing non-profit based in SE Portland is looking to hire a paid part-time freelance event coordinator. Our mission is to make ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">Opportunities</span>
+              <a href="news/cymaspace-seeks-part-time-event-coordinator.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Arts & Accessibility Showcase Gala 2016 Video now live! -->
+          <article class="card">
+            <div class="card-date">April 28, 2016 &bull; Community & Events</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/arts-accessibility-showcase-gala-2016-video-now-live.html">Arts & Accessibility Showcase Gala 2016 Video now live!</a></h2>
+            <p class="card-body">Arts & Accessibility Showcase Gala 2016 Video now live! Video is in ASL & with English Closed Captions (click the "CC" icon). Thank you to all the amazing supporters and the team ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">Community & Events</span>
+              <a href="news/arts-accessibility-showcase-gala-2016-video-now-live.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Special CymaSpace discount to ASL Interpreted Performance of Overview Effect -->
+          <article class="card">
+            <div class="card-date">April 19, 2016 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/special-cymaspace-discount-to-asl-interpreted-performance-of-overview-effect.html">Special CymaSpace discount to ASL Interpreted Performance of Overview Effect</a></h2>
+            <p class="card-body">CymaSpace is pleased to partner with Portland Center Stage and Tylor Neist by offering discounted tickets to an ASL interpreted matinee multi-sensory performance of Overview Effect. Guests can expect an exciting fusion ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/special-cymaspace-discount-to-asl-interpreted-performance-of-overview-effect.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Part-time freelance marketing coordinator needed -->
+          <article class="card">
+            <div class="card-date">April 17, 2016 &bull; Opportunities</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/part-time-freelance-marketing-coordinator-needed.html">Part-time freelance marketing coordinator needed</a></h2>
+            <p class="card-body">Part-time freelance marketing coordinator needed for Summer events at CymaSpace CymaSpace, a young but fast growing non-profit based in SE Portland is looking to hire a paid part-time freelance marketing coordinator. Our ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">Opportunities</span>
+              <a href="news/part-time-freelance-marketing-coordinator-needed.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Call For Artists: ASL Video Now Available -->
+          <article class="card">
+            <div class="card-date">April 13, 2016 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/call-for-artists-asl-video-now-available.html">Call For Artists: ASL Video Now Available</a></h2>
+            <p class="card-body">As commitment to the Deaf & Hard-of-Hearing (DHH) community, CymaSpace has produced an ASL (American Sign Language) version of the Call for Artists: 2016 Arts & Accessibility Showcase Event Series. For many DHH, Sign ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/call-for-artists-asl-video-now-available.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Deafness + Music -->
+          <article class="card">
+            <div class="card-date">April 6, 2016 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/deafness-music.html">Deafness + Music</a></h2>
+            <p class="card-body">DEAFNESS + MUSIC from Red Lab Films on Vimeo. A compelling short video. shot and edited by Travis Howe of Red Lab Films featuring Myles de Bastion, the founder of CymaSpace and Audiolux Devices. Myles is ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/deafness-music.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Volunteer Registration For Gala 2016 Now Open -->
+          <article class="card">
+            <div class="card-date">March 18, 2016 &bull; Fundraiser</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/volunteer-registration-for-gala-2016-now-open.html">Volunteer Registration For Gala 2016 Now Open</a></h2>
+            <p class="card-body">To mark the beginning of our third year, CymaSpace is pleased to announce a spectacular showcase of our major accomplishments, in an inaugural fundraiser celebration, and you're invited! Here is a great opportunity to ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">Fundraiser</span>
+              <a href="news/volunteer-registration-for-gala-2016-now-open.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Call for ASL Sign Masters / Interpreters / Performers -->
+          <article class="card">
+            <div class="card-date">January 30, 2016 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/call-for-asl-sign-masters-interpreters-performers.html">Call for ASL Sign Masters / Interpreters / Performers</a></h2>
+            <p class="card-body">Furthering CymaSpace's recently announced "Call for Artists: 2016 Arts & Accessibility Showcase Event Series", CymaSpace is pleased to announce opportunities for paid ASL Sign Masters / Interpreters / Performers. This exciting new ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/call-for-asl-sign-masters-interpreters-performers.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Call for Artists: 2016 Arts & Accessibility Showcase Event Series -->
+          <article class="card">
+            <div class="card-date">January 18, 2016 &bull; Community & Events</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/call-for-artists-2016-arts-accessibility-showcase-event-series.html">Call for Artists: 2016 Arts & Accessibility Showcase Event Series</a></h2>
+            <p class="card-body">Cultural, art & social events often rely on spoken, sung, performed or recorded sound to convey their cultural message or narrative experience. This is often inaccessible to those with hearing loss. In ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">Community & Events</span>
+              <a href="news/call-for-artists-2016-arts-accessibility-showcase-event-series.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Part-time freelance grant writer needed -->
+          <article class="card">
+            <div class="card-date">January 2, 2016 &bull; Opportunities</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/part-time-freelance-grant-writer-needed.html">Part-time freelance grant writer needed</a></h2>
+            <p class="card-body">CymaSpace, a young but fast growing non-profit based in SE Portland is looking to hire a paid part-time freelance grant writer. Our mission is to make performing arts more accessible & inclusive ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">Opportunities</span>
+              <a href="news/part-time-freelance-grant-writer-needed.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Multi-sensory Environment / Snoezelen Therapy Room serving Portland, OR -->
+          <article class="card">
+            <div class="card-date">November 22, 2015 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/multi-sensory-environment-snoezelen-therapy-room-serving-portland-or.html">Multi-sensory Environment / Snoezelen Therapy Room serving Portland, OR</a></h2>
+            <p class="card-body">Coming soon to Portland, OR is a new multi-sensory environment / Snoezelen room specially designed for sensory therapy treatment for autism, dementia and other sensory processing disorders. Snoezelen or controlled multisensory environment ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/multi-sensory-environment-snoezelen-therapy-room-serving-portland-or.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Audiolux One | The first-ever effects unit for sound-reactive visuals. -->
+          <article class="card">
+            <div class="card-date">November 21, 2015 &bull; Technology</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/audiolux-one-the-first-ever-effects-unit-for-sound-reactive-visuals.html">Audiolux One | The first-ever effects unit for sound-reactive visuals.</a></h2>
+            <p class="card-body">CymaSpace presents the Audiolux One The AudioLux One is a new kind of LED lighting controller developed by the team at CymaSpace that will intelligently translate sound and music into light, color ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">Technology</span>
+              <a href="news/audiolux-one-the-first-ever-effects-unit-for-sound-reactive-visuals.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Cymatic Lighting – A Modern "Visual Sound" System for Deaf & Hard-of-Hearing -->
+          <article class="card">
+            <div class="card-date">August 23, 2015 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/cymatic-lighting-system-press-release.html">Cymatic Lighting – A Modern "Visual Sound" System for Deaf & Hard-of-Hearing</a></h2>
+            <p class="card-body">At CymaSpace, we are working to make performing arts more accessible and inclusive to the Deaf & Hard-of-Hearing. The team behind our innovative Technology Program are proud to announce our newest development: ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/cymatic-lighting-system-press-release.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: CymaSpace Seeks Part-Time Development Coordinator -->
+          <article class="card">
+            <div class="card-date">July 8, 2015 &bull; Opportunities</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/cymaspace-seeks-development-coordinator.html">CymaSpace Seeks Part-Time Development Coordinator</a></h2>
+            <p class="card-body">CymaSpace (cymaspace.org) is a young but fast growing non-profit based in SE Portland and is looking to bring on a Development Coordinator in a freelance capacity. This is a part-time position where ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">Opportunities</span>
+              <a href="news/cymaspace-seeks-development-coordinator.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Special CymaSpace Discounted tickets "The Liar" ASL Interpreted Show on June 20th 2015 at Artists Repertory Theatre -->
+          <article class="card">
+            <div class="card-date">June 15, 2015 &bull; Community & Events</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/special-cymaspace-discounted-tickets-the-liar-asl-interpreted-show-on-june-20th-2015-at-artists-repertory-theatre.html">Special CymaSpace Discounted tickets "The Liar" ASL Interpreted Show on June 20th 2015 at Artists Repertory Theatre</a></h2>
+            <p class="card-body">In a special collaboration between CymaSpace & Artists Repertory Theatre, we are excited to offer a special discount to patrons of CymaSpace for an ASL interpreted theatrical production of "The Liar" on ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">Community & Events</span>
+              <a href="news/special-cymaspace-discounted-tickets-the-liar-asl-interpreted-show-on-june-20th-2015-at-artists-repertory-theatre.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Discounted Tickets to "The Rosa Lee Show" for CymaSpace members -->
+          <article class="card">
+            <div class="card-date">June 5, 2015 &bull; Community & Events</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/discounted-tickets-to-the-rosa-lee-show.html">Discounted Tickets to "The Rosa Lee Show" for CymaSpace members</a></h2>
+            <p class="card-body">"The Rosa Lee Show" is coming to Portland OR, Saturday 6/6 at 7pm. Rosa Lee is a performance artist known mostly for her ASL Music Videos on YouTube, her work as a ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">Community & Events</span>
+              <a href="news/discounted-tickets-to-the-rosa-lee-show.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: CymaSpace, now supported by Amazon Smile! -->
+          <article class="card">
+            <div class="card-date">May 19, 2015 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/cymaspace-now-supported-by-amazon-smile.html">CymaSpace, now supported by Amazon Smile!</a></h2>
+            <p class="card-body">Do you shop on Amazon? Did you know that Amazon have a special program called Amazon Smile where they will donate 0.5% of the price of any items purchased by Amazon customers ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/cymaspace-now-supported-by-amazon-smile.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Give While You Shop -->
+          <article class="card">
+            <div class="card-date">March 9, 2015 &bull; Fundraiser</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/give-while-you-shop.html">Give While You Shop</a></h2>
+            <p class="card-body">Fred Meyer Community Rewards Program   HELP CYMASPACE EARN DONATIONS BY SHOPPING WITH YOUR FRED MEYER REWARDS CARD.   Fred Meyer is donating $2.5 million per year to non-profit’s in Alaska, Idaho, ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">Fundraiser</span>
+              <a href="news/give-while-you-shop.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: Our new site launches -->
+          <article class="card">
+            <div class="card-date">March 9, 2015 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/our-new-site-launches.html">Our new site launches</a></h2>
+            <p class="card-body">We are proud to announce that we have a new site, made possible thanks to funding from RACC and all of our hard work from our staff. The new website features new ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/our-new-site-launches.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: New membership program -->
+          <article class="card">
+            <div class="card-date">March 7, 2015 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/new-membership-program.html">New membership program</a></h2>
+            <p class="card-body">We are now accepting members into our exciting new program that includes discounts and a special rewards program. To sign up for CymaSpace's new Membership program click here.</p>
+            <div class="card-footer">
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/new-membership-program.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Article: CymaSpace Moves! -->
+          <article class="card">
+            <div class="card-date">January 17, 2015 &bull; News & Updates</div>
+            <h2 class="card-title" style="font-size: 1.45rem;"><a href="news/cymaspace-moves.html">CymaSpace Moves!</a></h2>
+            <p class="card-body">CymaSpace has moved to a new location in SE Portland OR, we are now located in the Sprout Factory, the new address is: 931 SE 6th Ave, Portland OR 97214. (Google Maps) ...</p>
+            <div class="card-footer">
+              <span class="asl-pill">News & Updates</span>
+              <a href="news/cymaspace-moves.html" class="btn btn-outline btn-sm">Read Article &rarr;</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -155,7 +588,8 @@
           <h3>News</h3>
           <ul class="footer-links">
             <li><a href="news.html">All News</a></li>
-            <li><a href="news-article.html">PJCE Jazz Collaboration</a></li>
+            <li><a href="news/nea-grant-music-education.html">NEA Grant Press Release</a></li>
+            <li><a href="news/bridging-sound-and-sight-jazz.html">PJCE Jazz Collaboration</a></li>
             <li><a href="community-events.html">Events Calendar</a></li>
           </ul>
         </div>

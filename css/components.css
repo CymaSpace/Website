@@ -745,3 +745,105 @@
   }
 }
 
+/* Hero News Pill Badge (Front Page NEA Grant Announcement) */
+.hero-news-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.35rem 0.95rem 0.35rem 0.45rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(195, 4, 67, 0.22);
+  border-radius: var(--radius-full);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  box-shadow: 0 2px 10px rgba(195, 4, 67, 0.06);
+  transition: all var(--transition-fast);
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(8px);
+}
+
+.hero-news-pill:hover {
+  background: #ffffff;
+  border-color: var(--red-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(195, 4, 67, 0.16);
+  color: var(--red-primary);
+}
+
+.hero-news-tag {
+  background: linear-gradient(135deg, var(--red-primary), var(--magenta-bright));
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.22rem 0.65rem;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.hero-news-text {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+}
+
+.hero-news-pill:hover .hero-news-text {
+  color: var(--text-primary);
+}
+
+.hero-news-arrow {
+  color: var(--red-primary);
+  font-weight: 700;
+  transition: transform var(--transition-fast);
+}
+
+.hero-news-pill:hover .hero-news-arrow {
+  transform: translateX(3px);
+}
+
+.news-alert-tag {
+  background: var(--red-primary);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.news-alert-msg {
+  color: var(--text-secondary);
+}
+
+.news-alert-msg strong {
+  color: var(--text-primary);
+}
+
+.news-alert-cta {
+  color: var(--red-primary);
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+}
+
+.news-alert-cta:hover {
+  text-decoration: underline;
+  color: var(--red-hover);
+}
+
+@media (max-width: 640px) {
+  .news-alert-pill {
+    border-radius: var(--radius-md);
+    text-align: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+}
+
