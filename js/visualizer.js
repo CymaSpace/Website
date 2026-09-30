@@ -55,8 +55,28 @@ class SoundLightVisualizer {
     this.pulses = [];
     this.pulseTimer = 0;
 
+    // Cache DOM UI elements to avoid per-frame queries & forced reflows
+    this.activeFreqLabel = document.getElementById('activeFreqLabel');
+    this.activeHueLabel = document.getElementById('activeHueLabel');
+    this.activeHueSwatch = document.getElementById('activeHueSwatch');
+    this.hueIndicatorPin = document.getElementById('hueIndicatorPin');
+    this.levelBar = document.getElementById('vizLevelBar');
+    this.levelText = document.getElementById('vizLevelText');
+
+    this.lastRenderedFreqText = '';
+    this.lastRenderedHueText = '';
+    this.lastRenderedColor = '';
+    this.lastPinPct = -1;
+    this.lastLevelPct = -1;
+    this.lastLevelClass = '';
+
+    this.dpr = Math.max(window.devicePixelRatio || 1, 2);
     this.initCanvasSize();
-    window.addEventListener('resize', () => this.initCanvasSize());
+    window.addEventListener('resize', () => this.initCanvasSize(), { passive: true });
+    if (typeof ResizeObserver !== 'undefined' && this.canvas.parentElement) {
+      this.resizeObserver = new ResizeObserver(() => this.initCanvasSize());
+      this.resizeObserver.observe(this.canvas.parentElement);
+    }
     this.initControls();
     this.updateScaleLabels();
     this.animate();
@@ -101,10 +121,15 @@ class SoundLightVisualizer {
   }
 
   initCanvasSize() {
-    const rect = this.canvas.parentElement.getBoundingClientRect();
+    const parent = this.canvas.parentElement;
+    if (!parent) return;
+    const rect = parent.getBoundingClientRect();
+    const width = Math.round(rect.width) || 800;
+    const height = Math.round(rect.height) || 440;
     const dpr = Math.max(window.devicePixelRatio || 1, 2);
-    this.width = rect.width;
-    this.height = rect.height;
+    this.dpr = dpr;
+    this.width = width;
+    this.height = height;
     this.canvas.width = Math.round(this.width * dpr);
     this.canvas.height = Math.round(this.height * dpr);
     this.canvas.style.width = `${this.width}px`;
@@ -522,7 +547,7 @@ class SoundLightVisualizer {
       const trackName = document.getElementById('vizTrackName');
       const uploadBtn = document.getElementById('vizUploadBtn');
 
-      if (trackInfoRow) trackInfoRow.style.display = 'flex';
+      if (trackInfoRow) trackInfoRow.classList.add('is-visible');
       if (trackName) trackName.textContent = file.name;
       if (uploadBtn) {
         uploadBtn.classList.add('active');
@@ -553,7 +578,7 @@ class SoundLightVisualizer {
 
     const trackInfoRow = document.getElementById('vizTrackInfoRow');
     const uploadBtn = document.getElementById('vizUploadBtn');
-    if (trackInfoRow) trackInfoRow.style.display = 'none';
+    if (trackInfoRow) trackInfoRow.classList.remove('is-visible');
     if (uploadBtn) {
       uploadBtn.classList.remove('active');
       const textSpan = uploadBtn.querySelector('.btn-text');
@@ -623,7 +648,7 @@ class SoundLightVisualizer {
         this.maxFreq = val;
 
         if (micRangeNotice) {
-          micRangeNotice.style.display = val > 10000 ? 'flex' : 'none';
+          micRangeNotice.classList.toggle('is-visible', val > 10000);
         }
 
         this.updateScaleLabels();
@@ -633,7 +658,7 @@ class SoundLightVisualizer {
 
     if (dismissMicNotice && micRangeNotice) {
       dismissMicNotice.addEventListener('click', () => {
-        micRangeNotice.style.display = 'none';
+        micRangeNotice.classList.remove('is-visible');
       });
     }
 
@@ -709,51 +734,77 @@ class SoundLightVisualizer {
     const hue = Math.round(this.activeHue);
     const color = this.hueToColor(hue);
 
-    const activeFreqLabel = document.getElementById('activeFreqLabel');
-    const activeHueLabel = document.getElementById('activeHueLabel');
-    const activeHueSwatch = document.getElementById('activeHueSwatch');
-    const hueIndicatorPin = document.getElementById('hueIndicatorPin');
-    const levelBar = document.getElementById('vizLevelBar');
-    const levelText = document.getElementById('vizLevelText');
-
-    const formattedFreq = this.formatFreq(freq);
-
-    if (activeFreqLabel) {
+    // Update frequency label only if text changed
+    if (this.activeFreqLabel) {
+      let freqText = '';
       if (this.currentEnergy < 0.05 && !this.isPlayingAudio && !this.isMicActive && !this.isUploadedPlaying) {
-        activeFreqLabel.textContent = '0 Hz (Silence)';
+        freqText = '0 Hz (Silence)';
       } else if (this.currentEnergy < 0.05) {
-        activeFreqLabel.textContent = 'Silence (< 20 Hz)';
+        freqText = 'Silence (< 20 Hz)';
       } else {
-        activeFreqLabel.textContent = formattedFreq;
+        freqText = this.formatFreq(freq);
+      }
+      if (freqText !== this.lastRenderedFreqText) {
+        this.activeFreqLabel.textContent = freqText;
+        this.lastRenderedFreqText = freqText;
       }
     }
-    if (activeHueLabel) activeHueLabel.textContent = `Hue: ${hue} / 255`;
-    if (activeHueSwatch) activeHueSwatch.style.backgroundColor = color;
-    if (hueIndicatorPin) {
-      const pct = Math.min(100, Math.max(0, (this.activeFreq / this.maxFreq) * 100));
-      hueIndicatorPin.style.left = `${pct}%`;
+
+    // Update hue label only if changed
+    if (this.activeHueLabel) {
+      const hueText = `Hue: ${hue} / 255`;
+      if (hueText !== this.lastRenderedHueText) {
+        this.activeHueLabel.textContent = hueText;
+        this.lastRenderedHueText = hueText;
+      }
     }
 
-    if (levelBar) {
-      const pct = Math.max(3, Math.min(100, Math.round(this.currentEnergy * 100)));
-      levelBar.style.width = `${pct}%`;
+    // Update swatch background only if changed
+    if (this.activeHueSwatch && color !== this.lastRenderedColor) {
+      this.activeHueSwatch.style.backgroundColor = color;
+      this.lastRenderedColor = color;
     }
-    if (levelText) {
-      if (this.currentEnergy < 0.06) {
-        levelText.textContent = 'Silent';
-        levelText.style.color = '#94a3b8';
-      } else if (this.currentEnergy < 0.25) {
-        levelText.textContent = 'Quiet';
-        levelText.style.color = '#10b981';
-      } else if (this.currentEnergy < 0.60) {
-        levelText.textContent = 'Moderate';
-        levelText.style.color = '#0284c7';
-      } else if (this.currentEnergy < 0.85) {
-        levelText.textContent = 'Loud';
-        levelText.style.color = '#f59e0b';
-      } else {
-        levelText.textContent = 'Peak!';
-        levelText.style.color = '#ef4444';
+
+    // Update pin position with rounded percentage
+    if (this.hueIndicatorPin) {
+      const pct = Math.round(Math.min(100, Math.max(0, (this.activeFreq / this.maxFreq) * 100)));
+      if (pct !== this.lastPinPct) {
+        this.hueIndicatorPin.style.left = `${pct}%`;
+        this.lastPinPct = pct;
+      }
+    }
+
+    // Update level bar with rounded percentage
+    if (this.levelBar) {
+      const pct = Math.round(Math.max(3, Math.min(100, this.currentEnergy * 100)));
+      if (pct !== this.lastLevelPct) {
+        this.levelBar.style.width = `${pct}%`;
+        this.lastLevelPct = pct;
+      }
+    }
+
+    // Update level text and class only if class changes
+    if (this.levelText) {
+      let stateClass = 'viz-level-silent';
+      let label = 'Silent';
+      if (this.currentEnergy >= 0.85) {
+        stateClass = 'viz-level-peak';
+        label = 'Peak!';
+      } else if (this.currentEnergy >= 0.60) {
+        stateClass = 'viz-level-loud';
+        label = 'Loud';
+      } else if (this.currentEnergy >= 0.25) {
+        stateClass = 'viz-level-moderate';
+        label = 'Moderate';
+      } else if (this.currentEnergy >= 0.06) {
+        stateClass = 'viz-level-quiet';
+        label = 'Quiet';
+      }
+
+      if (stateClass !== this.lastLevelClass) {
+        this.levelText.textContent = label;
+        this.levelText.className = 'viz-level-text ' + stateClass;
+        this.lastLevelClass = stateClass;
       }
     }
   }
@@ -765,7 +816,7 @@ class SoundLightVisualizer {
     this.updateFrequencyEnergies();
 
     const ctx = this.ctx;
-    const dpr = Math.max(window.devicePixelRatio || 1, 2);
+    const dpr = this.dpr || Math.max(window.devicePixelRatio || 1, 2);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     const w = this.width;
@@ -1205,22 +1256,35 @@ class ElectromagneticSpectrumCanvas {
     this.BASE_W = 1080;
     this.BASE_H = 450;
 
+    this.dpr = Math.max(window.devicePixelRatio || 1, 2);
     this.initCanvasSize();
     window.addEventListener('resize', () => {
       this.initCanvasSize();
       this.clampPan();
       this.render();
     });
+    if (typeof ResizeObserver !== 'undefined' && this.wrapper) {
+      this.resizeObserver = new ResizeObserver(() => {
+        this.initCanvasSize();
+        this.clampPan();
+        this.render();
+      });
+      this.resizeObserver.observe(this.wrapper);
+    }
 
     this.initInteraction();
     this.render();
   }
 
   initCanvasSize() {
+    if (!this.wrapper) return;
     const rect = this.wrapper.getBoundingClientRect();
+    const width = Math.round(rect.width) || 1000;
+    const height = Math.round(rect.height) || 520;
     const dpr = Math.max(window.devicePixelRatio || 1, 2);
-    this.width = rect.width || 1000;
-    this.height = rect.height || 520;
+    this.dpr = dpr;
+    this.width = width;
+    this.height = height;
 
     // Buffer dimensions scaled by DPR for razor-sharp rendering on Retina/4K/HiDPI
     this.canvas.width = Math.round(this.width * dpr);
@@ -1483,7 +1547,7 @@ class ElectromagneticSpectrumCanvas {
 
   render() {
     const ctx = this.ctx;
-    const dpr = Math.max(window.devicePixelRatio || 1, 2);
+    const dpr = this.dpr || Math.max(window.devicePixelRatio || 1, 2);
 
     // Reset base transform to DPR backing scale for ultra-crisp vector rasterization
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);

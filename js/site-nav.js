@@ -183,7 +183,7 @@ class SiteNav extends HTMLElement {
             <li><a href="${base}contact.html" class="mobile-nav-link ${currentFile === 'contact.html' ? 'active' : ''}">Contact Us</a></li>
           </ul>
           <div class="mobile-drawer-footer">
-            <a href="${base}donate.html" class="btn btn-magenta" style="width: 100%;">Donate Today</a>
+            <a href="${base}donate.html" class="btn btn-magenta footer-donate-btn">Donate Today</a>
           </div>
         </div>
       </aside>
@@ -202,14 +202,14 @@ class SiteNav extends HTMLElement {
       const isOpen = drawer.classList.toggle('open');
       backdrop.classList.toggle('open', isOpen);
       toggleBtn.setAttribute('aria-expanded', String(isOpen));
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+      document.body.classList.toggle('nav-open', isOpen);
     };
 
     const closeMenu = () => {
       drawer.classList.remove('open');
       backdrop.classList.remove('open');
       toggleBtn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+      document.body.classList.remove('nav-open');
     };
 
     toggleBtn.addEventListener('click', toggleMenu);

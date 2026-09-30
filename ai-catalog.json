@@ -1,0 +1,86 @@
+{
+  "$schema": "https://agenticresourcediscovery.org/schemas/v1/ai-catalog.json",
+  "name": "CymaSpace AI Agent Catalog",
+  "description": "Discoverable AI tools, resources, and semantic actions for CymaSpace Deaf Arts & Technology platform.",
+  "version": "1.0.0",
+  "publisher": {
+    "name": "CymaSpace",
+    "url": "https://www.cymaspace.org",
+    "contact": "support@cymaspace.org"
+  },
+  "resources": [
+    {
+      "id": "cymaspace-llms-context",
+      "type": "documentation",
+      "name": "CymaSpace LLM Context",
+      "description": "Comprehensive markdown summary of mission, programs, and technology for language models.",
+      "url": "https://www.cymaspace.org/llms.txt",
+      "mimeType": "text/markdown"
+    },
+    {
+      "id": "cymaspace-sitemap",
+      "type": "sitemap",
+      "name": "CymaSpace XML Sitemap",
+      "description": "Complete 80-URL index of all static pages and news articles.",
+      "url": "https://www.cymaspace.org/sitemap.xml",
+      "mimeType": "application/xml"
+    }
+  ],
+  "tools": [
+    {
+      "id": "subscribe_newsletter",
+      "name": "Subscribe to Newsletter",
+      "description": "Subscribes an email address to CymaSpace community updates, event invitations, and STEAM announcements.",
+      "target": {
+        "type": "form",
+        "action": "https://www.cymaspace.org/#newsletterForm",
+        "method": "POST"
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "Subscriber email address"
+          }
+        },
+        "required": ["email"]
+      }
+    },
+    {
+      "id": "send_contact_message",
+      "name": "Send Contact Message",
+      "description": "Sends an inquiry message to the CymaSpace leadership and support team.",
+      "target": {
+        "type": "form",
+        "action": "https://www.cymaspace.org/contact.html#contactForm",
+        "method": "POST"
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Sender full name"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "Sender email address"
+          },
+          "topic": {
+            "type": "string",
+            "enum": ["general", "woodstock", "signkids", "technology", "board"],
+            "description": "Topic category of inquiry"
+          },
+          "message": {
+            "type": "string",
+            "description": "Detailed message body"
+          }
+        },
+        "required": ["name", "email", "message"]
+      }
+    }
+  ]
+}

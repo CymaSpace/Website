@@ -118,8 +118,7 @@ function initNewsletterForm() {
 
     if (statusMsg) {
       statusMsg.textContent = 'Thank you for subscribing to CymaSpace community updates!';
-      statusMsg.style.color = 'var(--cyan-bright)';
-      statusMsg.style.display = 'block';
+      statusMsg.classList.add('is-visible');
     }
 
     emailInput.value = '';

@@ -1,0 +1,32 @@
+# CymaSpace
+
+> Sound Made Visible: Deaf-Led Arts, Technology, and Cultural Inclusion.
+
+CymaSpace is an Oregon 501(c)(3) nonprofit organization and technology incubator based in Portland, Oregon. Founded and operated by Deaf and Hard of Hearing (DHH) leaders, CymaSpace pioneers inclusive arts, media, and performing arts technology through cymatics, sound-to-light chromatic sensory substitution, and vibrotactile haptics.
+
+## Core Initiatives & Programs
+
+- [Universal Music Design (UMD)](https://www.cymaspace.org/projects/universal-music-design.html): A research and education initiative supported by a $90,000 National Endowment for the Arts (NEA) grant, partnering with Oregon Health & Science University (OHSU) and Portland Public Schools to pioneer accessible K-12 STEAM music curricula for cochlear implant and Deaf learners.
+- [Woodstock Cafe ("Sign Language Cafe")](https://www.cymaspace.org/community-events.html): Portland's physical Deaf-centered community space and coffeehouse at 4103 SE Woodstock Blvd, Portland, OR 97202. Hosts weekly Sign Squad meetups, beginner ASL practice, and accessible cultural showcases.
+- [SignKids](https://www.cymaspace.org/projects/signkids.html): An immersive youth ASL and creative arts program combating language deprivation in Deaf and Hard of Hearing children through storytelling, puppetry, Deaf mentorship, and family bonding.
+- [Cymatics & Sound-to-Light Technology](https://www.cymaspace.org/projects/technology.html): Proprietary algorithms mapping acoustic frequencies from 0 Hz (deep red sub-bass) continuously to 20,000 Hz (radiant purple treble) across 0–255 Hue, synchronized with tactile transducers and LED hardware.
+- [Live Frequency Visualizer](https://www.cymaspace.org/#visualizer): An interactive, client-side Web Audio API tool demonstrating real-time 0–255 Hue chromatic translation from live microphone input, test tones, or uploaded audio.
+
+## Key Links & Navigation
+
+- [Home](https://www.cymaspace.org/): Overview of mission, live sound-to-light visualizer, featured grant awards, and community partners.
+- [Mission & Impact](https://www.cymaspace.org/mission.html): Detailed history, core values, board governance, and non-profit credentials.
+- [News & Press Archive](https://www.cymaspace.org/news.html): Complete chronological press releases, grant announcements, and historical archive from 2013 to present.
+- [UMD Announcements](https://www.cymaspace.org/projects/umd-news/index.html): Updates and research papers on the Universal Music Design initiative.
+- [Community Events & Calendar](https://www.cymaspace.org/community-events.html): Live schedule for Woodstock Cafe gatherings, workshops, and performances.
+- [Volunteer Sign-up](https://www.cymaspace.org/volunteer.html): Community opportunities for event coordinators, ASL interpreters, tech mentors, and cafe volunteers.
+- [Donate](https://www.cymaspace.org/donate.html): Tax-deductible charitable support options for individual donors, foundations, and sponsors.
+- [Contact](https://www.cymaspace.org/contact.html): Official inquiries, venue partnerships, press inquiries, and accessibility consultations.
+
+## Organization Details
+
+- Legal Status: 501(c)(3) tax-exempt public charity incorporated in Oregon, USA
+- Location: 4103 SE Woodstock Blvd, Portland, OR 97202
+- Phone / Text: (888) 312-8584
+- Website: https://www.cymaspace.org
+- Source Repository: https://github.com/cymaspace/Website

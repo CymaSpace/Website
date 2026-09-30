@@ -31,20 +31,26 @@
   <meta name="twitter:description" content="We are thrilled to announce that Universal Music Design">
   <meta name="twitter:image" content="https://www.cymaspace.org/assets/images/umd/jazzRoadswebp.webp">
 
+    <!-- AI Agents & LLM Discovery (WebMCP / llms.txt / ARD) -->
+  <link rel="alternate" type="text/markdown" href="../../llms.txt" title="LLM Context">
+  <link rel="service-doc" href="../../ai-catalog.json" type="application/json" title="AI Agent Tool Catalog">
+
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="../../assets/images/cymaspace-logo.svg">
 
   <!-- Google Fonts & Stylesheets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap"></noscript>
   <link rel="stylesheet" href="../../css/variables.css">
   <link rel="stylesheet" href="../../css/base.css">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/pages.css">
 
   <!-- Shared Single Source of Truth Navigation Script -->
-  <script src="../../js/site-nav.js"></script>
+  <script src="../../js/site-nav.min.js" defer></script>
 
   <!-- Structured Data JSON-LD Schema -->
   <script type="application/ld+json">
@@ -85,26 +91,26 @@
   <site-nav base="../../"></site-nav>
 
   <main id="main-content" class="main-content">
-    <article class="section" style="padding-top: 2.5rem;">
-      <div class="container" style="max-width: 860px;">
+    <article class="section article-section">
+      <div class="container article-container">
 
         <!-- Breadcrumb -->
-        <nav aria-label="Breadcrumb" style="margin-bottom: 1.5rem; font-size: 0.88rem;">
+        <nav aria-label="Breadcrumb" class="breadcrumb-nav">
           <a href="../../index.html" style="color: var(--text-muted);">Home</a>
-          <span style="margin: 0 0.5rem; color: var(--text-muted);">&gt;</span>
+          <span class="breadcrumb-sep">&gt;</span>
           <a href="../../projects.html" style="color: var(--text-muted);">Projects</a>
-          <span style="margin: 0 0.5rem; color: var(--text-muted);">&gt;</span>
+          <span class="breadcrumb-sep">&gt;</span>
           <a href="../universal-music-design.html" style="color: var(--text-muted);">Universal Music Design</a>
-          <span style="margin: 0 0.5rem; color: var(--text-muted);">&gt;</span>
+          <span class="breadcrumb-sep">&gt;</span>
           <a href="index.html" style="color: var(--text-muted);">UMD News</a>
         </nav>
 
-        <div style="margin-bottom: 1.5rem;">
-          <a href="index.html" style="color: var(--red-primary); font-weight: 600; font-size: 0.95rem;">&larr; Back to All UMD News</a>
+        <div class="article-back-nav">
+          <a href="index.html" class="article-back-link">&larr; Back to All UMD News</a>
         </div>
 
         <span class="section-tag">Events & Performances</span>
-        <h1 style="font-size: clamp(1.85rem, 3.5vw, 2.75rem); line-height: 1.25; margin: 0.75rem 0 1.25rem; color: var(--text-primary);">
+        <h1 class="article-title">
           Universal Music Design’s Jazz Road Tours: Bringing the Joy of Jazz to Deaf and Hard of Hearing Communities
         </h1>
 
@@ -115,7 +121,7 @@
         </div>
 
         
-        <figure class="article-figure" style="margin-bottom: 2.5rem;">
+        <figure class="article-figure">
           <a href="../../assets/images/umd/jazzRoadswebp.webp" target="_blank" rel="noopener noreferrer">
             <img src="../../assets/images/umd/jazzRoadswebp.webp" alt="Universal Music Design’s Jazz Road Tours: Bringing the Joy of Jazz to Deaf and Hard of Hearing Communities" class="article-img">
           </a>
@@ -185,7 +191,7 @@
 
         
 
-        <div style="margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div class="article-footer-nav">
           <a href="index.html" class="btn btn-outline">&larr; Return to UMD News</a>
           <a href="../universal-music-design.html" class="btn btn-primary">Universal Music Design Project &rarr;</a>
         </div>
@@ -232,8 +238,8 @@
 
       <div class="footer-col">
         <h3 class="footer-heading">Join the Movement</h3>
-        <div style="margin-top: 0.5rem;">
-          <a href="../../donate.html" class="btn btn-magenta btn-sm" style="width: 100%;">Support Our Work</a>
+        <div class="article-meta-compact">
+          <a href="../../donate.html" class="btn btn-magenta btn-sm" footer-donate-btn">Support Our Work</a>
         </div>
       </div>
     </div>
@@ -247,6 +253,6 @@
     </div>
   </footer>
 
-  <script src="../../js/main.js"></script>
+  <script src="../../js/main.min.js" defer></script>
 </body>
 </html>

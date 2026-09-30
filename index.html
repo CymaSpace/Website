@@ -34,18 +34,26 @@
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="assets/images/cymaspace-logo.svg">
 
-  <!-- Google Fonts & Stylesheets -->
+  <!-- AI Agents & LLM Discovery (WebMCP / llms.txt / ARD) -->
+  <link rel="alternate" type="text/markdown" href="llms.txt" title="LLM Context">
+  <link rel="service-doc" href="ai-catalog.json" type="application/json" title="AI Agent Tool Catalog">
+
+  <!-- Optimized Non-Blocking Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Lato:wght@300;400;700;900&display=swap"></noscript>
+
+  <!-- Critical Above-the-Fold Stylesheets -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/visualizer.css">
   <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/visualizer.css">
 
-  <!-- Shared Single Source of Truth Navigation Script -->
-  <script src="js/site-nav.js"></script>
+  <!-- Shared Single Source of Truth Navigation Script (Deferred & Minified) -->
+  <script src="js/site-nav.min.js" defer></script>
 
   <!-- Structured Data JSON-LD Schema -->
   <script type="application/ld+json">
@@ -100,7 +108,7 @@
     <!-- Hero Section -->
     <section class="section home-hero">
       <!-- Centered Hero Intro -->
-      <div class="container" style="max-width: 860px; text-align: center; margin-bottom: 2rem;">
+      <div class="container hero-container">
         
         <!-- Modern Hero News Pill Badge (NEA Grant) -->
         <a href="news/nea-grant-music-education.html" class="hero-news-pill" aria-label="NEA Grant Award announcement">
@@ -113,10 +121,10 @@
           <span class="section-tag">Translating Sound Into Light &amp; Touch</span>
         </div>
         <h1 class="page-hero-title">Experience Sound Through <span class="text-gradient">Light, Motion &amp; Vibration</span></h1>
-        <p class="lead" style="margin: 0 auto 1.75rem; color: #475569;">
+        <p class="lead hero-lead">
           CymaSpace is a Deaf-owned 501(c)(3) nonprofit technology hub in Portland, Oregon. We pioneer accessible arts, media, and culture for the Deaf and Hard of Hearing community using cutting-edge cymatics and inclusive design.
         </p>
-        <div class="hero-actions" style="justify-content: center;">
+        <div class="hero-actions hero-actions-center">
           <a href="#visualizer" class="btn btn-primary">Try Sound-to-Light Visualizer</a>
           <a href="community-events.html" class="btn btn-outline">Woodstock Cafe Events</a>
           <a href="donate.html" class="btn btn-magenta">Support Us</a>
@@ -171,14 +179,14 @@
                       <option value="20000">20 kHz (Full Audio &bull; Studio Mics)</option>
                     </select>
                   </div>
-                  <span id="activeHueSwatch" class="hue-active-swatch" style="background-color: hsl(0, 95%, 50%);" title="Live Color Swatch"></span>
+                  <span id="activeHueSwatch" class="hue-active-swatch" title="Live Color Swatch"></span>
                   <span id="activeFreqLabel" class="hue-freq-badge">0 Hz (Silence)</span>
                   <span id="activeHueLabel" class="hue-val-badge">Hue: 0 / 255</span>
                 </div>
               </div>
 
               <!-- Microphone Limitation Advisory (Shown when > 10 kHz) -->
-              <div id="micRangeNotice" class="mic-range-notice" style="display: none;" role="status">
+              <div id="micRangeNotice" class="mic-range-notice" role="status">
                 <span class="mic-notice-icon">&#9888;</span>
                 <div class="mic-notice-text">
                   <strong>Why your microphone might flip frequencies above 10 kHz:</strong> Most consumer built-in laptop and smartphone microphones are physically tuned for speech and have automatic hardware capsules and browser noise filters that steeply roll off frequencies above <strong>8–10 kHz</strong>. When a high-pitch tone exceeds 10 kHz, your mic may be unable to register the signal, causing the visualizer to pick up background room noise or sub-harmonics (~300–500 Hz). If this occurs, keep your range set to <strong>10 kHz</strong>, or connect an external studio measurement microphone.
@@ -188,7 +196,7 @@
 
               <div class="hue-track-wrapper">
                 <div class="hue-gradient-bar"></div>
-                <div id="hueIndicatorPin" class="hue-indicator-pin" style="left: 0%;"></div>
+                <div id="hueIndicatorPin" class="hue-indicator-pin"></div>
               </div>
               <div id="hueScaleLabels" class="hue-scale-labels">
                 <span>0 Hz (Hue 0 &bull; Red)</span>
@@ -235,9 +243,9 @@
               <div class="viz-audio-level-display" title="Live audio input volume level">
                 <span class="viz-level-label">Audio Level:</span>
                 <div class="viz-level-track">
-                  <div id="vizLevelBar" class="viz-level-bar" style="width: 4%;"></div>
+                  <div id="vizLevelBar" class="viz-level-bar"></div>
                 </div>
-                <span id="vizLevelText" class="viz-level-text">Silent</span>
+                <span id="vizLevelText" class="viz-level-text viz-level-silent">Silent</span>
               </div>
             </div>
 
@@ -253,7 +261,7 @@
               </button>
 
               <!-- Upload Custom Audio / MP4 Video File -->
-              <input type="file" id="vizAudioUpload" accept="audio/*,video/mp4,video/*,.mp3,.wav,.ogg,.m4a,.flac,.aac,.mp4,.webm" style="display: none;">
+              <input type="file" id="vizAudioUpload" accept="audio/*,video/mp4,video/*,.mp3,.wav,.ogg,.m4a,.flac,.aac,.mp4,.webm">
               <button type="button" id="vizUploadBtn" class="viz-control-btn btn-upload" title="Upload an MP3, WAV, or MP4 video to loop and visualize">
                 <span class="btn-icon">&#128193;</span>
                 <span class="btn-text">Upload Audio / MP4</span>
@@ -261,7 +269,7 @@
             </div>
 
             <!-- Row 3: Track Info Banner (Displays loaded file name with looping badge & stop button) -->
-            <div id="vizTrackInfoRow" class="viz-track-info-row" style="display: none;">
+            <div id="vizTrackInfoRow" class="viz-track-info-row">
               <span class="track-info-badge">&#128257; Looping:</span>
               <span id="vizTrackName" class="track-info-name">Uploaded Audio</span>
               <button type="button" id="vizStopUploadedBtn" class="track-info-stop" title="Stop and remove uploaded track">&times; Stop &amp; Clear</button>
@@ -344,17 +352,17 @@
           <!-- Explanatory Comparative Architecture Cards -->
           <div class="em-legend-grid">
             <div class="em-legend-card">
-              <h4><span style="color: #dc2626;">&#9679;</span> Visible Light: 400 nm to 700 nm</h4>
+              <h4><span class="bullet-red">&#9679;</span> Visible Light: 400 nm to 700 nm</h4>
               <p>The visible spectrum is a tiny fraction of the electromagnetic spectrum ($\sim 4.3\times 10^{14}$ Hz to $7.5\times 10^{14}$ Hz). <strong>Red light</strong> is the lowest visible electromagnetic frequency (longest wavelength, ~700 nm), while <strong>Purple/Violet light</strong> is the highest visible frequency (shortest wavelength, ~400 nm).</p>
             </div>
 
             <div class="em-legend-card">
-              <h4><span style="color: #0284c7;">&#9679;</span> Acoustic Sound: 0 Hz to 10k–20k Hz</h4>
+              <h4><span class="bullet-blue">&#9679;</span> Acoustic Sound: 0 Hz to 10k–20k Hz</h4>
               <p>Mechanical vibration detectable by human ear hair cells and bone conduction. <strong>Deep sub-bass (0–60 Hz)</strong> represents the base floor of human acoustic perception, while <strong>upper treble (10k–20k Hz)</strong> represents the physiological ceiling of human hearing.</p>
             </div>
 
             <div class="em-legend-card">
-              <h4><span style="color: #9333ea;">&#9679;</span> The CymaSpace Sensory Bridge</h4>
+              <h4><span class="bullet-purple">&#9679;</span> The CymaSpace Sensory Bridge</h4>
               <p>Because humans cannot directly see acoustic vibrations, CymaSpace proportional mapping aligns the biological thresholds: <strong>Lowest Audible Sound (0 Hz) &rarr; Lowest Visible Light (Red)</strong>, and <strong>Upper Hearing Ceiling &rarr; Highest Visible Light (Purple)</strong>, giving sound an intuitive visual geometry.</p>
             </div>
           </div>
@@ -363,7 +371,7 @@
     </section>
 
     <!-- 4 Core Pillars Section -->
-    <section class="section" style="background: var(--bg-surface-elevated); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <section class="section section-surface">
       <div class="container">
         <div class="section-header">
           <span class="section-tag">Our Foundation</span>
@@ -373,25 +381,25 @@
 
         <div class="grid grid-4">
           <div class="card">
-            <div style="font-size: 2rem; color: var(--red-primary); margin-bottom: 0.75rem;">&#9855;</div>
+            <div class="value-icon value-icon-red">&#9855;</div>
             <h3 class="card-title">Accessibility &amp; Inclusion</h3>
             <p class="card-body">A leading advocate for DHH accessibility in performing arts, live venues, festivals, and broadcasting using Open Captioning, visual lighting, and ASL artists.</p>
           </div>
 
           <div class="card">
-            <div style="font-size: 2rem; color: var(--violet-bright); margin-bottom: 0.75rem;">&#128161;</div>
+            <div class="value-icon value-icon-violet">&#128161;</div>
             <h3 class="card-title">Technology &amp; Arts Incubator</h3>
             <p class="card-body">Incubating visionary creators and hardware concepts—from sound-reactive LED arrays to vibrohaptic staging that lets people physically feel musical textures.</p>
           </div>
 
           <div class="card">
-            <div style="font-size: 2rem; color: var(--magenta-bright); margin-bottom: 0.75rem;">&#127891;</div>
+            <div class="value-icon value-icon-magenta">&#127891;</div>
             <h3 class="card-title">Education &amp; Outreach</h3>
             <p class="card-body">Empowering youth, performers, and community partners through programs like SignKids, ASL workshops, and hands-on makerspace labs.</p>
           </div>
 
           <div class="card">
-            <div style="font-size: 2rem; color: var(--amber-bright); margin-bottom: 0.75rem;">&#10036;</div>
+            <div class="value-icon value-icon-amber">&#10036;</div>
             <h3 class="card-title">Cymatic Study</h3>
             <p class="card-body">An epicenter for the study of Cymatics—translating sonic waves into visible, tangible phenomena so everyone can participate in the universal power of sound.</p>
           </div>
@@ -410,17 +418,17 @@
 
         <div class="grid grid-2">
           <!-- Woodstock Cafe Card -->
-          <div class="card" style="border-color: rgba(255, 42, 133, 0.3);">
+          <div class="card card-cafe-border">
             <div class="card-badge">
               <span class="asl-pill">&#9749; Portland, OR</span>
             </div>
-            <h3 class="card-title" style="font-size: 1.6rem;">Woodstock Cafe ("Sign Language Cafe")</h3>
+            <h3 class="card-title">Woodstock Cafe ("Sign Language Cafe")</h3>
             <p class="card-body">
               Owned and operated by CymaSpace as a 501(c)(3) nonprofit, Woodstock Cafe is Portland's Deaf-centered community space for connection, creativity, and accessible conversation. Enjoy delicious espresso, community game nights, Sign Squad, and accessible arts events.
             </p>
-            <div style="margin-bottom: 1.25rem;">
-              <p style="margin-bottom: 0.35rem;"><strong>Location:</strong> 4103 SE Woodstock Blvd, Portland, OR</p>
-              <p style="margin-bottom: 0;"><strong>Programs:</strong> Sign Squad (Tuesdays), Sidelined Signers (Wednesdays)</p>
+            <div class="card-meta-compact">
+              <p><strong>Location:</strong> 4103 SE Woodstock Blvd, Portland, OR</p>
+              <p><strong>Programs:</strong> Sign Squad (Tuesdays), Sidelined Signers (Wednesdays)</p>
             </div>
             <div class="card-footer">
               <a href="community-events.html" class="btn btn-primary btn-sm">View Cafe Schedule &amp; Calendar &rarr;</a>
@@ -428,17 +436,17 @@
           </div>
 
           <!-- SignKids Program Card -->
-          <div class="card" style="border-color: rgba(195, 4, 67, 0.25);">
+          <div class="card card-signkids-border">
             <div class="card-badge">
               <span class="asl-pill">&#128104;&#8205;&#128105;&#8205;&#128103;&#8205;&#128102; Family &amp; Youth</span>
             </div>
-            <h3 class="card-title" style="font-size: 1.6rem;">SignKids: Bridging Communication Through Art</h3>
+            <h3 class="card-title">SignKids: Bridging Communication Through Art</h3>
             <p class="card-body">
               SignKids addresses language deprivation by creating an immersive, joyful ASL learning environment for Deaf and Hard of Hearing youth and their families. Enriched with storytelling, puppetry, Deaf mentorship, and hands-on creative play.
             </p>
-            <div style="margin-bottom: 1.25rem;">
-              <p style="margin-bottom: 0.35rem;"><strong>Focus:</strong> Natural ASL acquisition, cultural pride &amp; family bonding</p>
-              <p style="margin-bottom: 0;"><strong>Sessions:</strong> Small cohorts with Deaf mentors and full ADA accessibility</p>
+            <div class="card-meta-compact">
+              <p><strong>Focus:</strong> Natural ASL acquisition, cultural pride &amp; family bonding</p>
+              <p><strong>Sessions:</strong> Small cohorts with Deaf mentors and full ADA accessibility</p>
             </div>
             <div class="card-footer">
               <a href="projects/signkids.html" class="btn btn-outline btn-sm">Learn About SignKids</a>
@@ -450,14 +458,14 @@
     </section>
 
     <!-- Upcoming Events Preview -->
-    <section class="section" style="background: var(--bg-surface-elevated); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <section class="section section-surface">
       <div class="container">
-        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+        <div class="section-header-row">
           <div>
             <span class="section-tag">Gatherings &amp; Experiences</span>
             <h2>Upcoming Community Events</h2>
           </div>
-          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <div class="filter-btn-group">
             <a href="community-events.html#calendar" class="btn btn-primary btn-sm">&#128197; Live Google Calendar &nearr;</a>
             <a href="community-events.html" class="btn btn-outline btn-sm">All Cafe &amp; Lab Events &rarr;</a>
           </div>
@@ -500,7 +508,10 @@
     <!-- Latest News -->
     <section class="section">
       <div class="container">
-        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+    <!-- Latest News -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header-row">
           <div>
             <span class="section-tag">Updates &amp; Stories</span>
             <h2>Latest From CymaSpace</h2>
@@ -510,11 +521,11 @@
 
         <div class="grid grid-3">
           <!-- Card 1: NEA Grant Award -->
-          <div class="card" style="border-top: 3px solid var(--red-primary);">
-            <div class="card-date" style="color: var(--red-primary); font-weight: 700;">September 30, 2026 &bull; Grant Award</div>
+          <div class="card card-grant">
+            <div class="card-date card-date-primary">September 30, 2026 &bull; Grant Award</div>
             <h3 class="card-title"><a href="news/nea-grant-music-education.html">CymaSpace’s Research Supported by National Endowment for the Arts</a></h3>
             <p class="card-body">Portland nonprofit’s Universal Music Design project is backed by a $90,000 NEA grant, pairing hands-on research at OHSU with a Deaf-led K-12 STEAM curriculum.</p>
-            <a href="news/nea-grant-music-education.html" style="color: var(--red-primary); font-weight: 600; margin-top: auto; display: inline-flex; align-items: center; gap: 0.35rem;">Read Press Release &rarr;</a>
+            <a href="news/nea-grant-music-education.html" class="card-read-link">Read Press Release &rarr;</a>
           </div>
 
           <!-- Card 2: PJCE Contemporary Jazz -->
@@ -522,7 +533,7 @@
             <div class="card-date">February 2026 &bull; Artistic Partnership</div>
             <h3 class="card-title"><a href="news/bridging-sound-and-sight-jazz.html">Bridging Sound &amp; Sight in Contemporary Jazz</a></h3>
             <p class="card-body">CymaSpace partners with the Portland Jazz Composers' Ensemble (PJCE) and Audiolux to bring responsive cymatics into orchestral jazz performance.</p>
-            <a href="news/bridging-sound-and-sight-jazz.html" style="color: var(--red-primary); font-weight: 600; margin-top: auto; display: inline-flex; align-items: center; gap: 0.35rem;">Read Article &rarr;</a>
+            <a href="news/bridging-sound-and-sight-jazz.html" class="card-read-link">Read Article &rarr;</a>
           </div>
 
           <!-- Card 3: SUMA Partnership -->
@@ -530,17 +541,17 @@
             <div class="card-date">July 2025 &bull; Community Advocacy</div>
             <h3 class="card-title"><a href="news/help-shape-sumas-app-and-get-a-25-gift-card.html">Help Shape SUMA's App for Community Savings</a></h3>
             <p class="card-body">CymaSpace collaborates with SUMA to ensure economic empowerment tools are accessible and visually intuitive for Deaf and hard-of-hearing users.</p>
-            <a href="news/help-shape-sumas-app-and-get-a-25-gift-card.html" style="color: var(--red-primary); font-weight: 600; margin-top: auto; display: inline-flex; align-items: center; gap: 0.35rem;">Read Article &rarr;</a>
+            <a href="news/help-shape-sumas-app-and-get-a-25-gift-card.html" class="card-read-link">Read Article &rarr;</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Sponsors & Community Partners -->
-    <section class="section-sm" style="border-top: 1px solid var(--border-subtle); background: #0b0f19;">
+    <section class="section-sm sponsors-section">
       <div class="container">
-        <div style="text-align: center; margin-bottom: 1.75rem;">
-          <span class="section-tag" style="margin-bottom: 0;">Our Proud Sponsors &amp; Cultural Partners</span>
+        <div class="sponsors-header">
+          <span class="section-tag sponsors-tag">Our Proud Sponsors &amp; Cultural Partners</span>
         </div>
         <div class="sponsors-grid">
           <a href="https://www.portland.gov/arts" target="_blank" rel="noopener noreferrer" class="sponsor-item" title="City of Portland Office of Arts &amp; Culture">
@@ -560,15 +571,25 @@
     </section>
 
     <!-- Email Newsletter Section -->
-    <section class="section-sm" style="background: var(--bg-surface-elevated); border-top: 1px solid var(--border-subtle);">
-      <div class="container" style="max-width: 680px; text-align: center;">
-        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Stay Connected With Our Community</h3>
-        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Subscribe to receive upcoming event invites, SignKids schedules, and technology showcase announcements.</p>
-        <form id="newsletterForm" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-          <input type="email" class="form-control" placeholder="Enter your email address" required aria-label="Email address" style="flex: 1 1 280px;">
+    <section class="section-sm newsletter-section">
+      <div class="container newsletter-container">
+        <h3 class="newsletter-title">Stay Connected With Our Community</h3>
+        <p class="newsletter-desc">Subscribe to receive upcoming event invites, SignKids schedules, and technology showcase announcements.</p>
+        <form id="newsletterForm" class="newsletter-form" 
+              data-webmcp-tool="subscribe_newsletter" 
+              data-webmcp-description="Subscribe to the CymaSpace newsletter to receive updates on events, STEAM education, and technology showcases."
+              data-webmcp-action="submit"
+              aria-description="Newsletter subscription form for CymaSpace updates">
+          <input type="email" class="form-control newsletter-input" 
+                 placeholder="Enter your email address" required aria-label="Email address"
+                 data-webmcp-param="email"
+                 data-webmcp-type="string"
+                 data-webmcp-format="email"
+                 data-webmcp-description="Subscriber email address"
+                 data-webmcp-required="true">
           <button type="submit" class="btn btn-primary">Subscribe</button>
         </form>
-        <div id="newsletterStatus" role="status" aria-live="polite" style="margin-top: 1rem; display: none; font-weight: 600;"></div>
+        <div id="newsletterStatus" role="status" aria-live="polite" class="newsletter-status"></div>
       </div>
     </section>
   </main>
@@ -578,11 +599,11 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem;">
+          <a href="index.html" class="brand-logo">
             <img src="assets/images/cymaspace-logo.svg" alt="CymaSpace Logo" class="brand-icon">
             <span class="brand-text">CymaSpace</span>
           </a>
-          <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+          <p class="footer-desc">
             CymaSpace is an Oregon 501(c)(3) nonprofit organization dedicated to making arts, cultural, and media events accessible to the Deaf and Hard of Hearing community through technology, education, and outreach.
           </p>
           <div class="social-links">
@@ -620,9 +641,9 @@
 
         <div class="footer-col">
           <h3>Connect</h3>
-          <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Woodstock Cafe:</strong><br>4103 SE Woodstock Blvd<br>Portland, OR 97202</p>
-          <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Phone / Text:</strong><br>(888) 312-8584</p>
-          <a href="donate.html" class="btn btn-magenta btn-sm" style="width: 100%;">Donate Today</a>
+          <p class="footer-contact-item"><strong>Woodstock Cafe:</strong><br>4103 SE Woodstock Blvd<br>Portland, OR 97202</p>
+          <p class="footer-contact-item"><strong>Phone / Text:</strong><br>(888) 312-8584</p>
+          <a href="donate.html" class="btn btn-magenta btn-sm footer-donate-btn">Donate Today</a>
         </div>
       </div>
 
@@ -630,16 +651,16 @@
         <div>
           &copy; 2026 CymaSpace. 501(c)(3) tax-exempt non-profit incorporated in Oregon. &bull; Website designed by <a href="https://dillonsimeone.com/" target="_blank" rel="noopener noreferrer">Dillon Simeone</a>
         </div>
-        <div>
-          <a href="contact.html" style="color: var(--text-muted); margin-right: 1.25rem;">Contact</a>
-          <a href="code-of-conduct.html" style="color: var(--text-muted); margin-right: 1.25rem;">Conduct &amp; Etiquette</a>
-          <a href="mission.html" style="color: var(--text-muted);">Accessibility</a>
+        <div class="footer-legal-links">
+          <a href="contact.html">Contact</a>
+          <a href="code-of-conduct.html">Conduct &amp; Etiquette</a>
+          <a href="mission.html">Accessibility</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
-  <script src="js/visualizer.js"></script>
+  <script src="js/main.min.js" defer></script>
+  <script src="js/visualizer.min.js" defer></script>
 </body>
 </html>
