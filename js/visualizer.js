@@ -71,11 +71,24 @@ class SoundLightVisualizer {
     this.lastLevelClass = '';
 
     this.dpr = Math.max(window.devicePixelRatio || 1, 2);
-    this.initCanvasSize();
-    window.addEventListener('resize', () => this.initCanvasSize(), { passive: true });
+    this.width = 800;
+    this.height = 440;
+    this.canvas.width = Math.round(this.width * this.dpr);
+    this.canvas.height = Math.round(this.height * this.dpr);
+    this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+
     if (typeof ResizeObserver !== 'undefined' && this.canvas.parentElement) {
-      this.resizeObserver = new ResizeObserver(() => this.initCanvasSize());
+      this.resizeObserver = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+          const cr = entry.contentRect;
+          if (cr && cr.width > 0 && cr.height > 0) {
+            this.initCanvasSize(Math.round(cr.width), Math.round(cr.height));
+          }
+        }
+      });
       this.resizeObserver.observe(this.canvas.parentElement);
+    } else {
+      window.addEventListener('resize', () => this.initCanvasSize(), { passive: true });
     }
     this.initControls();
     this.updateScaleLabels();
@@ -120,20 +133,19 @@ class SoundLightVisualizer {
     return `${kHz >= 10 ? kHz.toFixed(1) : kHz.toFixed(2)} kHz`;
   }
 
-  initCanvasSize() {
-    const parent = this.canvas.parentElement;
-    if (!parent) return;
-    const rect = parent.getBoundingClientRect();
-    const width = Math.round(rect.width) || 800;
-    const height = Math.round(rect.height) || 440;
+  initCanvasSize(w, h) {
+    if (!w || !h) {
+      const parent = this.canvas.parentElement;
+      if (!parent) return;
+      w = parent.clientWidth || 800;
+      h = parent.clientHeight || 440;
+    }
     const dpr = Math.max(window.devicePixelRatio || 1, 2);
     this.dpr = dpr;
-    this.width = width;
-    this.height = height;
+    this.width = w;
+    this.height = h;
     this.canvas.width = Math.round(this.width * dpr);
     this.canvas.height = Math.round(this.height * dpr);
-    this.canvas.style.width = `${this.width}px`;
-    this.canvas.style.height = `${this.height}px`;
     this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
@@ -1257,40 +1269,49 @@ class ElectromagneticSpectrumCanvas {
     this.BASE_H = 450;
 
     this.dpr = Math.max(window.devicePixelRatio || 1, 2);
-    this.initCanvasSize();
-    window.addEventListener('resize', () => {
-      this.initCanvasSize();
-      this.clampPan();
-      this.render();
-    });
+    this.width = 1000;
+    this.height = 520;
+    this.canvas.width = Math.round(this.width * this.dpr);
+    this.canvas.height = Math.round(this.height * this.dpr);
+
     if (typeof ResizeObserver !== 'undefined' && this.wrapper) {
-      this.resizeObserver = new ResizeObserver(() => {
+      this.resizeObserver = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+          const cr = entry.contentRect;
+          if (cr && cr.width > 0 && cr.height > 0) {
+            this.initCanvasSize(Math.round(cr.width), Math.round(cr.height));
+            this.clampPan();
+            this.render();
+          }
+        }
+      });
+      this.resizeObserver.observe(this.wrapper);
+    } else {
+      window.addEventListener('resize', () => {
         this.initCanvasSize();
         this.clampPan();
         this.render();
-      });
-      this.resizeObserver.observe(this.wrapper);
+      }, { passive: true });
     }
 
     this.initInteraction();
     this.render();
   }
 
-  initCanvasSize() {
-    if (!this.wrapper) return;
-    const rect = this.wrapper.getBoundingClientRect();
-    const width = Math.round(rect.width) || 1000;
-    const height = Math.round(rect.height) || 520;
+  initCanvasSize(w, h) {
+    if (!w || !h) {
+      if (!this.wrapper) return;
+      w = this.wrapper.clientWidth || 1000;
+      h = this.wrapper.clientHeight || 520;
+    }
     const dpr = Math.max(window.devicePixelRatio || 1, 2);
     this.dpr = dpr;
-    this.width = width;
-    this.height = height;
+    this.width = w;
+    this.height = h;
 
     // Buffer dimensions scaled by DPR for razor-sharp rendering on Retina/4K/HiDPI
     this.canvas.width = Math.round(this.width * dpr);
     this.canvas.height = Math.round(this.height * dpr);
-    this.canvas.style.width = `${this.width}px`;
-    this.canvas.style.height = `${this.height}px`;
   }
 
   getTransform() {
@@ -1327,6 +1348,15 @@ class ElectromagneticSpectrumCanvas {
   initInteraction() {
     const wrapper = this.wrapper;
 
+    // Cache canvas client rect on interaction entry to prevent layout thrashing in mousemove/wheel
+    let cachedRect = null;
+    const updateRect = () => {
+      cachedRect = this.canvas.getBoundingClientRect();
+    };
+    wrapper.addEventListener('pointerenter', updateRect, { passive: true });
+    window.addEventListener('resize', () => { cachedRect = null; }, { passive: true });
+    window.addEventListener('scroll', () => { cachedRect = null; }, { passive: true });
+
     // 2D Mouse drag
     wrapper.addEventListener('mousedown', (e) => {
       this.isDragging = true;
@@ -1338,9 +1368,16 @@ class ElectromagneticSpectrumCanvas {
     });
 
     window.addEventListener('mousemove', (e) => {
-      const rect = this.canvas.getBoundingClientRect();
-      this.mouse.x = e.clientX - rect.left;
-      this.mouse.y = e.clientY - rect.top;
+      if (!cachedRect && wrapper.contains(e.target)) {
+        cachedRect = this.canvas.getBoundingClientRect();
+      }
+      if (cachedRect) {
+        this.mouse.x = e.clientX - cachedRect.left;
+        this.mouse.y = e.clientY - cachedRect.top;
+      } else {
+        this.mouse.x = e.offsetX;
+        this.mouse.y = e.offsetY;
+      }
 
       if (this.isDragging) {
         this.panX = this.startPanX + (e.clientX - this.startX);
@@ -1359,12 +1396,21 @@ class ElectromagneticSpectrumCanvas {
       }
     });
 
+    wrapper.addEventListener('mouseleave', () => {
+      this.mouse.x = -1;
+      this.mouse.y = -1;
+      this.updateHoverState();
+      this.render();
+    });
+
     // Mouse wheel zoom centered on cursor
     wrapper.addEventListener('wheel', (e) => {
       e.preventDefault();
-      const rect = this.canvas.getBoundingClientRect();
-      const mouseX = e.clientX - rect.left;
-      const mouseY = e.clientY - rect.top;
+      if (!cachedRect) {
+        cachedRect = this.canvas.getBoundingClientRect();
+      }
+      const mouseX = cachedRect ? e.clientX - cachedRect.left : e.offsetX;
+      const mouseY = cachedRect ? e.clientY - cachedRect.top : e.offsetY;
 
       const zoomFactor = e.deltaY < 0 ? 1.15 : 0.87;
       const newZoom = Math.max(0.7, Math.min(5.0, this.zoom * zoomFactor));
@@ -1907,6 +1953,8 @@ class ElectromagneticSpectrumCanvas {
 
 // Instantiate both visualizer and electromagnetic spectrum canvas on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
-  new SoundLightVisualizer('cymaticsCanvas');
-  new ElectromagneticSpectrumCanvas('emSpectrumCanvas', 'emCanvasWrapper');
+  requestAnimationFrame(() => {
+    new SoundLightVisualizer('cymaticsCanvas');
+    new ElectromagneticSpectrumCanvas('emSpectrumCanvas', 'emCanvasWrapper');
+  });
 });
