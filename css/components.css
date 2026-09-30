@@ -2,6 +2,19 @@
    CYMASPACE - COMPONENT STYLES (Red & White Theme)
    ========================================================================== */
 
+/* Custom Navigation Element - Pre-reserve exact layout height to prevent CLS */
+site-nav {
+  display: block;
+  width: 100%;
+  min-height: 113px;
+}
+
+@media (max-width: 768px) {
+  site-nav {
+    min-height: 111px;
+  }
+}
+
 /* Top Accessibility Notice Bar */
 .top-notice-bar {
   background: #f8fafc;
