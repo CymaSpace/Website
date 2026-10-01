@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.cymaspace.org/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>https://www.cymaspace.org/board-of-directors.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -10,7 +16,7 @@
     <loc>https://www.cymaspace.org/code-of-conduct.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/community-events.html</loc>
@@ -34,13 +40,7 @@
     <loc>https://www.cymaspace.org/events-archive.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://www.cymaspace.org/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/mission.html</loc>
@@ -49,16 +49,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.cymaspace.org/news.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.cymaspace.org/news/2021-giveguide-for-creative-expression-now-live.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/an-experience-beyond-sound-at-the-northwest-deaf-arts-festival.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/ap-news-woodstock-sign-language-cafe.html</loc>
@@ -70,193 +76,217 @@
     <loc>https://www.cymaspace.org/news/arts-accessibility-showcase-gala-2016-video-now-live.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/audiolux-one-the-first-ever-effects-unit-for-sound-reactive-visuals.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/breaking-down-barriers-for-deaf-access-at-music-venues.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/bridging-sound-and-sight-jazz.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/call-for-artists-2016-arts-accessibility-showcase-event-series.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/call-for-artists-asl-video-now-available.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/call-for-asl-sign-masters-interpreters-performers.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/cymaspace-announces-access-lab-a-space-for-all.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/cymaspace-at-omsi-maker-faire-2017.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/cymaspace-moves.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/cymaspace-now-supported-by-amazon-smile.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/cymaspace-press-release-mouth-language-device.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/cymaspace-seeks-development-coordinator.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/cymaspace-seeks-part-time-event-coordinator.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/cymatic-lighting-system-press-release.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/deafness-music.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/discounted-tickets-to-the-rosa-lee-show.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/give-while-you-shop.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.cymaspace.org/news/hackaday-make-audiolux-one-sound-reactive-hardware.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/help-shape-sumas-app-and-get-a-25-gift-card.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/holiday-greetings.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.cymaspace.org/news/institute-of-acoustics-deaf-acousticians-cymaspace.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/join-the-cymaspace-board-of-directors.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/kiesasealofapproval.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/lets-get-hideaway-viral.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/multi-sensory-environment-snoezelen-therapy-room-serving-portland-or.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/nea-grant-music-education.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/new-arts-accessibility-event-series.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/new-membership-program.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/note-from-the-sign-language-cafe-founders.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/oad-deaffest-iv.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.cymaspace.org/news/opb-think-out-loud-myles-de-bastion.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.cymaspace.org/news/oregon-business-entaiko-cymaspace-accessible-drumming.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/our-new-site-launches.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/part-time-freelance-grant-writer-needed.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/part-time-freelance-marketing-coordinator-needed.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/portlands-third-angle-presents-new-piece-for-percussion-and-asl-poetry.html</loc>
@@ -268,91 +298,103 @@
     <loc>https://www.cymaspace.org/news/press-release-announcing-signkids-sign-language-immersion-summer-activity-session-for-children-families.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/special-cymaspace-discount-to-asl-interpreted-performance-of-overview-effect.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/special-cymaspace-discounted-tickets-the-liar-asl-interpreted-show-on-june-20th-2015-at-artists-repertory-theatre.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.cymaspace.org/news/street-roots-cymaspace-brings-music-to-deaf-community.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/support-the-opening-of-pdxs-sign-language-cafe.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/volunteer-registration-for-gala-2016-now-open.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/volunteer-sign-up.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/were-hiring-for-our-sign-language-cafe-join-our-team.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/were-hiring-see-new-opportunities-to-join-our-team-in-support-of-inclusive-arts-culture.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/what-is-cymaspace.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://www.cymaspace.org/news.html</loc>
+    <loc>https://www.cymaspace.org/news/willamette-week-giveguide-mississippi-studios.html</loc>
     <lastmod>2026-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/our-team.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.cymaspace.org/projects.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/projects/media.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/projects/see-sound.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/projects/signkids.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/projects/technology.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/projects/umd-news/bridging-innovation-umd-collaborates-with-creative-coding-an.html</loc>
@@ -362,12 +404,6 @@
   </url>
   <url>
     <loc>https://www.cymaspace.org/projects/umd-news/central-state-of-mind-conference-music-workshop-at-central-c.html</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.cymaspace.org/projects/umd-news/bridging-innovation-umd-collaborates-with-creative-coding-an.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -429,8 +465,8 @@
   <url>
     <loc>https://www.cymaspace.org/projects/umd-news/index.html</loc>
     <lastmod>2026-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/projects/umd-news/ocf-invests-1-million-in-visionary-oregon-arts-and-culture-p.html</loc>
@@ -485,12 +521,6 @@
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://www.cymaspace.org/projects.html</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/volunteer.html</loc>
