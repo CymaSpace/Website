@@ -13,3 +13,5 @@ AGENTS.md
 # Logs & Temporary Artifacts
 *.log
 npm-debug.log*
+reports/
+
