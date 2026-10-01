@@ -61,6 +61,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.cymaspace.org/news/ap-news-woodstock-sign-language-cafe.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
     <loc>https://www.cymaspace.org/news/arts-accessibility-showcase-gala-2016-video-now-live.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -251,6 +257,12 @@
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.cymaspace.org/news/portlands-third-angle-presents-new-piece-for-percussion-and-asl-poetry.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.cymaspace.org/news/press-release-announcing-signkids-sign-language-immersion-summer-activity-session-for-children-families.html</loc>
